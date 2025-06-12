@@ -305,7 +305,10 @@ export default function Header() {
                   className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
                   style={{ background: 'linear-gradient(135deg, #8B4513, #A0522D)' }}
                 >
-                  <span className="relative z-10">Uber Eats</span>
+                  <span className="relative z-10 flex items-center space-x-2">
+                    <img src={assets.uberEatsLogo} alt="Uber Eats" className="w-4 h-4" />
+                    <span>Uber Eats</span>
+                  </span>
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
@@ -320,7 +323,10 @@ export default function Header() {
                   className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
                   style={{ background: 'linear-gradient(135deg, #8B4513, #A0522D)' }}
                 >
-                  <span className="relative z-10">DoorDash</span>
+                  <span className="relative z-10 flex items-center space-x-2">
+                    <img src={assets.doorDashLogo} alt="DoorDash" className="w-4 h-4" />
+                    <span>DoorDash</span>
+                  </span>
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
