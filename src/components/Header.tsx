@@ -13,6 +13,7 @@ export default function Header() {
   const orderButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -139,7 +140,7 @@ export default function Header() {
         boxShadow: '0 1px 3px rgba(139, 69, 19, 0.05)'
       }}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center relative">
         {/* Logo */}
         <div 
           ref={logoRef}
@@ -155,7 +156,7 @@ export default function Header() {
         </div>
 
         {/* Navigation Links */}
-        <ul ref={navItemsRef} className="flex items-center space-x-8">
+        <ul ref={navItemsRef} className="hidden md:flex items-center space-x-8">
           <li>
             <a 
               href="#home" 
@@ -214,8 +215,18 @@ export default function Header() {
           </li>
         </ul>
 
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden p-2 focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
         {/* Order Button with Dropdown */}
-        <div className="relative">
+        <div className="relative hidden md:block">
           <button
             ref={orderButtonRef}
             onClick={toggleDropdown}
@@ -296,6 +307,75 @@ export default function Header() {
             </a>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-xl">
+            <ul className="flex flex-col items-center space-y-4 py-4">
+              <li>
+                <a
+                  href="#home"
+                  className="text-sm font-medium"
+                  style={{ color: '#654321' }}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(e, 'home');
+                  }}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-sm font-medium"
+                  style={{ color: '#654321' }}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(e, 'about');
+                  }}
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#menu"
+                  className="text-sm font-medium"
+                  style={{ color: '#654321' }}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(e, 'menu');
+                  }}
+                >
+                  Our Menus
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-sm font-medium"
+                  style={{ color: '#654321' }}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(e, 'contact');
+                  }}
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <button
+                  onClick={toggleDropdown}
+                  className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
+                  style={{ background: 'linear-gradient(135deg, #8B4513, #A0522D)' }}
+                >
+                  <span className="relative z-10">Make a Reservation</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
     </header>
   );
