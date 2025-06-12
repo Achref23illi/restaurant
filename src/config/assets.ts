@@ -13,12 +13,12 @@ export const assets = {
     fritaille: '/images/fritaille.avif',
     goat: '/images/goat.avif',
     goatTassot: '/images/goat_tassot.avif',
-    griotPorc: '/images/griot_porc.avif',
     halfChicken: '/images/half_chicken.avif',
     salad: '/images/salad_of_the_moment.avif',
     thomsonFish: '/images/thomson_fish.avif',
     tilapia: '/images/tilapia.avif',
-    makayabus: '/images/two_Makayabus.avif'
+    makayabus: '/images/two_Makayabus.avif',
+    griotPorc: '/images/griot_porc.avif'
   }
 };
 export default assets;
