@@ -285,6 +285,7 @@ export default function Header() {
                   className="p-2 focus:outline-none"
                 >
                   <img src={assets.uberEatsLogo} alt="Uber Eats" className="w-6 h-6" />
+
                 </a>
               </li>
               <li>
