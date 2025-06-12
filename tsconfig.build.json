@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    /* More lenient settings for production builds */
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": false,
+    "noUncheckedSideEffectImports": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true
+  }
+}

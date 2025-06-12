@@ -1,7 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useGSAP } from '@gsap/react';
 import { assets } from '../config/assets';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
@@ -94,6 +97,39 @@ export default function Header() {
     });
   };
 
+  // Navigation avec animation smooth
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      const headerHeight = headerRef.current?.offsetHeight || 80;
+      const targetPosition = targetSection.offsetTop - headerHeight;
+      
+      // Animation de scroll smooth avec GSAP
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: {
+          y: targetPosition,
+          autoKill: true
+        },
+        ease: "power2.inOut"
+      });
+
+      // Animation du lien cliqué
+      gsap.fromTo(e.currentTarget, 
+        { scale: 1 },
+        { 
+          scale: 0.95, 
+          duration: 0.1, 
+          yoyo: true, 
+          repeat: 1,
+          ease: "power2.inOut"
+        }
+      );
+    }
+  };
+
   return (
     <header 
       ref={headerRef}
@@ -122,52 +158,56 @@ export default function Header() {
         <ul ref={navItemsRef} className="flex items-center space-x-8">
           <li>
             <a 
-              href="#" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
+              href="#home" 
+              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
               style={{ 
                 color: '#654321',
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
+              onClick={(e) => handleNavClick(e, 'home')}
             >
               Home
             </a>
           </li>
           <li>
             <a 
-              href="#" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
+              href="#about" 
+              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
               style={{ 
                 color: '#654321',
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
-            >
-              Our Menus
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
-              style={{ 
-                color: '#654321',
-              }}
-              onMouseEnter={handleNavHover}
-              onMouseLeave={handleNavLeave}
+              onClick={(e) => handleNavClick(e, 'about')}
             >
               About Us
             </a>
           </li>
           <li>
             <a 
-              href="#" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
+              href="#menu" 
+              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
               style={{ 
                 color: '#654321',
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
+              onClick={(e) => handleNavClick(e, 'menu')}
+            >
+              Our Menus
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
+              style={{ 
+                color: '#654321',
+              }}
+              onMouseEnter={handleNavHover}
+              onMouseLeave={handleNavLeave}
+              onClick={(e) => handleNavClick(e, 'contact')}
             >
               Contact Us
             </a>
@@ -212,7 +252,7 @@ export default function Header() {
             </div>
             
             <a 
-              href="https://www.ubereats.com" 
+              href={assets.uberEatsLink} 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-4 px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group"
@@ -234,7 +274,7 @@ export default function Header() {
             </a>
 
             <a 
-              href="https://www.doordash.com/store/restaurant-maman-jeanne-inc-montr%C3%A9al-31548079/45475549/" 
+              href={assets.doorDashLink} 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-4 px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group border-t border-gray-100"

@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env*
+
+# Config files
+*.config.js
+*.config.ts
+vite.config.ts
+
+# Type definitions
+*.d.ts
+
+# Assets
+public/
