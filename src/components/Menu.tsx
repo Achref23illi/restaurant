@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { menuCategories, type MenuItem, type MenuCategory } from '../data/menuData';
+import { menuCategories, type MenuItem } from '../data/menuData';
 
 gsap.registerPlugin(ScrollTrigger);
 

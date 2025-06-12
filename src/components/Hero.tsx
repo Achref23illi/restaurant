@@ -155,7 +155,7 @@ export default function Hero() {
             {/* Scrolling container */}
             <div ref={scrollContainerRef} className="absolute inset-0">
               {/* Original set of images */}
-              {dishes.map((dish, index) => (
+              {dishes.map((dish) => (
                 <div
                   key={`${dish.name}-1`}
                   className="relative w-full h-full"
@@ -177,7 +177,7 @@ export default function Hero() {
               ))}
               
               {/* Duplicate set for seamless loop */}
-              {dishes.map((dish, index) => (
+              {dishes.map((dish) => (
                 <div
                   key={`${dish.name}-2`}
                   className="relative w-full h-full"

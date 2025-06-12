@@ -10,9 +10,7 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const navItemsRef = useRef<HTMLUListElement>(null);
-  const orderButtonRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const orderButtonsRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Animation d'entrée
@@ -33,7 +31,7 @@ export default function Header() {
       { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
       "-=0.3"
     )
-    .fromTo(orderButtonRef.current,
+    .fromTo(orderButtonsRef.current,
       { scale: 0, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" },
       "-=0.2"
@@ -58,28 +56,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animation du dropdown
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-    
-    if (!isDropdownOpen) {
-      gsap.set(dropdownRef.current, { display: 'flex' });
-      gsap.fromTo(dropdownRef.current,
-        { opacity: 0, y: -10, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.7)" }
-      );
-      gsap.fromTo(dropdownRef.current?.children || [],
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.2, stagger: 0.05, delay: 0.1 }
-      );
-    } else {
-      gsap.to(dropdownRef.current,
-        { opacity: 0, y: -10, scale: 0.95, duration: 0.2, ease: 'power2.in',
-          onComplete: () => { gsap.set(dropdownRef.current, { display: 'none' }); }
-        }
-      );
-    }
-  };
 
   // Animations de hover pour les liens
   const handleNavHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -225,87 +201,44 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Order Button with Dropdown */}
-        <div className="relative hidden md:block">
-          <button
-            ref={orderButtonRef}
-            onClick={toggleDropdown}
-            className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
+        {/* Order Buttons */}
+        <div ref={orderButtonsRef} className="hidden md:flex items-center space-x-4">
+          <a
+            href={assets.uberEatsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden text-white px-5 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
             style={{
               background: 'linear-gradient(135deg, #8B4513, #A0522D)',
             }}
           >
             <span className="relative z-10 flex items-center space-x-2">
-              <span>Make a Reservation</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              <img src={assets.uberEatsLogo} alt="Uber Eats" className="w-4 h-4" />
+              <span>Uber Eats</span>
             </span>
-            <div 
+            <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
             ></div>
-          </button>
-
-          {/* Dropdown Menu */}
-          <div
-            ref={dropdownRef}
-            className="absolute right-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 hidden flex-col overflow-hidden"
-            style={{ display: 'none' }}
+          </a>
+          <a
+            href={assets.doorDashLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden text-white px-5 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
+            style={{
+              background: 'linear-gradient(135deg, #8B4513, #A0522D)',
+            }}
           >
-            <div className="p-4" style={{ background: 'linear-gradient(135deg, #FEF5E7, #F5E6D3)' }}>
-              <h3 className="font-semibold text-center" style={{ color: '#8B4513' }}>Commander via</h3>
-            </div>
-            
-            <a 
-              href={assets.uberEatsLink} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-4 px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group"
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                <img 
-                  src={assets.uberEatsLogo}
-                  alt="Uber Eats"
-                  className="w-8 h-auto"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="font-semibold text-gray-800 group-hover:text-black">Uber Eats</div>
-                <div className="text-xs text-gray-500">Livraison rapide • 15-30 min</div>
-              </div>
-              <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-
-            <a 
-              href={assets.doorDashLink} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-4 px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group border-t border-gray-100"
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                <img 
-                  src={assets.doorDashLogo}
-                  alt="DoorDash"
-                  className="w-8 h-8"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="font-semibold text-gray-800 group-hover:text-black">DoorDash</div>
-                <div className="text-xs text-gray-500">Service premium • 20-35 min</div>
-              </div>
-              <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
+            <span className="relative z-10 flex items-center space-x-2">
+              <img src={assets.doorDashLogo} alt="DoorDash" className="w-4 h-4" />
+              <span>DoorDash</span>
+            </span>
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
+            ></div>
+          </a>
         </div>
 
         {/* Mobile Menu */}
@@ -365,13 +298,34 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <button
-                  onClick={toggleDropdown}
+                <a
+                  href={assets.uberEatsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
                   style={{ background: 'linear-gradient(135deg, #8B4513, #A0522D)' }}
                 >
-                  <span className="relative z-10">Make a Reservation</span>
-                </button>
+                  <span className="relative z-10">Uber Eats</span>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={assets.doorDashLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
+                  style={{ background: 'linear-gradient(135deg, #8B4513, #A0522D)' }}
+                >
+                  <span className="relative z-10">DoorDash</span>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
+                  ></div>
+                </a>
               </li>
             </ul>
           </div>
