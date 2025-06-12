@@ -10,7 +10,6 @@ export default function Header() {
   const orderButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -41,7 +40,6 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 20;
-      setIsScrolled(scrolled);
       
       gsap.to(headerRef.current, {
         backgroundColor: scrolled ? 'rgba(254, 250, 240, 0.95)' : 'rgba(254, 250, 240, 1)',
@@ -72,8 +70,8 @@ export default function Header() {
       );
     } else {
       gsap.to(dropdownRef.current,
-        { opacity: 0, y: -10, scale: 0.95, duration: 0.2, ease: "power2.in",
-          onComplete: () => gsap.set(dropdownRef.current, { display: 'none' })
+        { opacity: 0, y: -10, scale: 0.95, duration: 0.2, ease: 'power2.in',
+          onComplete: () => { gsap.set(dropdownRef.current, { display: 'none' }); }
         }
       );
     }
@@ -128,7 +126,6 @@ export default function Header() {
               className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
               style={{ 
                 color: '#654321',
-                '--after-bg': '#8B4513'
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
@@ -142,7 +139,6 @@ export default function Header() {
               className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
               style={{ 
                 color: '#654321',
-                '--after-bg': '#8B4513'
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
@@ -156,7 +152,6 @@ export default function Header() {
               className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
               style={{ 
                 color: '#654321',
-                '--after-bg': '#8B4513'
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
@@ -170,7 +165,6 @@ export default function Header() {
               className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full"
               style={{ 
                 color: '#654321',
-                '--after-bg': '#8B4513'
               }}
               onMouseEnter={handleNavHover}
               onMouseLeave={handleNavLeave}
@@ -188,7 +182,6 @@ export default function Header() {
             className="group relative overflow-hidden text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4"
             style={{
               background: 'linear-gradient(135deg, #8B4513, #A0522D)',
-              '--focus-ring-color': 'rgba(139, 69, 19, 0.3)'
             }}
           >
             <span className="relative z-10 flex items-center space-x-2">
