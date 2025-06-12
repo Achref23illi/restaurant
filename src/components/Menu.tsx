@@ -4,6 +4,15 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { menuCategories, type MenuItem } from '../data/menuData';
 
+function moveGriotLast(items: MenuItem[]): MenuItem[] {
+  const index = items.findIndex((item) => item.name.toLowerCase().includes('griot de porc'));
+  if (index !== -1) {
+    const [griot] = items.splice(index, 1);
+    items.push(griot);
+  }
+  return items;
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Menu() {
@@ -13,8 +22,8 @@ export default function Menu() {
   const gridRef = useRef<HTMLDivElement>(null);
   
   const [activeCategory, setActiveCategory] = useState('all');
-  const [filteredItems, setFilteredItems] = useState<MenuItem[]>(() => 
-    menuCategories.flatMap(cat => cat.items)
+  const [filteredItems, setFilteredItems] = useState<MenuItem[]>(() =>
+    moveGriotLast(menuCategories.flatMap(cat => cat.items))
   );
 
   useGSAP(() => {
@@ -83,10 +92,10 @@ export default function Menu() {
       onComplete: () => {
         // Filtrer les items
         if (categoryId === 'all') {
-          setFilteredItems(menuCategories.flatMap(cat => cat.items));
+          setFilteredItems(moveGriotLast(menuCategories.flatMap(cat => cat.items)));
         } else {
           const category = menuCategories.find(cat => cat.id === categoryId);
-          setFilteredItems(category ? category.items : []);
+          setFilteredItems(category ? moveGriotLast([...category.items]) : []);
         }
         
         // Animation d'entrée après filtrage
