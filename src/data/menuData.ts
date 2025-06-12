@@ -27,7 +27,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Tender pork pieces marinated in citrus, slow-cooked, and garnished with fresh herbs',
         price: 17.00,
         currency: 'CAD',
-        image: '/src/assets/images/griot_porc.avif',
+        image: '/images/griot_porc.avif',
         category: 'featured',
         popular: true
       },
@@ -37,7 +37,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Marinated and fried beef chunks, garnished with fresh herbs and served with a lemon',
         price: 20.00,
         currency: 'CAD',
-        image: '/src/assets/images/beef_tassot.avif',
+        image: '/images/beef_tassot.avif',
         category: 'featured',
         popular: true
       },
@@ -47,7 +47,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Mélange de viandes / Mixed meats',
         price: 20.00,
         currency: 'CAD',
-        image: '/src/assets/images/fritaille.avif',
+        image: '/images/fritaille.avif',
         category: 'featured',
         popular: true
       }
@@ -63,7 +63,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Kwanga (cassava bread), white rice, sticky rice, or fufu (West African dough)',
         price: 24.00,
         currency: 'CAD',
-        image: '/src/assets/images/goat.avif',
+        image: '/images/goat.avif',
         category: 'plats-africains'
       },
       {
@@ -72,7 +72,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Kwanga (cassava bread), white rice, sticky rice, or Fufu (pounded yam)',
         price: 23.00,
         currency: 'CAD',
-        image: '/src/assets/images/half_chicken.avif',
+        image: '/images/half_chicken.avif',
         category: 'plats-africains'
       },
       {
@@ -81,7 +81,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Et pondu (sauce aux feuilles de manioc) / And pondu (cassava leaf sauce)',
         price: 24.00,
         currency: 'CAD',
-        image: '/src/assets/images/thomson_fish.avif',
+        image: '/images/thomson_fish.avif',
         category: 'plats-africains'
       },
       {
@@ -90,7 +90,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Kwanga, white rice, sticky rice, or fufu',
         price: 18.00,
         currency: 'CAD',
-        image: '/src/assets/images/eight_chicken_wings.avif',
+        image: '/images/eight_chicken_wings.avif',
         category: 'plats-africains'
       },
       {
@@ -99,7 +99,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Avec fumbwa (sauce aux feuilles et à la pâte d\'arachides) / With fumbwa (peanut paste sauce)',
         price: 26.00,
         currency: 'CAD',
-        image: '/src/assets/images/two_Makayabus.avif',
+        image: '/images/two_Makayabus.avif',
         category: 'plats-africains'
       }
     ]
@@ -114,7 +114,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Tender goat meat marinated and fried, served with a flavorful Creole sauce',
         price: 20.00,
         currency: 'CAD',
-        image: '/src/assets/images/goat_tassot.avif',
+        image: '/images/goat_tassot.avif',
         category: 'plats-creoles'
       },
       {
@@ -123,7 +123,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Mélange de cubes de bœuf et d\'une variété de légumes en sauce / Mixture of cubed beef and a variety of vegetables in sauce',
         price: 22.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'plats-creoles'
       },
       {
@@ -132,7 +132,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Tender chicken served with a medley of sautéed vegetables and a side of steamed rice',
         price: 17.00,
         currency: 'CAD',
-        image: '/src/assets/images/chicken.avif',
+        image: '/images/chicken.avif',
         category: 'plats-creoles'
       },
       {
@@ -141,7 +141,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Servie avec riz ou pondu (sauce aux feuilles de manioc) ou fumbwa (sauce aux feuilles et à la pâte d\'arachides)',
         price: 19.00,
         currency: 'CAD',
-        image: '/src/assets/images/Madesu.avif',
+        image: '/images/Madesu.avif',
         category: 'plats-creoles'
       },
       {
@@ -150,7 +150,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Avec du modesu (sauce aux haricots blancs) / with modesu (white bean sauce)',
         price: 22.00,
         currency: 'CAD',
-        image: '/src/assets/images/tilapia.avif',
+        image: '/images/tilapia.avif',
         category: 'plats-creoles'
       },
       {
@@ -159,7 +159,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Avec du modesu (sauce aux haricots blancs) / With modesu (white Bean sauce)',
         price: 26.00,
         currency: 'CAD',
-        image: '/src/assets/images/tilapia.avif',
+        image: '/images/tilapia.avif',
         category: 'plats-creoles'
       }
     ]
@@ -174,7 +174,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Ailes de poulet marinées aux épices créoles',
         price: 8.00,
         currency: 'CAD',
-        image: '/src/assets/images/eight_chicken_wings.avif',
+        image: '/images/eight_chicken_wings.avif',
         category: 'entrees'
       },
       {
@@ -183,7 +183,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Délicieux samosas croustillants',
         price: 5.00,
         currency: 'CAD',
-        image: '/src/assets/images/two_Makayabus.avif',
+        image: '/images/two_Makayabus.avif',
         category: 'entrees'
       },
       {
@@ -192,7 +192,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Crisp lettuce, sliced cucumbers, cherry tomatoes, croutons, and a sprinkle of grated cheese',
         price: 5.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'entrees'
       }
     ]
@@ -207,7 +207,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Morue traditionnelle préparée aux épices',
         price: 16.00,
         currency: 'CAD',
-        image: '/src/assets/images/two_Makayabus.avif',
+        image: '/images/two_Makayabus.avif',
         category: 'viandes-poissons'
       },
       {
@@ -216,7 +216,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Six pilons de poulet marinés et grillés',
         price: 13.00,
         currency: 'CAD',
-        image: '/src/assets/images/chicken.avif',
+        image: '/images/chicken.avif',
         category: 'viandes-poissons'
       },
       {
@@ -225,7 +225,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Chicken Wings Choice of 6 or 12 pieces',
         price: 10.00,
         currency: 'CAD',
-        image: '/src/assets/images/eight_chicken_wings.avif',
+        image: '/images/eight_chicken_wings.avif',
         category: 'viandes-poissons'
       },
       {
@@ -234,7 +234,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Poisson tilapia frais grillé',
         price: 16.00,
         currency: 'CAD',
-        image: '/src/assets/images/tilapia.avif',
+        image: '/images/tilapia.avif',
         category: 'viandes-poissons'
       },
       {
@@ -243,7 +243,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Poisson Thomson grillé aux épices',
         price: 16.00,
         currency: 'CAD',
-        image: '/src/assets/images/thomson_fish.avif',
+        image: '/images/thomson_fish.avif',
         category: 'viandes-poissons'
       }
     ]
@@ -258,7 +258,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Salade de macaroni crémeuse et savoureuse',
         price: 11.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'sides'
       },
       {
@@ -267,7 +267,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Riz collant traditionnel aux haricots rouges',
         price: 8.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'sides'
       },
       {
@@ -276,7 +276,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Sauce traditionnelle aux feuilles de manioc',
         price: 5.00,
         currency: 'CAD',
-        image: '/src/assets/images/Madesu.avif',
+        image: '/images/Madesu.avif',
         category: 'sides'
       },
       {
@@ -285,7 +285,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Deux plantains frits à la façon haïtienne',
         price: 4.00,
         currency: 'CAD',
-        image: '/src/assets/images/fritaille.avif',
+        image: '/images/fritaille.avif',
         category: 'sides'
       },
       {
@@ -294,7 +294,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Bâton de manioc traditionnel',
         price: 5.00,
         currency: 'CAD',
-        image: '/src/assets/images/two_Makayabus.avif',
+        image: '/images/two_Makayabus.avif',
         category: 'sides'
       },
       {
@@ -303,7 +303,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Sauce aux haricots blancs traditionnelle',
         price: 5.00,
         currency: 'CAD',
-        image: '/src/assets/images/Madesu.avif',
+        image: '/images/Madesu.avif',
         category: 'sides'
       }
     ]
@@ -318,7 +318,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Juice: Choice of flavors: Pineapple, Ginger, Oranges, Apples',
         price: 3.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'boissons'
       },
       {
@@ -327,7 +327,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Boisson maltée traditionnelle',
         price: 2.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'boissons'
       },
       {
@@ -336,7 +336,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Pure, refreshing hydration',
         price: 2.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'boissons'
       },
       {
@@ -345,7 +345,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Cola, Diet Cola, or Lemon-Lime soda options',
         price: 2.00,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'boissons'
       },
       {
@@ -354,7 +354,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Puerto Rican favorite- a uniquely tantalizing taste',
         price: 3.50,
         currency: 'CAD',
-        image: '/src/assets/images/salad_of_the_moment.avif',
+        image: '/images/salad_of_the_moment.avif',
         category: 'boissons'
       }
     ]
