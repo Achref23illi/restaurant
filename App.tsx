@@ -13,7 +13,9 @@ function App() {
 
   return (
     <div ref={container} className="opacity-0">
-      <h1 className="text-4xl font-bold text-center">Bienvenue au Restaurant</h1>
+      <h1 className="text-4xl font-bold text-center text-[color:var(--color-primary)]">
+        Bienvenue au Restaurant
+      </h1>
     </div>
   );
 }
