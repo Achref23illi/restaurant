@@ -1,8 +1,8 @@
 export const colors = {
-  primary: '#0052A5', // Haitian blue
-  secondary: '#D21034', // Haitian red
-  accent: '#FDB813', // subtle yellow accent
-  background: '#ffffff',
-  text: '#213547',
+  primary: '#2D1810', // Chocolate foncé du logo
+  secondary: '#8B4513', // Saddle brown du logo
+  accent: '#D2B48C', // Tan/beige clair
+  background: '#FEF5E7', // Crème du logo
+  text: '#654321', // Brun moyen pour le texte
 };
 export default colors;
