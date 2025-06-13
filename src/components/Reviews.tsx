@@ -105,7 +105,7 @@ export default function Reviews() {
               <img 
                 src={assets.uberEatsLogo}
                 alt="UberEats"
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
               <div className="text-right">
                 <div className="text-3xl font-bold" style={{ color: '#8B4513' }}>4.0</div>
@@ -134,7 +134,7 @@ export default function Reviews() {
               <img 
                 src={assets.doorDashLogo}
                 alt="DoorDash"
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
               <div className="text-right">
                 <div className="text-3xl font-bold" style={{ color: '#8B4513' }}>3.5</div>
@@ -205,7 +205,7 @@ export default function Reviews() {
               <img 
                 src={assets.uberEatsLogo}
                 alt="UberEats"
-                className="h-5 w-auto mr-3"
+                className="h-4 w-auto mr-3 brightness-0 invert"
               />
               Commander sur UberEats
             </a>
@@ -220,7 +220,7 @@ export default function Reviews() {
               <img 
                 src={assets.doorDashLogo}
                 alt="DoorDash"
-                className="h-5 w-5 mr-3"
+                className="h-4 w-4 mr-3"
               />
               Commander sur DoorDash
             </a>

@@ -1,7 +1,10 @@
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { assets } from '../config/assets';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -15,6 +18,21 @@ export default function Hero() {
     name: key,
     image: value
   }));
+
+  // Function to scroll to menu section
+  const scrollToMenu = () => {
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: {
+          y: menuSection,
+          autoKill: true
+        },
+        ease: "power2.inOut"
+      });
+    }
+  };
 
   useGSAP(() => {
     // Initial setup
@@ -100,6 +118,7 @@ export default function Hero() {
 
           <div ref={ctaRef} className="flex flex-col gap-6 pt-4">
             <button 
+              onClick={scrollToMenu}
               className="group relative overflow-hidden px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-fit"
               style={{
                 background: 'linear-gradient(135deg, #8B4513, #A0522D)',

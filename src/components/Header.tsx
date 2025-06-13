@@ -12,7 +12,7 @@ export default function Header() {
   const navItemsRef = useRef<HTMLUListElement>(null);
   const orderButtonsRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -60,6 +60,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Show popup after delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000); // 3 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Animations de hover pour les liens
   const handleNavHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -149,7 +157,7 @@ export default function Header() {
               onMouseLeave={handleNavLeave}
               onClick={(e) => handleNavClick(e, 'home')}
             >
-              Home
+              Accueil
             </a>
           </li>
           <li>
@@ -163,7 +171,7 @@ export default function Header() {
               onMouseLeave={handleNavLeave}
               onClick={(e) => handleNavClick(e, 'about')}
             >
-              About Us
+              À Propos
             </a>
           </li>
           <li>
@@ -177,7 +185,7 @@ export default function Header() {
               onMouseLeave={handleNavLeave}
               onClick={(e) => handleNavClick(e, 'menu')}
             >
-              Our Menus
+              Nos Menus
             </a>
           </li>
           <li>
@@ -191,7 +199,7 @@ export default function Header() {
               onMouseLeave={handleNavLeave}
               onClick={(e) => handleNavClick(e, 'contact')}
             >
-              Contact Us
+              Contactez-Nous
             </a>
           </li>
         </ul>
@@ -243,7 +251,7 @@ export default function Header() {
                     handleNavClick(e, 'home');
                   }}
                 >
-                  Home
+                  Accueil
                 </a>
               </li>
               <li>
@@ -256,7 +264,7 @@ export default function Header() {
                     handleNavClick(e, 'about');
                   }}
                 >
-                  About Us
+                  À Propos
                 </a>
               </li>
               <li>
@@ -269,7 +277,7 @@ export default function Header() {
                     handleNavClick(e, 'menu');
                   }}
                 >
-                  Our Menus
+                  Nos Menus
                 </a>
               </li>
               <li>
@@ -282,7 +290,7 @@ export default function Header() {
                     handleNavClick(e, 'contact');
                   }}
                 >
-                  Contact Us
+                  Contactez-Nous
                 </a>
               </li>
               <div className="w-full h-px bg-gray-200 my-2"></div>
