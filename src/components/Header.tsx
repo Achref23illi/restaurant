@@ -12,6 +12,7 @@ export default function Header() {
   const navItemsRef = useRef<HTMLUListElement>(null);
   const orderButtonsRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -42,6 +43,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 20;
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       
       gsap.to(headerRef.current, {
         backgroundColor: scrolled ? 'rgba(254, 250, 240, 0.95)' : 'rgba(254, 250, 240, 1)',
@@ -50,6 +52,8 @@ export default function Header() {
         duration: 0.3,
         ease: "power2.out"
       });
+
+      // Removed floating buttons logic
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -108,6 +112,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <header 
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
@@ -202,15 +207,25 @@ export default function Header() {
         </button>
 
         {/* Order Buttons */}
-        <div ref={orderButtonsRef} className="hidden md:flex items-center space-x-4">
-          <a href={assets.uberEatsLink} target="_blank" rel="noopener noreferrer" className="p-2 hover:scale-105 transition-transform"><img src={assets.uberEatsLogo} alt="Uber Eats" className="w-6 h-6" /></a>
+        <div ref={orderButtonsRef} className="hidden md:flex items-center space-x-3">
+          <a 
+            href={assets.uberEatsLink} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center justify-center px-4 py-2 bg-black hover:bg-gray-800 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+            aria-label="Order from Uber Eats"
+          >
+            <img src={assets.uberEatsLogo} alt="Uber Eats" className="h-5 w-auto brightness-0 invert" style={{maxWidth: '80px'}} />
+          </a>
           <a
             href={assets.doorDashLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 hover:scale-105 transition-transform"
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full font-medium text-sm hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+            aria-label="Order from DoorDash"
           >
-            <img src={assets.doorDashLogo} alt="DoorDash" className="w-6 h-6" />
+            <img src={assets.doorDashLogo} alt="" className="w-5 h-5 brightness-0 invert" />
+            <span>DoorDash</span>
           </a>
         </div>
 
@@ -270,24 +285,30 @@ export default function Header() {
                   Contact Us
                 </a>
               </li>
-              <li>
-              <a
+              <div className="w-full h-px bg-gray-200 my-2"></div>
+              <li className="w-full px-4">
+                <a
                   href={assets.uberEatsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:scale-105 transition-transform"
+                  className="flex items-center justify-center w-full px-6 py-3 bg-black hover:bg-gray-800 rounded-lg transition-all duration-300 hover:shadow-lg active:scale-95 transform"
+                  aria-label="Order from Uber Eats"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  <img src={assets.uberEatsLogo} alt="Uber Eats" className="w-6 h-6" />
+                  <img src={assets.uberEatsLogo} alt="Uber Eats" className="h-6 w-auto brightness-0 invert" style={{maxWidth: '120px'}} />
                 </a>
               </li>
-              <li>
-              <a
+              <li className="w-full px-4">
+                <a
                   href={assets.doorDashLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:scale-105 transition-transform"
+                  className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg font-medium hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:shadow-lg active:scale-95 transform"
+                  aria-label="Order from DoorDash"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  <img src={assets.doorDashLogo} alt="DoorDash" className="w-6 h-6" />
+                  <img src={assets.doorDashLogo} alt="" className="w-6 h-6 brightness-0 invert" />
+                  <span>Order on DoorDash</span>
                 </a>
               </li>
             </ul>
@@ -295,5 +316,60 @@ export default function Header() {
         )}
       </nav>
     </header>
+
+    {/* Order Popup */}
+    {showPopup && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          onClick={() => setShowPopup(false)}
+        />
+        
+        {/* Popup Content */}
+        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full animate-fadeInUp">
+          {/* Close Button */}
+          <button
+            onClick={() => setShowPopup(false)}
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Close popup"
+          >
+            <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          {/* Content */}
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4" style={{color: '#654321'}}>Commandez en ligne!</h2>
+            <p className="text-gray-600 mb-6">Faites-vous livrer vos plats préférés directement chez vous</p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href={assets.uberEatsLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+                aria-label="Order from Uber Eats"
+              >
+                <img src={assets.uberEatsLogo} alt="Uber Eats" className="h-5 w-auto brightness-0 invert" style={{maxWidth: '80px'}} />
+              </a>
+              <a
+                href={assets.doorDashLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full font-medium hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+                aria-label="Order from DoorDash"
+              >
+                <img src={assets.doorDashLogo} alt="" className="w-5 h-5 brightness-0 invert" />
+                <span>DoorDash</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }

@@ -174,9 +174,8 @@ export default function Contact() {
                   <img 
                     src={assets.uberEatsLogo}
                     alt="UberEats"
-                    className="h-4 w-auto mr-3"
+                    className="h-4 w-auto brightness-0 invert"
                   />
-                  UberEats
                 </a>
                 
                 <a
