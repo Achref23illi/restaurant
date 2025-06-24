@@ -112,8 +112,7 @@ export default function Hero() {
             ref={subtitleRef}
             className="text-xl lg:text-2xl text-gray-700 leading-relaxed"
           >
-            Savourez l'authenticité de la cuisine haïtienne traditionnelle, 
-            préparée avec amour et passion depuis trois générations.
+            Découvrez l’authenticité de la cuisine traditionnelle créole haïtienne et congolaise, mijotée avec amour et passion depuis trois générations.
           </p>
 
           <div ref={ctaRef} className="flex flex-col gap-6 pt-4">
