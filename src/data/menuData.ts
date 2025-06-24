@@ -18,6 +18,22 @@ export interface MenuCategory {
 
 export const menuCategories: MenuCategory[] = [
   {
+    id: 'special',
+    name: 'Menu Spécial / Special Menu',
+    items: [
+      {
+        id: 'special-1',
+        name: '3 Poutines',
+        description: 'Mystère à venir... Trois poutines spéciales qui seront bientôt révélées / Mystery coming soon... Three special poutines to be revealed',
+        price: 35.00,
+        currency: 'CAD',
+        image: '/images/threepoutine.png',
+        category: 'special',
+        popular: true
+      }
+    ]
+  },
+  {
     id: 'featured',
     name: 'Plats Populaires',
     items: [
@@ -68,7 +84,7 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         id: '5',
-        name: 'Demi-poulet / Half Chicken',
+        name: 'Deux cuisses / Half Chicken',
         description: 'Kwanga (cassava bread), white rice, sticky rice, or Fufu (pounded yam)',
         price: 23.00,
         currency: 'CAD',
@@ -161,6 +177,15 @@ export const menuCategories: MenuCategory[] = [
         currency: 'CAD',
         image: '/images/tilapia.avif',
         category: 'plats-creoles'
+      },
+      {
+        id: '15',
+        name: 'Poulet Brisé / Broken Chicken',
+        description: 'Poulet tendre mijoté dans une sauce créole savoureuse / Tender chicken simmered in flavorful Creole sauce',
+        price: 18.00,
+        currency: 'CAD',
+        image: '/images/pouletbrise.jpg',
+        category: 'plats-creoles'
       }
     ]
   },
@@ -169,7 +194,7 @@ export const menuCategories: MenuCategory[] = [
     name: 'Entrées / Starters',
     items: [
       {
-        id: '15',
+        id: '16',
         name: 'Ailes de poulet (4) / Chicken Wings (4)',
         description: 'Ailes de poulet marinées aux épices créoles',
         price: 8.00,
@@ -178,7 +203,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'entrees'
       },
       {
-        id: '16',
+        id: '17',
         name: 'Samosas (2)',
         description: 'Délicieux samosas croustillants',
         price: 5.00,
@@ -187,7 +212,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'entrees'
       },
       {
-        id: '17',
+        id: '18',
         name: 'Salade du moment / Salad of the moment',
         description: 'Crisp lettuce, sliced cucumbers, cherry tomatoes, croutons, and a sprinkle of grated cheese',
         price: 5.00,
@@ -202,7 +227,7 @@ export const menuCategories: MenuCategory[] = [
     name: 'Viandes et Poissons / Meat and Fish',
     items: [
       {
-        id: '18',
+        id: '19',
         name: 'Makayabu (morue) / Makayabu (Codfish)',
         description: 'Morue traditionnelle préparée aux épices',
         price: 16.00,
@@ -211,7 +236,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'viandes-poissons'
       },
       {
-        id: '19',
+        id: '20',
         name: 'Pilons de poulet (6) / Chicken Drumsticks (6)',
         description: 'Six pilons de poulet marinés et grillés',
         price: 13.00,
@@ -220,7 +245,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'viandes-poissons'
       },
       {
-        id: '20',
+        id: '21',
         name: 'Ailes de poulet / Chicken Wings',
         description: 'Chicken Wings Choice of 6 or 12 pieces',
         price: 10.00,
@@ -229,7 +254,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'viandes-poissons'
       },
       {
-        id: '21',
+        id: '22',
         name: 'Tilapia',
         description: 'Poisson tilapia frais grillé',
         price: 16.00,
@@ -238,12 +263,21 @@ export const menuCategories: MenuCategory[] = [
         category: 'viandes-poissons'
       },
       {
-        id: '22',
+        id: '23',
         name: 'Poisson Thomson / Thomson fish',
         description: 'Poisson Thomson grillé aux épices',
         price: 16.00,
         currency: 'CAD',
         image: '/images/thomson_fish.avif',
+        category: 'viandes-poissons'
+      },
+      {
+        id: '24',
+        name: 'Poisson Brisé / Broken Fish',
+        description: 'Poisson tendre mijoté dans une sauce savoureuse / Tender fish simmered in flavorful sauce',
+        price: 19.00,
+        currency: 'CAD',
+        image: '/images/poissonbrise.jpg',
         category: 'viandes-poissons'
       }
     ]
@@ -253,25 +287,25 @@ export const menuCategories: MenuCategory[] = [
     name: 'Les À-côtés / Sides',
     items: [
       {
-        id: '23',
+        id: '25',
         name: 'Salade de macaroni / Macaroni Salad',
         description: 'Salade de macaroni crémeuse et savoureuse',
         price: 11.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/Macaroni-Salad.jpg',
         category: 'sides'
       },
       {
-        id: '24',
+        id: '26',
         name: 'Riz collé (avec haricots rouges) / Sticky Rice (With Kidney Beans)',
         description: 'Riz collant traditionnel aux haricots rouges',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/rizcolle.jpg',
         category: 'sides'
       },
       {
-        id: '25',
+        id: '27',
         name: 'Pondu (sauce aux feuilles de manioc) / Pondu (Cassava Leaf Sauce)',
         description: 'Sauce traditionnelle aux feuilles de manioc',
         price: 5.00,
@@ -280,7 +314,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'sides'
       },
       {
-        id: '26',
+        id: '28',
         name: 'Plantains frits (à la façon haïtienne) (2) / Fried Plantains (Haitian Style) (2)',
         description: 'Deux plantains frits à la façon haïtienne',
         price: 4.00,
@@ -289,7 +323,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'sides'
       },
       {
-        id: '27',
+        id: '29',
         name: 'Kwanga (bâton de manioc) / Kwanga (Cassava Stick)',
         description: 'Bâton de manioc traditionnel',
         price: 5.00,
@@ -298,7 +332,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'sides'
       },
       {
-        id: '28',
+        id: '30',
         name: 'Madesu (sauce aux haricots blancs) / Madesu (white Bean Sauce)',
         description: 'Sauce aux haricots blancs traditionnelle',
         price: 5.00,
@@ -313,48 +347,48 @@ export const menuCategories: MenuCategory[] = [
     name: 'Boissons / Drinks',
     items: [
       {
-        id: '29',
+        id: '31',
         name: 'Jus / Juice',
         description: 'Juice: Choice of flavors: Pineapple, Ginger, Oranges, Apples',
         price: 3.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
-        category: 'boissons'
-      },
-      {
-        id: '30',
-        name: 'Maltan',
-        description: 'Boisson maltée traditionnelle',
-        price: 2.00,
-        currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
-        category: 'boissons'
-      },
-      {
-        id: '31',
-        name: 'Eau / Water',
-        description: 'Pure, refreshing hydration',
-        price: 2.00,
-        currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/juice.webp',
         category: 'boissons'
       },
       {
         id: '32',
-        name: 'Boissons gazéifiées / Soft drinks',
-        description: 'Cola, Diet Cola, or Lemon-Lime soda options',
+        name: 'Maltan',
+        description: 'Boisson maltée traditionnelle',
         price: 2.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/Maltan.jpg',
         category: 'boissons'
       },
       {
         id: '33',
+        name: 'Eau / Water',
+        description: 'Pure, refreshing hydration',
+        price: 2.00,
+        currency: 'CAD',
+        image: '/images/water.jpg',
+        category: 'boissons'
+      },
+      {
+        id: '34',
+        name: 'Boissons gazéifiées / Soft drinks',
+        description: 'Cola, Diet Cola, or Lemon-Lime soda options',
+        price: 2.00,
+        currency: 'CAD',
+        image: '/images/soft-drinks.jpg',
+        category: 'boissons'
+      },
+      {
+        id: '35',
         name: 'Cola Champagne',
         description: 'Puerto Rican favorite- a uniquely tantalizing taste',
         price: 3.50,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/Cola-Champan.jpg',
         category: 'boissons'
       }
     ]

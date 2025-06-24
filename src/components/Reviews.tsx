@@ -1,95 +1,64 @@
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 import { assets } from '../config/assets';
-
-gsap.registerPlugin(ScrollTrigger);
+import colors from '../config/colors';
 
 export default function Reviews() {
-  const reviewsRef = useRef<HTMLDivElement>(null);
+  const reviewsRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    // Animation du titre
-    gsap.fromTo(titleRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: reviewsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
 
-    // Animation des cartes
-    gsap.fromTo(".review-card",
-      { opacity: 0, y: 50, scale: 0.95 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+    if (reviewsRef.current) observer.observe(reviewsRef.current);
+    if (titleRef.current) observer.observe(titleRef.current);
+    if (cardsRef.current) observer.observe(cardsRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const renderStars = (rating: number) => {
+    const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     
-    return (
-      <div className="flex items-center">
-        {[...Array(5)].map((_, index) => {
-          if (index < fullStars) {
-            return (
-              <svg key={index} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-              </svg>
-            );
-          } else if (index === fullStars && hasHalfStar) {
-            return (
-              <svg key={index} className="w-5 h-5 text-yellow-400" viewBox="0 0 20 20">
-                <defs>
-                  <linearGradient id="half-star">
-                    <stop offset="50%" stopColor="currentColor" />
-                    <stop offset="50%" stopColor="#E5E7EB" />
-                  </linearGradient>
-                </defs>
-                <path fill="url(#half-star)" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-              </svg>
-            );
-          } else {
-            return (
-              <svg key={index} className="w-5 h-5 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-              </svg>
-            );
-          }
-        })}
-      </div>
-    );
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <span key={i} className="text-yellow-400 text-xl">★</span>
+      );
+    }
+    
+    if (hasHalfStar) {
+      stars.push(
+        <span key="half" className="text-yellow-400 text-xl">☆</span>
+      );
+    }
+    
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <span key={`empty-${i}`} className="text-gray-300 text-xl">☆</span>
+      );
+    }
+    
+    return <div className="flex gap-1">{stars}</div>;
   };
 
   return (
-    <section ref={reviewsRef} className="py-20 px-6" style={{ backgroundColor: '#FEF5E7' }}>
+    <section ref={reviewsRef} className="py-20 px-6" style={{ backgroundColor: colors.background }}>
       <div className="max-w-7xl mx-auto">
         {/* Titre */}
         <div ref={titleRef} className="text-center mb-12">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6" style={{ color: '#8B4513' }}>
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6" style={{ color: colors.secondary }}>
             Nos Avis Clients
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -108,7 +77,7 @@ export default function Reviews() {
                 className="h-8 w-auto"
               />
               <div className="text-right">
-                <div className="text-3xl font-bold" style={{ color: '#8B4513' }}>4.0</div>
+                <div className="text-3xl font-bold" style={{ color: colors.secondary }}>4.0</div>
                 <div className="text-sm text-gray-500">sur 5</div>
               </div>
             </div>
@@ -116,7 +85,7 @@ export default function Reviews() {
             <div className="space-y-4">
               {renderStars(4)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: '#2D1810' }}>88</span> avis vérifiés
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>88</span> avis vérifiés
               </p>
               
               <div className="pt-4 border-t border-gray-100">
@@ -137,7 +106,7 @@ export default function Reviews() {
                 className="h-8 w-auto"
               />
               <div className="text-right">
-                <div className="text-3xl font-bold" style={{ color: '#8B4513' }}>3.5</div>
+                <div className="text-3xl font-bold" style={{ color: colors.secondary }}>3.5</div>
                 <div className="text-sm text-gray-500">sur 5</div>
               </div>
             </div>
@@ -145,7 +114,7 @@ export default function Reviews() {
             <div className="space-y-4">
               {renderStars(3.5)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: '#2D1810' }}>50</span> votes
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>50</span> votes
               </p>
               
               <div className="pt-4 border-t border-gray-100">
@@ -160,41 +129,43 @@ export default function Reviews() {
           {/* Montreal Reviews */}
           <div className="review-card bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
             <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center space-x-2">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" 
-                     style={{ backgroundColor: '#8B4513' }}>
-                  <span className="text-white font-bold text-lg">M</span>
-                </div>
-                <span className="font-semibold text-lg text-gray-800">Montréal</span>
-              </div>
+              <div className="text-2xl font-bold" style={{ color: colors.green }}>🇨🇦</div>
               <div className="text-right">
-                <div className="text-3xl font-bold" style={{ color: '#8B4513' }}>4.6</div>
+                <div className="text-3xl font-bold" style={{ color: colors.secondary }}>4.2</div>
                 <div className="text-sm text-gray-500">sur 5</div>
               </div>
             </div>
             
             <div className="space-y-4">
-              {renderStars(4.6)}
+              {renderStars(4.2)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: '#2D1810' }}>30</span> votes
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>Clients</span> Montréal
               </p>
               
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-500 italic">
-                  "Un vrai goût d'Haïti au cœur de Montréal. Hautement recommandé!"
+                  "Authenticité et saveurs d'exception dans le cœur de Montréal!"
                 </p>
-                <p className="text-xs text-gray-400 mt-2">- Avis récent</p>
+                <p className="text-xs text-gray-400 mt-2">- Avis locaux</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Call to action */}
+        {/* Call to Action */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600 mb-6">
             Commandez dès maintenant et découvrez pourquoi nos clients nous adorent!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              style={{ backgroundColor: colors.green }}
+            >
+              <span className="mr-3">🍽️</span>
+              Commander
+            </button>
+            
             <a
               href={assets.uberEatsLink}
               target="_blank"
@@ -215,7 +186,7 @@ export default function Reviews() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl border-2"
-              style={{ backgroundColor: '#F3F4F6', borderColor: '#E5E7EB' }}
+              style={{ backgroundColor: colors.lightGreen, borderColor: colors.green }}
             >
               <img 
                 src={assets.doorDashLogo}

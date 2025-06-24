@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useGSAP } from '@gsap/react';
 import { assets } from '../config/assets';
+import colors from '../config/colors';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -12,7 +13,9 @@ export default function Header() {
   const navItemsRef = useRef<HTMLUListElement>(null);
   const orderButtonsRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOrderPopupOpen, setIsOrderPopupOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -42,28 +45,27 @@ export default function Header() {
   // Gestion du scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 20;
-      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      
-      gsap.to(headerRef.current, {
-        backgroundColor: scrolled ? 'rgba(254, 250, 240, 0.95)' : 'rgba(254, 250, 240, 1)',
-        boxShadow: scrolled ? '0 4px 20px rgba(139, 69, 19, 0.1)' : '0 1px 3px rgba(139, 69, 19, 0.05)',
-        backdropFilter: scrolled ? 'blur(20px)' : 'blur(0px)',
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      setIsScrolled(window.scrollY > 20);
+    };
 
-      // Removed floating buttons logic
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   // Show popup after delay
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPopup(true);
+      setIsOrderPopupOpen(true);
     }, 3000); // 3 second delay
 
     return () => clearTimeout(timer);
@@ -119,104 +121,121 @@ export default function Header() {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
     <header 
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{ 
-        background: 'rgba(254, 250, 240, 1)',
-        boxShadow: '0 1px 3px rgba(139, 69, 19, 0.05)'
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+          : 'bg-transparent'
+      }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center relative">
-        {/* Logo */}
-        <div 
-          ref={logoRef}
-          className="flex items-center cursor-pointer group"
-        >
-          <div className="w-16 h-16 transform group-hover:scale-105 transition-transform duration-300">
-            <img 
-              src={assets.logo} 
-              alt="Restaurant Maman Jeanne Logo" 
-              className="w-full h-full object-contain"
-            />
+      <nav className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <div className="flex items-center space-x-3">
+              <img 
+                src={assets.logo}
+                alt="Chez Maman Jeanne Logo" 
+                className="h-12 w-auto"
+              />
+              <div className="hidden sm:block">
+                <h1 className="text-xl font-bold" style={{ color: colors.primary }}>
+                  Chez Maman Jeanne
+                </h1>
+                <p className="text-sm" style={{ color: colors.secondary }}>
+                  Cuisine Haïtienne & Congolaise
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              Accueil
+            </button>
+            <button 
+              onClick={() => scrollToSection('menu')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              Menu
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              À Propos
+            </button>
+            <button 
+              onClick={() => scrollToSection('reviews')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              Avis
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              Contact
+            </button>
+            <button 
+              onClick={() => scrollToSection('location')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              Localisation
+            </button>
+          </div>
+
+          {/* Order Button (trigger popup) */}
+          <div className="hidden md:block">
+            <button
+              onClick={() => setIsOrderPopupOpen(true)}
+              className="px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+              style={{ backgroundColor: colors.green }}
+            >
+              Commander
+            </button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* Navigation Links */}
-        <ul ref={navItemsRef} className="hidden md:flex items-center space-x-8">
-          <li>
-            <a 
-              href="#home" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
-              style={{ 
-                color: '#654321',
-              }}
-              onMouseEnter={handleNavHover}
-              onMouseLeave={handleNavLeave}
-              onClick={(e) => handleNavClick(e, 'home')}
-            >
-              Accueil
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#about" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
-              style={{ 
-                color: '#654321',
-              }}
-              onMouseEnter={handleNavHover}
-              onMouseLeave={handleNavLeave}
-              onClick={(e) => handleNavClick(e, 'about')}
-            >
-              À Propos
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#menu" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
-              style={{ 
-                color: '#654321',
-              }}
-              onMouseEnter={handleNavHover}
-              onMouseLeave={handleNavLeave}
-              onClick={(e) => handleNavClick(e, 'menu')}
-            >
-              Nos Menus
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#contact" 
-              className="text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:transition-all after:duration-300 hover:after:w-full nav-underline"
-              style={{ 
-                color: '#654321',
-              }}
-              onMouseEnter={handleNavHover}
-              onMouseLeave={handleNavLeave}
-              onClick={(e) => handleNavClick(e, 'contact')}
-            >
-              Contactez-Nous
-            </a>
-          </li>
-        </ul>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden p-2 focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        {/* Order Buttons */}
-        <div ref={orderButtonsRef} className="hidden md:flex items-center space-x-3">
-          <a 
+        {/* Desktop Order Buttons */}
+        <div ref={orderButtonsRef} className="hidden md:flex items-center space-x-3 mt-4">
+          {/* <a 
             href={assets.uberEatsLink} 
             target="_blank" 
             rel="noopener noreferrer" 
@@ -224,8 +243,8 @@ export default function Header() {
             aria-label="Order from Uber Eats"
           >
             <img src={assets.uberEatsLogo} alt="Uber Eats" className="h-5 w-auto brightness-0 invert" style={{maxWidth: '80px'}} />
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href={assets.doorDashLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -234,66 +253,79 @@ export default function Header() {
           >
             <img src={assets.doorDashLogo} alt="" className="w-5 h-5 brightness-0 invert" />
             <span>DoorDash</span>
-          </a>
+          </a> */}
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-xl">
-            <ul className="flex flex-col items-center space-y-4 py-4">
+        <div 
+          ref={menuRef}
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen 
+              ? 'max-h-screen opacity-100 mt-6' 
+              : 'max-h-0 opacity-0 overflow-hidden'
+          }`}
+        >
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <ul className="py-4">
               <li>
-                <a
-                  href="#home"
-                  className="text-sm font-medium"
-                  style={{ color: '#654321' }}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleNavClick(e, 'home');
-                  }}
+                <button 
+                  onClick={() => scrollToSection('home')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
                   Accueil
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#about"
-                  className="text-sm font-medium"
-                  style={{ color: '#654321' }}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleNavClick(e, 'about');
-                  }}
+                <button 
+                  onClick={() => scrollToSection('menu')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                >
+                  Menu
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
                   À Propos
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#menu"
-                  className="text-sm font-medium"
-                  style={{ color: '#654321' }}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleNavClick(e, 'menu');
-                  }}
+                <button 
+                  onClick={() => scrollToSection('reviews')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Nos Menus
-                </a>
+                  Avis
+                </button>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  className="text-sm font-medium"
-                  style={{ color: '#654321' }}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleNavClick(e, 'contact');
-                  }}
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Contactez-Nous
-                </a>
+                  Contact
+                </button>
               </li>
-              <div className="w-full h-px bg-gray-200 my-2"></div>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('location')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                >
+                  Localisation
+                </button>
+              </li>
+              
+              {/* Mobile Order Button */}
+              <li className="w-full px-4 mt-4">
+                <button
+                  onClick={() => setIsOrderPopupOpen(true)}
+                  className="flex items-center justify-center w-full px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg active:scale-95 transform font-medium text-white"
+                  style={{ backgroundColor: colors.green }}
+                >
+                  Commander
+                </button>
+              </li>
               <li className="w-full px-4">
                 <a
                   href={assets.uberEatsLink}
@@ -321,39 +353,56 @@ export default function Header() {
               </li>
             </ul>
           </div>
-        )}
+        </div>
       </nav>
     </header>
 
     {/* Order Popup */}
-    {showPopup && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        {/* Backdrop */}
+    {isOrderPopupOpen && (
+      <div 
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={() => setIsOrderPopupOpen(false)}
+      >
         <div 
-          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-          onClick={() => setShowPopup(false)}
-        />
-        
-        {/* Popup Content */}
-        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full animate-fadeInUp">
-          {/* Close Button */}
-          <button
-            onClick={() => setShowPopup(false)}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
-            aria-label="Close popup"
-          >
-            <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          {/* Content */}
+          className="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8 transform animate-in"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4" style={{color: '#654321'}}>Commandez en ligne!</h2>
-            <p className="text-gray-600 mb-6">Faites-vous livrer vos plats préférés directement chez vous</p>
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.lightGreen }}>
+              <span className="text-2xl">🍽️</span>
+            </div>
+            <h2 className="text-2xl font-bold mb-4" style={{color: colors.text}}>Commandez maintenant !</h2>
+            <p className="text-gray-600 mb-6">Choisissez votre méthode de commande préférée</p>
             
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Internal Order Options */}
+            <div className="space-y-4 mb-6">
+              <div className="p-4 rounded-2xl" style={{ backgroundColor: colors.background }}>
+                <h3 className="font-semibold mb-3" style={{color: colors.primary}}>🏠 Commande Directe</h3>
+                <div className="flex flex-col gap-2">
+                  <a 
+                    href="tel:+15147651234" 
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-white transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: colors.green }}
+                  >
+                    <span className="mr-2">📞</span>
+                    Appeler pour commander
+                  </a>
+                  <button 
+                    onClick={() => scrollToSection('location')}
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-white transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: colors.darkGreen }}
+                  >
+                    <span className="mr-2">🏪</span>
+                    Commander sur place
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Delivery Options */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-lg" style={{color: colors.primary}}>🚚 Livraison</h3>
+              
               <a 
                 href={assets.uberEatsLink} 
                 target="_blank" 
@@ -374,6 +423,13 @@ export default function Header() {
                 <span>DoorDash</span>
               </a>
             </div>
+            
+            <button
+              onClick={() => setIsOrderPopupOpen(false)}
+              className="mt-6 px-6 py-2 border border-gray-300 rounded-full text-gray-600 hover:bg-gray-50 transition-colors duration-200"
+            >
+              Fermer
+            </button>
           </div>
         </div>
       </div>
