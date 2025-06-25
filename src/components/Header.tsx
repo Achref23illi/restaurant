@@ -2,12 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useGSAP } from '@gsap/react';
+import { useTranslation } from 'react-i18next';
 import { assets } from '../config/assets';
 import colors from '../config/colors';
+import LanguageSwitcher from './LanguageSwitcher';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
+  const { t } = useTranslation();
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const navItemsRef = useRef<HTMLUListElement>(null);
@@ -158,7 +161,7 @@ export default function Header() {
                   Chez Maman Jeanne
                 </h1>
                 <p className="text-sm" style={{ color: colors.secondary }}>
-                  Cuisine Haïtienne & Congolaise
+                  {t('restaurant.tagline')}
                 </p>
               </div>
             </div>
@@ -170,48 +173,49 @@ export default function Header() {
               onClick={() => scrollToSection('home')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              Accueil
+              {t('navigation.home')}
             </button>
             <button 
               onClick={() => scrollToSection('menu')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              Menu
+              {t('navigation.menu')}
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              À Propos
+              {t('navigation.about')}
             </button>
             <button 
               onClick={() => scrollToSection('reviews')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              Avis
+              {t('navigation.reviews')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              Contact
+              {t('navigation.contact')}
             </button>
             <button 
               onClick={() => scrollToSection('location')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
-              Localisation
+              {t('navigation.location')}
             </button>
           </div>
 
-          {/* Order Button (trigger popup) */}
-          <div className="hidden md:block">
+          {/* Language Switcher & Order Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <button
               onClick={() => setIsOrderPopupOpen(true)}
               className="px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
               style={{ backgroundColor: colors.green }}
             >
-              Commander
+              {t('order.button')}
             </button>
           </div>
 
@@ -272,7 +276,7 @@ export default function Header() {
                   onClick={() => scrollToSection('home')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Accueil
+                  {t('navigation.home')}
                 </button>
               </li>
               <li>
@@ -280,7 +284,7 @@ export default function Header() {
                   onClick={() => scrollToSection('menu')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Menu
+                  {t('navigation.menu')}
                 </button>
               </li>
               <li>
@@ -288,7 +292,7 @@ export default function Header() {
                   onClick={() => scrollToSection('about')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  À Propos
+                  {t('navigation.about')}
                 </button>
               </li>
               <li>
@@ -296,7 +300,7 @@ export default function Header() {
                   onClick={() => scrollToSection('reviews')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Avis
+                  {t('navigation.reviews')}
                 </button>
               </li>
               <li>
@@ -304,7 +308,7 @@ export default function Header() {
                   onClick={() => scrollToSection('contact')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Contact
+                  {t('navigation.contact')}
                 </button>
               </li>
               <li>
@@ -312,10 +316,17 @@ export default function Header() {
                   onClick={() => scrollToSection('location')}
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
-                  Localisation
+                  {t('navigation.location')}
                 </button>
               </li>
               
+              {/* Language Switcher for Mobile */}
+              <li className="w-full px-4 mt-4">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
+              </li>
+
               {/* Mobile Order Button */}
               <li className="w-full px-4 mt-4">
                 <button
@@ -323,7 +334,7 @@ export default function Header() {
                   className="flex items-center justify-center w-full px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg active:scale-95 transform font-medium text-white"
                   style={{ backgroundColor: colors.green }}
                 >
-                  Commander
+                  {t('order.button')}
                 </button>
               </li>
               <li className="w-full px-4">
@@ -371,13 +382,13 @@ export default function Header() {
             <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.lightGreen }}>
               <span className="text-2xl">🍽️</span>
             </div>
-            <h2 className="text-2xl font-bold mb-4" style={{color: colors.text}}>Commandez maintenant !</h2>
-            <p className="text-gray-600 mb-6">Choisissez votre méthode de commande préférée</p>
+            <h2 className="text-2xl font-bold mb-4" style={{color: colors.text}}>{t('order.popup.title')}</h2>
+            <p className="text-gray-600 mb-6">{t('order.popup.subtitle')}</p>
             
             {/* Internal Order Options */}
             <div className="space-y-4 mb-6">
               <div className="p-4 rounded-2xl" style={{ backgroundColor: colors.background }}>
-                <h3 className="font-semibold mb-3" style={{color: colors.primary}}>🏠 Commande Directe</h3>
+                <h3 className="font-semibold mb-3" style={{color: colors.primary}}>{t('order.popup.directOrder')}</h3>
                 <div className="flex flex-col gap-2">
                   <a 
                     href="tel:+15147651234" 
@@ -385,7 +396,7 @@ export default function Header() {
                     style={{ backgroundColor: colors.green }}
                   >
                     <span className="mr-2">📞</span>
-                    Appeler pour commander
+                    {t('order.popup.callToOrder')}
                   </a>
                   <button 
                     onClick={() => scrollToSection('location')}
@@ -393,7 +404,7 @@ export default function Header() {
                     style={{ backgroundColor: colors.darkGreen }}
                   >
                     <span className="mr-2">🏪</span>
-                    Commander sur place
+                    {t('order.popup.orderInStore')}
                   </button>
                 </div>
               </div>
@@ -401,7 +412,7 @@ export default function Header() {
 
             {/* Delivery Options */}
             <div className="space-y-3">
-              <h3 className="font-semibold text-lg" style={{color: colors.primary}}>🚚 Livraison</h3>
+              <h3 className="font-semibold text-lg" style={{color: colors.primary}}>{t('order.popup.delivery')}</h3>
               
               <a 
                 href={assets.uberEatsLink} 
@@ -428,7 +439,7 @@ export default function Header() {
               onClick={() => setIsOrderPopupOpen(false)}
               className="mt-6 px-6 py-2 border border-gray-300 rounded-full text-gray-600 hover:bg-gray-50 transition-colors duration-200"
             >
-              Fermer
+              {t('order.popup.close')}
             </button>
           </div>
         </div>

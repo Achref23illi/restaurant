@@ -1,10 +1,12 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { assets } from '../config/assets';
 import colors from '../config/colors';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const footerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -38,53 +40,52 @@ export default function Footer() {
                 className="h-12 w-auto"
               />
               <div>
-                <h3 className="text-xl font-bold">Chez Maman Jeanne</h3>
-                <p className="text-sm opacity-75">Cuisine Authentique</p>
+                <h3 className="text-xl font-bold">{t('restaurant.name')}</h3>
+                <p className="text-sm opacity-75">{t('restaurant.tagline')}</p>
               </div>
             </div>
             <p className="text-sm leading-relaxed opacity-90">
-              Découvrez l'authenticité de la cuisine haïtienne et congolaise dans le cœur de Montréal. 
-              Des saveurs traditionnelles préparées avec passion depuis des générations.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Horaires */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Horaires d'ouverture</h4>
+            <h4 className="text-white font-semibold text-lg">{t('footer.hours.title')}</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>Lundi - Jeudi</span>
-                <span className="opacity-75">11h - 21h</span>
+                <span>{t('footer.hours.mondayThursday')}</span>
+                <span className="opacity-75">{t('footer.hours.mondayThursdayTime')}</span>
               </div>
               <div className="flex justify-between">
-                <span>Vendredi - Samedi</span>
-                <span className="opacity-75">11h - 22h</span>
+                <span>{t('footer.hours.fridaySaturday')}</span>
+                <span className="opacity-75">{t('footer.hours.fridaySaturdayTime')}</span>
               </div>
               <div className="flex justify-between">
-                <span>Dimanche</span>
-                <span className="opacity-75">12h - 20h</span>
+                <span>{t('footer.hours.sunday')}</span>
+                <span className="opacity-75">{t('footer.hours.sundayTime')}</span>
               </div>
             </div>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Contact</h4>
+            <h4 className="text-white font-semibold text-lg">{t('footer.contact.title')}</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-3">
                 <span className="text-lg">📍</span>
-                <span className="opacity-90">1234 Rue Saint-Laurent<br />Montréal, QC H2X 2S8</span>
+                <span className="opacity-90">{t('footer.contact.address')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-lg">📞</span>
                 <a href="tel:+15147651234" className="opacity-90 hover:opacity-100 transition-opacity">
-                  (514) 765-1234
+                  {t('footer.contact.phone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-lg">✉️</span>
                 <a href="mailto:info@chezmamanjean.com" className="opacity-90 hover:opacity-100 transition-opacity">
-                  info@chezmamanjean.com
+                  {t('footer.contact.email')}
                 </a>
               </div>
             </div>
@@ -92,14 +93,14 @@ export default function Footer() {
 
           {/* Commandes */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Commandez en ligne</h4>
+            <h4 className="text-white font-semibold text-lg">{t('footer.orderOnline.title')}</h4>
             <div className="space-y-3">
               <button
                 className="w-full inline-flex items-center justify-center px-4 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 text-white"
                 style={{ backgroundColor: colors.green }}
               >
                 <span className="mr-2">🍽️</span>
-                Commander
+                {t('footer.orderOnline.orderButton')}
               </button>
               
               <a
@@ -137,14 +138,14 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm opacity-75">
-              © 2024 Chez Maman Jeanne. Tous droits réservés.
+              {t('footer.rights')}
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="opacity-75 hover:opacity-100 transition-opacity">
-                Politique de confidentialité
+                {t('footer.privacy')}
               </a>
               <a href="#" className="opacity-75 hover:opacity-100 transition-opacity">
-                Conditions d'utilisation
+                {t('footer.terms')}
               </a>
             </div>
           </div>
@@ -152,4 +153,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}

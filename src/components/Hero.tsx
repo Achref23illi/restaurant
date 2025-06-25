@@ -2,11 +2,13 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useTranslation } from 'react-i18next';
 import { assets } from '../config/assets';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Hero() {
+  const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -101,10 +103,10 @@ export default function Hero() {
             className="text-5xl lg:text-7xl font-bold leading-tight"
             style={{ color: '#8B4513' }}
           >
-            Bienvenue chez
+            {t('hero.welcome')}
             <br />
             <span className="text-6xl lg:text-8xl" style={{ color: '#A0522D' }}>
-              Maman Jeanne
+              {t('hero.title')}
             </span>
           </h1>
           
@@ -112,7 +114,7 @@ export default function Hero() {
             ref={subtitleRef}
             className="text-xl lg:text-2xl text-gray-700 leading-relaxed"
           >
-            Découvrez l’authenticité de la cuisine traditionnelle créole haïtienne et congolaise, mijotée avec amour et passion depuis trois générations.
+            {t('hero.subtitle')}
           </p>
 
           <div ref={ctaRef} className="flex flex-col gap-6 pt-4">
@@ -124,7 +126,7 @@ export default function Hero() {
                 color: 'white'
               }}
             >
-              <span className="relative z-10">Découvrir le Menu</span>
+              <span className="relative z-10">{t('hero.discoverMenu')}</span>
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: 'linear-gradient(135deg, #A0522D, #8B4513)' }}
@@ -158,7 +160,7 @@ export default function Hero() {
               </div>
               
               <span className="text-sm font-medium group-hover:underline">
-                Voir nos avis Google
+                {t('hero.googleReviews')}
               </span>
             </a>
           </div>
@@ -186,7 +188,7 @@ export default function Hero() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-10 left-10 right-10">
-                    <p className="text-white/80 text-sm font-medium mb-2">Plat Signature</p>
+                    <p className="text-white/80 text-sm font-medium mb-2">{t('hero.signature')}</p>
                     <h3 className="text-white text-4xl font-bold capitalize">
                       {dish.name.replace(/([A-Z])/g, ' $1').trim()}
                     </h3>
@@ -208,7 +210,7 @@ export default function Hero() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-10 left-10 right-10">
-                    <p className="text-white/80 text-sm font-medium mb-2">Plat Signature</p>
+                    <p className="text-white/80 text-sm font-medium mb-2">{t('hero.signature')}</p>
                     <h3 className="text-white text-4xl font-bold capitalize">
                       {dish.name.replace(/([A-Z])/g, ' $1').trim()}
                     </h3>

@@ -2,12 +2,13 @@ import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { menuCategories, type MenuItem } from '../data/menuData';
+import { useTranslation } from 'react-i18next';
+import { menuCategories, type MenuItem } from '../data/menuDataI18n';
 
 import colors from '../config/colors';
 
 function moveGriotLast(items: MenuItem[]): MenuItem[] {
-  const index = items.findIndex((item) => item.name.toLowerCase().includes('griot de porc'));
+  const index = items.findIndex((item) => item?.nameKey === 'menu.items.griotPorc.name');
   if (index !== -1) {
     const [griot] = items.splice(index, 1);
     items.push(griot);
@@ -18,6 +19,7 @@ function moveGriotLast(items: MenuItem[]): MenuItem[] {
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Menu() {
+  const { t } = useTranslation();
   const menuRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
@@ -135,10 +137,10 @@ export default function Menu() {
   const allItems = menuCategories.flatMap(category => category.items);
 
   const categories = [
-    { id: 'all', name: 'Tous les plats', count: allItems.length },
+    { id: 'all', name: t('menu.categories.all') || 'All dishes', count: allItems.length },
     ...menuCategories.map(category => ({
       id: category.id,
-      name: category.name.split(' / ')[0],
+      name: t(category.nameKey),
       count: category.items.length
     }))
   ];
@@ -149,10 +151,10 @@ export default function Menu() {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold mb-6" style={{ color: colors.primary }}>
-            Notre Menu
+            {t('menu.title')}
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Découvrez nos spécialités haïtiennes et congolaises, préparées avec passion et authenticité
+            {t('menu.subtitle')}
           </p>
         </div>
 
@@ -208,7 +210,7 @@ export default function Menu() {
               <div className="relative overflow-hidden h-52">
                 <img
                   src={item.image}
-                  alt={item.name}
+                  alt={t(item.nameKey)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 
@@ -221,7 +223,7 @@ export default function Menu() {
                         background: `linear-gradient(45deg, ${colors.darkGreen}, ${colors.green})`,
                       }}
                     >
-                      ✨ MYSTÈRE
+                      ✨ {t('menu.mystery')}
                     </span>
                   )}
                   {item.popular && !isSpecialItem && (
@@ -229,12 +231,12 @@ export default function Menu() {
                       className="px-2 py-1 text-white text-xs font-medium rounded-full"
                       style={{ backgroundColor: colors.green }}
                     >
-                      Populaire
+                      {t('menu.popular')}
                     </span>
                   )}
                   {item.spicy && (
                     <span className="px-2 py-1 bg-red-500 text-white text-xs font-medium rounded-full flex items-center gap-1">
-                      🌶️ Épicé
+                      🌶️ {t('menu.spicy')}
                     </span>
                   )}
                 </div>
@@ -257,7 +259,7 @@ export default function Menu() {
                       })
                     }}
                   >
-                    {item.name}
+                    {t(item.nameKey)}
                   </h3>
                   <p 
                     className={`text-sm leading-relaxed line-clamp-2 ${
@@ -267,7 +269,7 @@ export default function Menu() {
                       color: isSpecialItem ? colors.text : '#6B7280'
                     }}
                   >
-                    {item.description}
+                    {t(item.descriptionKey)}
                   </p>
                 </div>
                 
@@ -294,10 +296,10 @@ export default function Menu() {
             <div className="absolute inset-0 bg-black/10" />
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-4">
-                Commandez maintenant et profitez de nos saveurs authentiques
+                {t('menu.orderNow')}
               </h3>
               <p className="text-xl mb-8 opacity-90">
-                Plusieurs options de commande disponibles pour votre confort
+                {t('menu.orderSubtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
@@ -308,13 +310,13 @@ export default function Menu() {
                   }}
                 >
                   <span className="mr-2">🍽️</span>
-                  Commander
+                  {t('menu.orderButton')}
                 </button>
                 <button 
                   className="bg-white rounded-full font-bold text-lg px-8 py-4 transition-colors duration-300 transform hover:scale-105"
                   style={{ color: colors.secondary }}
                 >
-                  Voir toutes les options
+                  {t('menu.viewAllOptions')}
                 </button>
               </div>
             </div>

@@ -1,0 +1,326 @@
+{
+  "restaurant": {
+    "name": "Chez Maman Jeanne",
+    "tagline": "Cuisine Haïtienne & Congolaise"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "about": "À Propos",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "location": "Localisation"
+  },
+  "hero": {
+    "welcome": "Bienvenue chez",
+    "title": "Maman Jeanne",
+    "subtitle": "Découvrez l'authenticité de la cuisine traditionnelle créole haïtienne et congolaise, mijotée avec amour et passion depuis trois générations.",
+    "discoverMenu": "Découvrir le Menu",
+    "signature": "Plat Signature",
+    "googleReviews": "Voir nos avis Google"
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "description1": "Chez Maman Jeanne, nous vous proposons les saveurs riches et variées de la cuisine congolaise africaine et créole haïtienne. Notre menu est une fusion de plats traditionnels, préparés avec des ingrédients authentiques et assaisonnés avec amour, comme à la maison.",
+    "description2": "Que vous ayez envie des épices audacieuses du Congo ou des saveurs vibrantes d'Haïti, vous trouverez un repas fait maison qui satisfait votre âme. Venez découvrir une atmosphère chaleureuse et accueillante, où chaque plat raconte une histoire de patrimoine et de cœur.",
+    "description3": "Rejoignez-nous pour un voyage culinaire inoubliable.",
+    "quote": "Chaque plat raconte une histoire de patrimoine et de cœur",
+    "quoteAuthor": "Maman Jeanne"
+  },
+  "reviews": {
+    "title": "Nos Avis Clients",
+    "subtitle": "Ce que nos clients pensent de nous sur les différentes plateformes",
+    "verifiedReviews": "avis vérifiés",
+    "rating": "note",
+    "outOf5": "sur 5",
+    "votes": "votes",
+    "clients": "Clients",
+    "montreal": "Montréal",
+    "uberEatsReview": "Excellente cuisine haïtienne, service rapide et portions généreuses!",
+    "uberEatsAuthor": "Dernier avis",
+    "doorDashReview": "Bonne nourriture, livraison dans les temps. À essayer!",
+    "doorDashAuthor": "Avis récent",
+    "montrealReview": "Authenticité et saveurs d'exception dans le cœur de Montréal!",
+    "montrealAuthor": "Avis locaux",
+    "orderNow": "Commandez dès maintenant et découvrez pourquoi nos clients nous adorent!",
+    "orderButton": "Commander",
+    "orderUberEats": "Commander sur UberEats",
+    "orderDoorDash": "Commander sur DoorDash"
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "N'hésitez pas à nous contacter pour toute question ou réservation",
+    "phone": {
+      "title": "📞 Téléphone",
+      "description": "Appelez-nous pour passer commande ou pour toute question",
+      "button": "Appeler maintenant"
+    },
+    "address": {
+      "title": "📍 Adresse",
+      "street": "1234 Rue Saint-Laurent",
+      "city": "Montréal, QC H2X 2S8",
+      "country": "Canada",
+      "button": "Voir sur Maps"
+    },
+    "hours": {
+      "title": "🕒 Horaires",
+      "mondayThursday": "Lundi - Jeudi",
+      "fridaySaturday": "Vendredi - Samedi",
+      "sunday": "Dimanche",
+      "mondayThursdayTime": "11h - 21h",
+      "fridaySaturdayTime": "11h - 22h",
+      "sundayTime": "12h - 20h"
+    },
+    "order": {
+      "title": "🍽️ Commander",
+      "description": "Choisissez votre méthode de commande préférée",
+      "viewAllOptions": "Voir toutes les options"
+    },
+    "delivery": {
+      "title": "🚚 Livraison Rapide",
+      "description": "Commandez directement via nos partenaires de livraison"
+    },
+    "modal": {
+      "title": "Commandez maintenant !",
+      "subtitle": "Choisissez votre méthode de commande préférée",
+      "directOrder": "🏠 Commande Directe",
+      "callToOrder": "📞 Appeler pour commander",
+      "orderInStore": "🏪 Commander sur place",
+      "delivery": "🚚 Livraison",
+      "close": "Fermer"
+    }
+  },
+  "location": {
+    "title": "Où nous trouver",
+    "subtitle": "Venez découvrir l'ambiance chaleureuse de notre restaurant et savourez nos plats authentiques dans un cadre convivial.",
+    "address": {
+      "title": "Adresse",
+      "street": "2357 Jolicoeur St",
+      "city": "Montreal, Quebec H4E 1X9",
+      "country": "Canada"
+    },
+    "hours": {
+      "title": "Heures d'ouverture",
+      "mondayWednesday": "Lundi - Mercredi:",
+      "thursday": "Jeudi:",
+      "friday": "Vendredi:",
+      "saturday": "Samedi:",
+      "sunday": "Dimanche:",
+      "mondayWednesdayTime": "11 AM - 10 PM",
+      "thursdayTime": "11 AM - 10 PM",
+      "fridayTime": "11 AM - 11 PM",
+      "saturdayTime": "12 PM - 11 PM",
+      "sundayTime": "12 PM - 10 PM"
+    },
+    "phone": {
+      "title": "Téléphone",
+      "number": "+1 514-354-3811"
+    },
+    "directions": "Obtenir les directions"
+  },
+  "footer": {
+    "description": "Découvrez l'authenticité de la cuisine haïtienne et congolaise dans le cœur de Montréal. Des saveurs traditionnelles préparées avec passion depuis des générations.",
+    "hours": {
+      "title": "Horaires d'ouverture",
+      "mondayThursday": "Lundi - Jeudi",
+      "fridaySaturday": "Vendredi - Samedi",
+      "sunday": "Dimanche",
+      "mondayThursdayTime": "11h - 21h",
+      "fridaySaturdayTime": "11h - 22h",
+      "sundayTime": "12h - 20h"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "1234 Rue Saint-Laurent\nMontréal, QC H2X 2S8",
+      "phone": "(514) 765-1234",
+      "email": "info@chezmamanjean.com"
+    },
+    "orderOnline": {
+      "title": "Commandez en ligne",
+      "orderButton": "🍽️ Commander"
+    },
+    "rights": "© 2024 Chez Maman Jeanne. Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  },
+  "order": {
+    "button": "Commander",
+    "popup": {
+      "title": "Commandez maintenant !",
+      "subtitle": "Choisissez votre méthode de commande préférée",
+      "directOrder": "🏠 Commande Directe",
+      "callToOrder": "📞 Appeler pour commander",
+      "orderInStore": "🏪 Commander sur place",
+      "delivery": "🚚 Livraison",
+      "close": "Fermer"
+    }
+  },
+  "menu": {
+    "title": "Notre Menu",
+    "subtitle": "Découvrez nos spécialités haïtiennes et congolaises, préparées avec passion et authenticité",
+    "orderNow": "Commandez maintenant et profitez de nos saveurs authentiques",
+    "orderSubtitle": "Plusieurs options de commande disponibles pour votre confort",
+    "orderButton": "Commander",
+    "viewAllOptions": "Voir toutes les options",
+    "popular": "Populaire",
+    "mystery": "MYSTÈRE",
+    "spicy": "Épicé",
+    "categories": {
+      "all": "Tous les plats",
+      "special": "Menu Spécial",
+      "featured": "Plats Populaires",
+      "african": "Nos Plats Africains",
+      "creole": "Nos Plats Créoles",
+      "entrees": "Entrées",
+      "meat": "Viandes et Poissons",
+      "sides": "Les À-côtés",
+      "drinks": "Boissons"
+    },
+    "items": {
+      "threePoutines": {
+        "name": "3 Poutines",
+        "description": "Mystère à venir... Trois poutines spéciales qui seront bientôt révélées"
+      },
+      "griotPorc": {
+        "name": "Griot de Porc",
+        "description": "Morceaux de porc tendres marinés aux agrumes, cuits lentement et garnis d'herbes fraîches"
+      },
+      "tassotBoeuf": {
+        "name": "Tassot de Bœuf",
+        "description": "Morceaux de bœuf marinés et frits, garnis d'herbes fraîches et servis avec un citron"
+      },
+      "fritaille": {
+        "name": "Fritaille",
+        "description": "Mélange de viandes"
+      },
+      "goat": {
+        "name": "Chèvre",
+        "description": "Kwanga (pain de manioc), riz blanc, riz collé, ou fufu (pâte d'Afrique de l'Ouest)"
+      },
+      "halfChicken": {
+        "name": "Deux cuisses",
+        "description": "Kwanga (pain de manioc), riz blanc, riz collé, ou Fufu (igname pilée)"
+      },
+      "thomsonFish": {
+        "name": "Poisson Thomson",
+        "description": "Et pondu (sauce aux feuilles de manioc)"
+      },
+      "eightChickenWings": {
+        "name": "8 Ailes de Poulet",
+        "description": "Kwanga, riz blanc, riz collé, ou fufu"
+      },
+      "twoMakayabus": {
+        "name": "2 Makayabus (morues)",
+        "description": "Avec fumbwa (sauce aux feuilles et à la pâte d'arachides)"
+      },
+      "goatTassot": {
+        "name": "Tassot Chèvre",
+        "description": "Viande de chèvre tendre marinée et frite, servie avec une sauce créole savoureuse"
+      },
+      "vegetables": {
+        "name": "Légumes",
+        "description": "Mélange de cubes de bœuf et d'une variété de légumes en sauce"
+      },
+      "chicken": {
+        "name": "Poulet",
+        "description": "Poulet tendre servi avec un mélange de légumes sautés et un accompagnement de riz vapeur"
+      },
+      "madesu": {
+        "name": "Madesu (sauce aux haricots)",
+        "description": "Servie avec riz ou pondu (sauce aux feuilles de manioc) ou fumbwa (sauce aux feuilles et à la pâte d'arachides)"
+      },
+      "tilapia": {
+        "name": "Tilapia",
+        "description": "Avec du modesu (sauce aux haricots blancs)"
+      },
+      "tilapiaV2": {
+        "name": "Tilapia (version 2)",
+        "description": "Avec du modesu (sauce aux haricots blancs)"
+      },
+      "brokenChicken": {
+        "name": "Poulet Brisé",
+        "description": "Poulet tendre mijoté dans une sauce créole savoureuse"
+      },
+      "chickenWings4": {
+        "name": "Ailes de poulet (4)",
+        "description": "Ailes de poulet marinées aux épices créoles"
+      },
+      "samosas": {
+        "name": "Samosas (2)",
+        "description": "Délicieux samosas croustillants"
+      },
+      "saladMoment": {
+        "name": "Salade du moment",
+        "description": "Laitue croquante, concombres tranchés, tomates cerises, croûtons et fromage râpé"
+      },
+      "makayabu": {
+        "name": "Makayabu (morue)",
+        "description": "Morue traditionnelle préparée aux épices"
+      },
+      "chickenDrumsticks": {
+        "name": "Pilons de poulet (6)",
+        "description": "Six pilons de poulet marinés et grillés"
+      },
+      "chickenWings": {
+        "name": "Ailes de poulet",
+        "description": "Ailes de poulet - Choix de 6 ou 12 pièces"
+      },
+      "tilapiaFish": {
+        "name": "Tilapia",
+        "description": "Poisson tilapia frais grillé"
+      },
+      "thomsonFishMeat": {
+        "name": "Poisson Thomson",
+        "description": "Poisson Thomson grillé aux épices"
+      },
+      "brokenFish": {
+        "name": "Poisson Brisé",
+        "description": "Poisson tendre mijoté dans une sauce savoureuse"
+      },
+      "macaroniSalad": {
+        "name": "Salade de macaroni",
+        "description": "Salade de macaroni crémeuse et savoureuse"
+      },
+      "stickyRice": {
+        "name": "Riz collé (avec haricots rouges)",
+        "description": "Riz collant traditionnel aux haricots rouges"
+      },
+      "pondu": {
+        "name": "Pondu (sauce aux feuilles de manioc)",
+        "description": "Sauce traditionnelle aux feuilles de manioc"
+      },
+      "friedPlantains": {
+        "name": "Plantains frits (à la façon haïtienne) (2)",
+        "description": "Deux plantains frits à la façon haïtienne"
+      },
+      "kwanga": {
+        "name": "Kwanga (bâton de manioc)",
+        "description": "Bâton de manioc traditionnel"
+      },
+      "madesauSauce": {
+        "name": "Madesu (sauce aux haricots blancs)",
+        "description": "Sauce aux haricots blancs traditionnelle"
+      },
+      "juice": {
+        "name": "Jus",
+        "description": "Jus : Choix de saveurs : Ananas, Gingembre, Oranges, Pommes"
+      },
+      "maltan": {
+        "name": "Maltan",
+        "description": "Boisson maltée traditionnelle"
+      },
+      "water": {
+        "name": "Eau",
+        "description": "Pure, hydratation rafraîchissante"
+      },
+      "softDrinks": {
+        "name": "Boissons gazéifiées",
+        "description": "Options de cola, cola diète ou soda citron-lime"
+      },
+      "colaChampagne": {
+        "name": "Cola Champagne",
+        "description": "Favori portoricain - un goût uniquement tentant"
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,6 +8,7 @@ import { assets } from '../config/assets';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Location() {
+  const { t } = useTranslation();
   const locationRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -54,11 +56,10 @@ export default function Location() {
           <div className="space-y-8">
             <div>
               <h2 className="text-5xl lg:text-6xl font-bold mb-6" style={{ color: '#8B4513' }}>
-                Où nous trouver
+                {t('location.title')}
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Venez découvrir l'ambiance chaleureuse de notre restaurant et 
-                savourez nos plats authentiques dans un cadre convivial.
+                {t('location.subtitle')}
               </p>
             </div>
 
@@ -75,11 +76,11 @@ export default function Location() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>Adresse</h3>
+                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>{t('location.address.title')}</h3>
                   <p className="text-gray-600">
-                    2357 Jolicoeur St<br />
-                    Montreal, Quebec H4E 1X9<br />
-                    Canada
+                    {t('location.address.street')}<br />
+                    {t('location.address.city')}<br />
+                    {t('location.address.country')}
                   </p>
                 </div>
               </div>
@@ -94,13 +95,13 @@ export default function Location() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>Heures d'ouverture</h3>
+                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>{t('location.hours.title')}</h3>
                   <div className="text-gray-600 space-y-1">
-                    <p><span className="font-medium">Lundi - Mercredi:</span> 11 AM - 10 PM</p>
-                    <p><span className="font-medium">Jeudi:</span> 11 AM - 10 PM</p>
-                    <p><span className="font-medium">Vendredi:</span> 11 AM - 11 PM</p>
-                    <p><span className="font-medium">Samedi:</span> 12 PM - 11 PM</p>
-                    <p><span className="font-medium">Dimanche:</span> 12 PM - 10 PM</p>
+                    <p><span className="font-medium">{t('location.hours.mondayWednesday')}</span> {t('location.hours.mondayWednesdayTime')}</p>
+                    <p><span className="font-medium">{t('location.hours.thursday')}</span> {t('location.hours.thursdayTime')}</p>
+                    <p><span className="font-medium">{t('location.hours.friday')}</span> {t('location.hours.fridayTime')}</p>
+                    <p><span className="font-medium">{t('location.hours.saturday')}</span> {t('location.hours.saturdayTime')}</p>
+                    <p><span className="font-medium">{t('location.hours.sunday')}</span> {t('location.hours.sundayTime')}</p>
                   </div>
                 </div>
               </div>
@@ -115,8 +116,8 @@ export default function Location() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>Téléphone</h3>
-                  <p className="text-gray-600">+1 514-354-3811</p>
+                  <h3 className="font-semibold text-xl mb-2" style={{ color: '#2D1810' }}>{t('location.phone.title')}</h3>
+                  <p className="text-gray-600">{t('location.phone.number')}</p>
                 </div>
               </div>
 
@@ -132,7 +133,7 @@ export default function Location() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                         d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
-                <span>Obtenir les directions</span>
+                <span>{t('location.directions')}</span>
               </a>
             </div>
           </div>

@@ -1,0 +1,326 @@
+{
+  "restaurant": {
+    "name": "Chez Maman Jeanne",
+    "tagline": "Haitian & Congolese Cuisine"
+  },
+  "navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "location": "Location"
+  },
+  "hero": {
+    "welcome": "Welcome to",
+    "title": "Maman Jeanne",
+    "subtitle": "Discover the authenticity of traditional Haitian Creole and Congolese cuisine, simmered with love and passion for three generations.",
+    "discoverMenu": "Discover the Menu",
+    "signature": "Signature Dish",
+    "googleReviews": "See our Google Reviews"
+  },
+  "about": {
+    "title": "About Us",
+    "description1": "At Chez Maman Jeanne, we offer you the rich and varied flavors of African Congolese and Haitian Creole cuisine. Our menu is a fusion of traditional dishes, prepared with authentic ingredients and seasoned with love, just like home.",
+    "description2": "Whether you crave the bold spices of Congo or the vibrant flavors of Haiti, you'll find a home-cooked meal that satisfies your soul. Come discover a warm and welcoming atmosphere, where each dish tells a story of heritage and heart.",
+    "description3": "Join us for an unforgettable culinary journey.",
+    "quote": "Each dish tells a story of heritage and heart",
+    "quoteAuthor": "Maman Jeanne"
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "subtitle": "What our customers think of us on different platforms",
+    "verifiedReviews": "verified reviews",
+    "rating": "rating",
+    "outOf5": "out of 5",
+    "votes": "votes",
+    "clients": "Clients",
+    "montreal": "Montreal",
+    "uberEatsReview": "Excellent Haitian cuisine, fast service and generous portions!",
+    "uberEatsAuthor": "Latest review",
+    "doorDashReview": "Good food, on-time delivery. Worth trying!",
+    "doorDashAuthor": "Recent review",
+    "montrealReview": "Authenticity and exceptional flavors in the heart of Montreal!",
+    "montrealAuthor": "Local reviews",
+    "orderNow": "Order now and discover why our customers love us!",
+    "orderButton": "Order",
+    "orderUberEats": "Order on UberEats",
+    "orderDoorDash": "Order on DoorDash"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Don't hesitate to contact us for any questions or reservations",
+    "phone": {
+      "title": "📞 Phone",
+      "description": "Call us to place an order or for any questions",
+      "button": "Call now"
+    },
+    "address": {
+      "title": "📍 Address",
+      "street": "1234 Rue Saint-Laurent",
+      "city": "Montreal, QC H2X 2S8",
+      "country": "Canada",
+      "button": "View on Maps"
+    },
+    "hours": {
+      "title": "🕒 Hours",
+      "mondayThursday": "Monday - Thursday",
+      "fridaySaturday": "Friday - Saturday",
+      "sunday": "Sunday",
+      "mondayThursdayTime": "11 AM - 9 PM",
+      "fridaySaturdayTime": "11 AM - 10 PM",
+      "sundayTime": "12 PM - 8 PM"
+    },
+    "order": {
+      "title": "🍽️ Order",
+      "description": "Choose your preferred ordering method",
+      "viewAllOptions": "View all options"
+    },
+    "delivery": {
+      "title": "🚚 Fast Delivery",
+      "description": "Order directly through our delivery partners"
+    },
+    "modal": {
+      "title": "Order now!",
+      "subtitle": "Choose your preferred ordering method",
+      "directOrder": "🏠 Direct Order",
+      "callToOrder": "📞 Call to order",
+      "orderInStore": "🏪 Order in-store",
+      "delivery": "🚚 Delivery",
+      "close": "Close"
+    }
+  },
+  "location": {
+    "title": "Where to Find Us",
+    "subtitle": "Come discover the warm atmosphere of our restaurant and savor our authentic dishes in a friendly setting.",
+    "address": {
+      "title": "Address",
+      "street": "2357 Jolicoeur St",
+      "city": "Montreal, Quebec H4E 1X9",
+      "country": "Canada"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "mondayWednesday": "Monday - Wednesday:",
+      "thursday": "Thursday:",
+      "friday": "Friday:",
+      "saturday": "Saturday:",
+      "sunday": "Sunday:",
+      "mondayWednesdayTime": "11 AM - 10 PM",
+      "thursdayTime": "11 AM - 10 PM",
+      "fridayTime": "11 AM - 11 PM",
+      "saturdayTime": "12 PM - 11 PM",
+      "sundayTime": "12 PM - 10 PM"
+    },
+    "phone": {
+      "title": "Phone",
+      "number": "+1 514-354-3811"
+    },
+    "directions": "Get Directions"
+  },
+  "footer": {
+    "description": "Discover the authenticity of Haitian and Congolese cuisine in the heart of Montreal. Traditional flavors prepared with passion for generations.",
+    "hours": {
+      "title": "Opening Hours",
+      "mondayThursday": "Monday - Thursday",
+      "fridaySaturday": "Friday - Saturday",
+      "sunday": "Sunday",
+      "mondayThursdayTime": "11 AM - 9 PM",
+      "fridaySaturdayTime": "11 AM - 10 PM",
+      "sundayTime": "12 PM - 8 PM"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "1234 Rue Saint-Laurent\nMontreal, QC H2X 2S8",
+      "phone": "(514) 765-1234",
+      "email": "info@chezmamanjean.com"
+    },
+    "orderOnline": {
+      "title": "Order Online",
+      "orderButton": "🍽️ Order"
+    },
+    "rights": "© 2024 Chez Maman Jeanne. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "order": {
+    "button": "Order",
+    "popup": {
+      "title": "Order now!",
+      "subtitle": "Choose your preferred ordering method",
+      "directOrder": "🏠 Direct Order",
+      "callToOrder": "📞 Call to order",
+      "orderInStore": "🏪 Order in-store",
+      "delivery": "🚚 Delivery",
+      "close": "Close"
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Discover our Haitian and Congolese specialties, prepared with passion and authenticity",
+    "orderNow": "Order now and enjoy our authentic flavors",
+    "orderSubtitle": "Multiple ordering options available for your convenience",
+    "orderButton": "Order",
+    "viewAllOptions": "View all options",
+    "popular": "Popular",
+    "mystery": "MYSTERY",
+    "spicy": "Spicy",
+    "categories": {
+      "all": "All dishes",
+      "special": "Special Menu",
+      "featured": "Popular Dishes",
+      "african": "Our African Dishes",
+      "creole": "Our Creole Dishes",
+      "entrees": "Starters",
+      "meat": "Meat and Fish",
+      "sides": "Sides",
+      "drinks": "Drinks"
+    },
+    "items": {
+      "threePoutines": {
+        "name": "3 Poutines",
+        "description": "Mystery coming soon... Three special poutines to be revealed"
+      },
+      "griotPorc": {
+        "name": "Griot de Porc",
+        "description": "Tender pork pieces marinated in citrus, slow-cooked, and garnished with fresh herbs"
+      },
+      "tassotBoeuf": {
+        "name": "Tassot de Bœuf",
+        "description": "Marinated and fried beef chunks, garnished with fresh herbs and served with a lemon"
+      },
+      "fritaille": {
+        "name": "Fritaille",
+        "description": "Mixed meats"
+      },
+      "goat": {
+        "name": "Goat",
+        "description": "Kwanga (cassava bread), white rice, sticky rice, or fufu (West African dough)"
+      },
+      "halfChicken": {
+        "name": "Half Chicken",
+        "description": "Kwanga (cassava bread), white rice, sticky rice, or Fufu (pounded yam)"
+      },
+      "thomsonFish": {
+        "name": "Thomson Fish",
+        "description": "And pondu (cassava leaf sauce)"
+      },
+      "eightChickenWings": {
+        "name": "8 Chicken Wings",
+        "description": "Kwanga, white rice, sticky rice, or fufu"
+      },
+      "twoMakayabus": {
+        "name": "2 Makayabus",
+        "description": "With fumbwa (peanut paste sauce)"
+      },
+      "goatTassot": {
+        "name": "Goat Tassot",
+        "description": "Tender goat meat marinated and fried, served with a flavorful Creole sauce"
+      },
+      "vegetables": {
+        "name": "Vegetables",
+        "description": "Mixture of cubed beef and a variety of vegetables in sauce"
+      },
+      "chicken": {
+        "name": "Chicken",
+        "description": "Tender chicken served with a medley of sautéed vegetables and a side of steamed rice"
+      },
+      "madesu": {
+        "name": "Madesu (bean sauce)",
+        "description": "Served with rice or pondu (cassava leaf sauce) or fumbwa (leaf and peanut paste sauce)"
+      },
+      "tilapia": {
+        "name": "Tilapia",
+        "description": "With modesu (white bean sauce)"
+      },
+      "tilapiaV2": {
+        "name": "Tilapia (version 2)",
+        "description": "With modesu (white Bean sauce)"
+      },
+      "brokenChicken": {
+        "name": "Broken Chicken",
+        "description": "Tender chicken simmered in flavorful Creole sauce"
+      },
+      "chickenWings4": {
+        "name": "Chicken Wings (4)",
+        "description": "Chicken wings marinated with Creole spices"
+      },
+      "samosas": {
+        "name": "Samosas (2)",
+        "description": "Delicious crispy samosas"
+      },
+      "saladMoment": {
+        "name": "Salad of the moment",
+        "description": "Crisp lettuce, sliced cucumbers, cherry tomatoes, croutons, and a sprinkle of grated cheese"
+      },
+      "makayabu": {
+        "name": "Makayabu (Codfish)",
+        "description": "Traditional codfish prepared with spices"
+      },
+      "chickenDrumsticks": {
+        "name": "Chicken Drumsticks (6)",
+        "description": "Six marinated and grilled chicken drumsticks"
+      },
+      "chickenWings": {
+        "name": "Chicken Wings",
+        "description": "Chicken Wings Choice of 6 or 12 pieces"
+      },
+      "tilapiaFish": {
+        "name": "Tilapia",
+        "description": "Fresh grilled tilapia fish"
+      },
+      "thomsonFishMeat": {
+        "name": "Thomson fish",
+        "description": "Thomson fish grilled with spices"
+      },
+      "brokenFish": {
+        "name": "Broken Fish",
+        "description": "Tender fish simmered in flavorful sauce"
+      },
+      "macaroniSalad": {
+        "name": "Macaroni Salad",
+        "description": "Creamy and flavorful macaroni salad"
+      },
+      "stickyRice": {
+        "name": "Sticky Rice (With Kidney Beans)",
+        "description": "Traditional sticky rice with red beans"
+      },
+      "pondu": {
+        "name": "Pondu (Cassava Leaf Sauce)",
+        "description": "Traditional cassava leaf sauce"
+      },
+      "friedPlantains": {
+        "name": "Fried Plantains (Haitian Style) (2)",
+        "description": "Two Haitian-style fried plantains"
+      },
+      "kwanga": {
+        "name": "Kwanga (Cassava Stick)",
+        "description": "Traditional cassava stick"
+      },
+      "madesauSauce": {
+        "name": "Madesu (white Bean Sauce)",
+        "description": "Traditional white bean sauce"
+      },
+      "juice": {
+        "name": "Juice",
+        "description": "Choice of flavors: Pineapple, Ginger, Oranges, Apples"
+      },
+      "maltan": {
+        "name": "Maltan",
+        "description": "Traditional malted beverage"
+      },
+      "water": {
+        "name": "Water",
+        "description": "Pure, refreshing hydration"
+      },
+      "softDrinks": {
+        "name": "Soft drinks",
+        "description": "Cola, Diet Cola, or Lemon-Lime soda options"
+      },
+      "colaChampagne": {
+        "name": "Cola Champagne",
+        "description": "Puerto Rican favorite- a uniquely tantalizing taste"
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +9,7 @@ import colors from '../config/colors';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const contactRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -114,10 +116,10 @@ export default function Contact() {
         {/* Header */}
         <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6">
-            Contactez-Nous
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            N'hésitez pas à nous contacter pour toute question ou réservation
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -131,16 +133,16 @@ export default function Contact() {
                    backgroundColor: `${colors.lightGreen}40`,
                    borderColor: `${colors.green}60`
                  }}>
-              <h3 className="font-semibold text-2xl mb-4 text-white">📞 Téléphone</h3>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.phone.title')}</h3>
               <p className="text-gray-300 mb-4">
-                Appelez-nous pour passer commande ou pour toute question
+                {t('contact.phone.description')}
               </p>
               <a 
                 href="tel:+15147651234" 
                 className="inline-flex items-center px-6 py-3 rounded-full font-medium text-white transition-all duration-300 transform hover:scale-105"
                 style={{ backgroundColor: colors.green }}
               >
-                Appeler maintenant
+                {t('contact.phone.button')}
               </a>
             </div>
 
@@ -150,11 +152,11 @@ export default function Contact() {
                    backgroundColor: `${colors.accent}20`,
                    borderColor: `${colors.accent}40`
                  }}>
-              <h3 className="font-semibold text-2xl mb-4 text-white">📍 Adresse</h3>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.address.title')}</h3>
               <p className="text-gray-300 mb-4">
-                1234 Rue Saint-Laurent<br />
-                Montréal, QC H2X 2S8<br />
-                Canada
+                {t('contact.address.street')}<br />
+                {t('contact.address.city')}<br />
+                {t('contact.address.country')}
               </p>
               <a
                 href={assets.googleMapsLink}
@@ -163,7 +165,7 @@ export default function Contact() {
                 className="inline-flex items-center px-6 py-3 rounded-full font-medium text-white transition-all duration-300 transform hover:scale-105"
                 style={{ backgroundColor: colors.secondary }}
               >
-                Voir sur Maps
+                {t('contact.address.button')}
               </a>
             </div>
 
@@ -173,19 +175,19 @@ export default function Contact() {
                    backgroundColor: `${colors.primary}40`,
                    borderColor: `${colors.text}40`
                  }}>
-              <h3 className="font-semibold text-2xl mb-4 text-white">🕒 Horaires</h3>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.hours.title')}</h3>
               <div className="text-gray-300 space-y-2">
                 <div className="flex justify-between">
-                  <span>Lundi - Jeudi</span>
-                  <span>11h - 21h</span>
+                  <span>{t('contact.hours.mondayThursday')}</span>
+                  <span>{t('contact.hours.mondayThursdayTime')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Vendredi - Samedi</span>
-                  <span>11h - 22h</span>
+                  <span>{t('contact.hours.fridaySaturday')}</span>
+                  <span>{t('contact.hours.fridaySaturdayTime')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Dimanche</span>
-                  <span>12h - 20h</span>
+                  <span>{t('contact.hours.sunday')}</span>
+                  <span>{t('contact.hours.sundayTime')}</span>
                 </div>
               </div>
             </div>
@@ -199,9 +201,9 @@ export default function Contact() {
                    backgroundColor: `${colors.green}30`,
                    borderColor: `${colors.green}50`
                  }}>
-              <h3 className="font-semibold text-2xl mb-4 text-white">🍽️ Commander</h3>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.order.title')}</h3>
               <p className="text-gray-300 mb-6">
-                Choisissez votre méthode de commande préférée
+                {t('contact.order.description')}
               </p>
               <button 
                 onClick={() => setIsOrderModalOpen(true)}
@@ -209,7 +211,7 @@ export default function Contact() {
                 style={{ backgroundColor: colors.darkGreen }}
               >
                 <span className="mr-2">🍽️</span>
-                Voir toutes les options
+                {t('contact.order.viewAllOptions')}
               </button>
             </div>
 
@@ -219,9 +221,9 @@ export default function Contact() {
                    backgroundColor: `${colors.secondary}20`,
                    borderColor: `${colors.secondary}40`
                  }}>
-              <h3 className="font-semibold text-2xl mb-4 text-white">🚚 Livraison Rapide</h3>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.delivery.title')}</h3>
               <p className="text-gray-300 mb-6">
-                Commandez directement via nos partenaires de livraison
+                {t('contact.delivery.description')}
               </p>
               <div className="flex flex-col gap-4">
                 <a
@@ -293,13 +295,13 @@ export default function Contact() {
             <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.lightGreen }}>
               <span className="text-2xl">🍽️</span>
             </div>
-            <h2 className="text-2xl font-bold mb-4" style={{color: colors.text}}>Commandez maintenant !</h2>
-            <p className="text-gray-600 mb-6">Choisissez votre méthode de commande préférée</p>
+            <h2 className="text-2xl font-bold mb-4" style={{color: colors.text}}>{t('contact.modal.title')}</h2>
+            <p className="text-gray-600 mb-6">{t('contact.modal.subtitle')}</p>
             
             {/* Internal Order Options */}
             <div className="space-y-4 mb-6">
               <div className="p-4 rounded-2xl" style={{ backgroundColor: colors.background }}>
-                <h3 className="font-semibold mb-3" style={{color: colors.primary}}>🏠 Commande Directe</h3>
+                <h3 className="font-semibold mb-3" style={{color: colors.primary}}>{t('contact.modal.directOrder')}</h3>
                 <div className="flex flex-col gap-2">
                   <a 
                     href="tel:+15147651234" 
@@ -307,7 +309,7 @@ export default function Contact() {
                     style={{ backgroundColor: colors.green }}
                   >
                     <span className="mr-2">📞</span>
-                    Appeler pour commander
+                    {t('contact.modal.callToOrder')}
                   </a>
                   <button 
                     onClick={() => scrollToSection('location')}
@@ -315,7 +317,7 @@ export default function Contact() {
                     style={{ backgroundColor: colors.darkGreen }}
                   >
                     <span className="mr-2">🏪</span>
-                    Commander sur place
+                    {t('contact.modal.orderInStore')}
                   </button>
                 </div>
               </div>
@@ -323,7 +325,7 @@ export default function Contact() {
 
             {/* Delivery Options */}
             <div className="space-y-3">
-              <h3 className="font-semibold text-lg" style={{color: colors.primary}}>🚚 Livraison</h3>
+              <h3 className="font-semibold text-lg" style={{color: colors.primary}}>{t('contact.modal.delivery')}</h3>
               
               <a 
                 href={assets.uberEatsLink} 
@@ -350,7 +352,7 @@ export default function Contact() {
               onClick={() => setIsOrderModalOpen(false)}
               className="mt-6 px-6 py-2 border border-gray-300 rounded-full text-gray-600 hover:bg-gray-50 transition-colors duration-200"
             >
-              Fermer
+              {t('contact.modal.close')}
             </button>
           </div>
         </div>

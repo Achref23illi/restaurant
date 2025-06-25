@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { assets } from '../config/assets';
 import colors from '../config/colors';
 
 export default function Reviews() {
+  const { t } = useTranslation();
   const reviewsRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -59,10 +61,10 @@ export default function Reviews() {
         {/* Titre */}
         <div ref={titleRef} className="text-center mb-12">
           <h2 className="text-5xl lg:text-6xl font-bold mb-6" style={{ color: colors.secondary }}>
-            Nos Avis Clients
+            {t('reviews.title')}
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Ce que nos clients pensent de nous sur les différentes plateformes
+            {t('reviews.subtitle')}
           </p>
         </div>
 
@@ -78,21 +80,21 @@ export default function Reviews() {
               />
               <div className="text-right">
                 <div className="text-3xl font-bold" style={{ color: colors.secondary }}>4.0</div>
-                <div className="text-sm text-gray-500">sur 5</div>
+                <div className="text-sm text-gray-500">{t('reviews.outOf5')}</div>
               </div>
             </div>
             
             <div className="space-y-4">
               {renderStars(4)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>88</span> avis vérifiés
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>88</span> {t('reviews.verifiedReviews')}
               </p>
               
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-500 italic">
-                  "Excellente cuisine haïtienne, service rapide et portions généreuses!"
+                  "{t('reviews.uberEatsReview')}"
                 </p>
-                <p className="text-xs text-gray-400 mt-2">- Dernier avis</p>
+                <p className="text-xs text-gray-400 mt-2">- {t('reviews.uberEatsAuthor')}</p>
               </div>
             </div>
           </div>
@@ -107,21 +109,21 @@ export default function Reviews() {
               />
               <div className="text-right">
                 <div className="text-3xl font-bold" style={{ color: colors.secondary }}>3.5</div>
-                <div className="text-sm text-gray-500">sur 5</div>
+                <div className="text-sm text-gray-500">{t('reviews.outOf5')}</div>
               </div>
             </div>
             
             <div className="space-y-4">
               {renderStars(3.5)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>50</span> votes
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>50</span> {t('reviews.votes')}
               </p>
               
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-500 italic">
-                  "Bonne nourriture, livraison dans les temps. À essayer!"
+                  "{t('reviews.doorDashReview')}"
                 </p>
-                <p className="text-xs text-gray-400 mt-2">- Avis récent</p>
+                <p className="text-xs text-gray-400 mt-2">- {t('reviews.doorDashAuthor')}</p>
               </div>
             </div>
           </div>
@@ -132,21 +134,21 @@ export default function Reviews() {
               <div className="text-2xl font-bold" style={{ color: colors.green }}>🇨🇦</div>
               <div className="text-right">
                 <div className="text-3xl font-bold" style={{ color: colors.secondary }}>4.2</div>
-                <div className="text-sm text-gray-500">sur 5</div>
+                <div className="text-sm text-gray-500">{t('reviews.outOf5')}</div>
               </div>
             </div>
             
             <div className="space-y-4">
               {renderStars(4.2)}
               <p className="text-gray-600">
-                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>Clients</span> Montréal
+                <span className="font-semibold text-2xl" style={{ color: colors.primary }}>{t('reviews.clients')}</span> {t('reviews.montreal')}
               </p>
               
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-500 italic">
-                  "Authenticité et saveurs d'exception dans le cœur de Montréal!"
+                  "{t('reviews.montrealReview')}"
                 </p>
-                <p className="text-xs text-gray-400 mt-2">- Avis locaux</p>
+                <p className="text-xs text-gray-400 mt-2">- {t('reviews.montrealAuthor')}</p>
               </div>
             </div>
           </div>
@@ -155,7 +157,7 @@ export default function Reviews() {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600 mb-6">
-            Commandez dès maintenant et découvrez pourquoi nos clients nous adorent!
+            {t('reviews.orderNow')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -163,7 +165,7 @@ export default function Reviews() {
               style={{ backgroundColor: colors.green }}
             >
               <span className="mr-3">🍽️</span>
-              Commander
+              {t('reviews.orderButton')}
             </button>
             
             <a
@@ -178,7 +180,7 @@ export default function Reviews() {
                 alt="UberEats"
                 className="h-4 w-auto mr-3 brightness-0 invert"
               />
-              Commander sur UberEats
+              {t('reviews.orderUberEats')}
             </a>
             
             <a
@@ -193,7 +195,7 @@ export default function Reviews() {
                 alt="DoorDash"
                 className="h-4 w-4 mr-3"
               />
-              Commander sur DoorDash
+              {t('reviews.orderDoorDash')}
             </a>
           </div>
         </div>

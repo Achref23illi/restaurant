@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Reviews from './components/Reviews';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import './i18n';
 
 gsap.registerPlugin(useGSAP);
 
