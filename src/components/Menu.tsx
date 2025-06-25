@@ -31,18 +31,36 @@ export default function Menu() {
   );
 
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (filterRef.current) {
+      if (filterRef.current && !isMobile) {
         const rect = filterRef.current.getBoundingClientRect();
         setIsSticky(rect.top <= 80);
       }
     };
 
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      // Reset sticky when switching to mobile
+      if (mobile) {
+        setIsSticky(false);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobile]);
 
   useGSAP(() => {
     // Animation d'entrée
@@ -162,7 +180,7 @@ export default function Menu() {
         <div 
           ref={filterRef}
           className={`transition-all duration-300 ${
-            isSticky ? 'sticky top-20 z-40 bg-white/95 backdrop-blur-md shadow-lg' : ''
+            isSticky && !isMobile ? 'md:sticky md:top-20 md:z-40 bg-white/95 backdrop-blur-md shadow-lg' : ''
           }`}
         >
           <div className="max-w-4xl mx-auto px-4 py-6">
