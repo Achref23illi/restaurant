@@ -155,6 +155,49 @@
       "close": "Close"
     }
   },
+  "inStoreOrder": {
+    "title": "In-Store Order",
+    "subtitle": "Create a new order for pickup or dine-in",
+    "orderSuccess": "Order successfully placed! We'll prepare it for you.",
+    "steps": {
+      "customer": "Customer Info",
+      "menu": "Select Menu",
+      "summary": "Order Summary"
+    },
+    "customerInfo": {
+      "title": "Customer Information",
+      "name": "Full Name",
+      "namePlaceholder": "Enter customer's full name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter phone number",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter email address (optional)",
+      "notes": "Special Notes",
+      "notesPlaceholder": "Any special requests or notes..."
+    },
+    "menu": {
+      "title": "Select Menu Items",
+      "search": "Search dishes...",
+      "add": "Add"
+    },
+    "cart": {
+      "title": "Order Cart",
+      "empty": "Your cart is empty",
+      "subtotal": "Subtotal",
+      "tax": "Tax (GST + QST)",
+      "total": "Total"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "customerInfo": "Customer Information",
+      "orderItems": "Order Items"
+    },
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "confirmOrder": "Confirm Order"
+    }
+  },
   "menu": {
     "title": "Our Menu",
     "subtitle": "Discover our Haitian and Congolese specialties, prepared with passion and authenticity",

@@ -207,7 +207,7 @@ export default function Menu() {
         </div>
 
         {/* Grille des plats */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredItems.map((item) => {
             const isSpecialItem = item.category === 'special';
             return (
@@ -225,11 +225,11 @@ export default function Menu() {
               } : {}}
             >
               {/* Image */}
-              <div className="relative overflow-hidden h-52">
+              <div className="relative overflow-hidden h-48 sm:h-52">
                 <img
                   src={item.image}
                   alt={t(item.nameKey)}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
                 
                 {/* Badges */}

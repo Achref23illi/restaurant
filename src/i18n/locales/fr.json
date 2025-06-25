@@ -155,6 +155,49 @@
       "close": "Fermer"
     }
   },
+  "inStoreOrder": {
+    "title": "Commande sur Place",
+    "subtitle": "Créer une nouvelle commande à emporter ou sur place",
+    "orderSuccess": "Commande passée avec succès! Nous la préparerons pour vous.",
+    "steps": {
+      "customer": "Info Client",
+      "menu": "Sélection Menu",
+      "summary": "Résumé Commande"
+    },
+    "customerInfo": {
+      "title": "Informations Client",
+      "name": "Nom Complet",
+      "namePlaceholder": "Entrez le nom complet du client",
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "email": "Adresse Email",
+      "emailPlaceholder": "Entrez l'adresse email (optionnel)",
+      "notes": "Notes Spéciales",
+      "notesPlaceholder": "Demandes spéciales ou notes..."
+    },
+    "menu": {
+      "title": "Sélectionner les Plats",
+      "search": "Rechercher des plats...",
+      "add": "Ajouter"
+    },
+    "cart": {
+      "title": "Panier",
+      "empty": "Votre panier est vide",
+      "subtotal": "Sous-total",
+      "tax": "Taxes (TPS + TVQ)",
+      "total": "Total"
+    },
+    "summary": {
+      "title": "Résumé de la Commande",
+      "customerInfo": "Informations Client",
+      "orderItems": "Articles Commandés"
+    },
+    "buttons": {
+      "back": "Retour",
+      "next": "Suivant",
+      "confirmOrder": "Confirmer la Commande"
+    }
+  },
   "menu": {
     "title": "Notre Menu",
     "subtitle": "Découvrez nos spécialités haïtiennes et congolaises, préparées avec passion et authenticité",
