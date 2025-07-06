@@ -53,7 +53,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Marinated and fried beef chunks, garnished with fresh herbs and served with a lemon',
         price: 20.00,
         currency: 'CAD',
-        image: '/images/beef_tassot.avif',
+        image: '/images/beef_tassot.png',
         category: 'featured',
         popular: true
       },

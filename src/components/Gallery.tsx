@@ -21,71 +21,103 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Données de la galerie - l'histoire du restaurant
+  // Données de la galerie - photos réelles du restaurant
   const galleryImages: GalleryImage[] = [
     {
       id: 1,
-      src: '/images/Logo.png',
-      alt: 'Logo du restaurant',
+      src: '/resturant/IMG_2084.JPG',
+      alt: 'L\'extérieur du restaurant',
       title: t('gallery.founding.title'),
       description: t('gallery.founding.description'),
       year: '1985'
     },
     {
       id: 2,
-      src: '/images/beef_tassot.avif',
-      alt: 'Premiers plats traditionnels',
+      src: '/resturant/IMG_2090.JPG',
+      alt: 'L\'intérieur du restaurant',
       title: t('gallery.tradition.title'),
       description: t('gallery.tradition.description'),
       year: '1990'
     },
     {
       id: 3,
-      src: '/images/griot_porc.avif',
-      alt: 'Spécialités familiales',
+      src: '/resturant/IMG_2095.JPG',
+      alt: 'Nos spécialités culinaires',
       title: t('gallery.specialties.title'),
       description: t('gallery.specialties.description'),
       year: '1995'
     },
     {
       id: 4,
-      src: '/images/chicken.avif',
-      alt: 'Expansion du menu',
+      src: '/resturant/IMG_2100.JPG',
+      alt: 'L\'équipe en cuisine',
       title: t('gallery.expansion.title'),
       description: t('gallery.expansion.description'),
       year: '2000'
     },
     {
       id: 5,
-      src: '/images/goat.avif',
-      alt: 'Fusion culinaire',
+      src: '/resturant/IMG_2105.JPG',
+      alt: 'Nos plats signature',
       title: t('gallery.fusion.title'),
       description: t('gallery.fusion.description'),
       year: '2005'
     },
     {
       id: 6,
-      src: '/images/thomson_fish.avif',
-      alt: 'Reconnaissance locale',
+      src: '/resturant/IMG_2110.JPG',
+      alt: 'L\'ambiance chaleureuse',
       title: t('gallery.recognition.title'),
       description: t('gallery.recognition.description'),
       year: '2010'
     },
     {
       id: 7,
-      src: '/images/tilapia.avif',
-      alt: 'Innovation culinaire',
+      src: '/resturant/WhatsApp Image 2025-07-04 at 16.20.18_6435be57.jpg',
+      alt: 'Moments de convivialité',
       title: t('gallery.innovation.title'),
       description: t('gallery.innovation.description'),
       year: '2015'
     },
     {
       id: 8,
-      src: '/images/fritaille.avif',
-      alt: 'Aujourd\'hui',
+      src: '/resturant/WhatsApp Image 2025-07-04 at 16.23.19_297f71b0.jpg',
+      alt: 'Notre restaurant aujourd\'hui',
       title: t('gallery.today.title'),
       description: t('gallery.today.description'),
       year: '2024'
+    },
+    {
+      id: 9,
+      src: '/resturant/IMG_2088.JPG',
+      alt: 'Détails de nos plats',
+      title: 'Raffinement culinaire',
+      description: 'Chaque plat est préparé avec soin et attention aux détails',
+      year: '2020'
+    },
+    {
+      id: 10,
+      src: '/resturant/IMG_2092.JPG',
+      alt: 'L\'art de la présentation',
+      title: 'Présentation artistique',
+      description: 'Nos chefs accordent une attention particulière à la présentation',
+      year: '2021'
+    },
+    {
+      id: 11,
+      src: '/resturant/WhatsApp Image 2025-07-04 at 16.20.26_8f1efdd7.jpg',
+      alt: 'Ambiance familiale',
+      title: 'Esprit familial',
+      description: 'Un lieu où les familles se rassemblent autour de bons plats',
+      year: '2022'
+    },
+    {
+      id: 12,
+      src: '/resturant/IMG_2113.JPG',
+      alt: 'Excellence culinaire',
+      title: 'Excellence continue',
+      description: 'Notre engagement pour l\'excellence ne faiblit jamais',
+      year: '2023'
     }
   ];
 
@@ -177,7 +209,7 @@ export default function Gallery() {
         </div>
 
         {/* Grille de la galerie */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}

@@ -106,11 +106,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-<<<<<<< HEAD
-      <nav className="w-full px-6 py-4">
-=======
-      <nav className="max-w-7xl mx-auto px-2 py-4">
->>>>>>> 39df2b9aa29d8638b32d4b825a11d646dbae88bc
+      <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0 mr-8">

@@ -156,7 +156,6 @@
       "close": "Fermer"
     }
   },
-<<<<<<< HEAD
   "gallery": {
     "title": "Notre Histoire en Images",
     "subtitle": "Découvrez l'évolution de notre restaurant à travers les années, de nos humbles débuts à aujourd'hui",
@@ -191,7 +190,8 @@
     "today": {
       "title": "Aujourd'hui",
       "description": "Trois générations plus tard, nous continuons de servir avec passion les saveurs qui ont fait notre succès, en gardant vivant l'esprit de Maman Jeanne."
-=======
+    }
+  },
   "inStoreOrder": {
     "title": "Commande sur Place",
     "subtitle": "Créer une nouvelle commande à emporter ou sur place",
@@ -233,7 +233,6 @@
       "back": "Retour",
       "next": "Suivant",
       "confirmOrder": "Confirmer la Commande"
->>>>>>> 39df2b9aa29d8638b32d4b825a11d646dbae88bc
     }
   },
   "menu": {

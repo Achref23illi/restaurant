@@ -156,7 +156,6 @@
       "close": "Close"
     }
   },
-<<<<<<< HEAD
   "gallery": {
     "title": "Our Story in Pictures",
     "subtitle": "Discover the evolution of our restaurant through the years, from our humble beginnings to today",
@@ -191,7 +190,8 @@
     "today": {
       "title": "Today",
       "description": "Three generations later, we continue to serve with passion the flavors that made our success, keeping Maman Jeanne's spirit alive."
-=======
+    }
+  },
   "inStoreOrder": {
     "title": "In-Store Order",
     "subtitle": "Create a new order for pickup or dine-in",
@@ -233,7 +233,6 @@
       "back": "Back",
       "next": "Next",
       "confirmOrder": "Confirm Order"
->>>>>>> 39df2b9aa29d8638b32d4b825a11d646dbae88bc
     }
   },
   "menu": {
