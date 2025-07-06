@@ -7,6 +7,7 @@
     "home": "Home",
     "menu": "Menu",
     "about": "About",
+    "gallery": "Gallery",
     "reviews": "Reviews",
     "contact": "Contact",
     "location": "Location"
@@ -153,6 +154,42 @@
       "orderInStore": "🏪 Order in-store",
       "delivery": "🚚 Delivery",
       "close": "Close"
+    }
+  },
+  "gallery": {
+    "title": "Our Story in Pictures",
+    "subtitle": "Discover the evolution of our restaurant through the years, from our humble beginnings to today",
+    "founding": {
+      "title": "The Beginning",
+      "description": "Maman Jeanne opens the doors of her first restaurant with a simple vision: to share the love of traditional Haitian and Congolese cuisine with her community."
+    },
+    "tradition": {
+      "title": "The Traditions",
+      "description": "The first family recipes are introduced to the menu, passed down from generation to generation to preserve the authenticity of our flavors."
+    },
+    "specialties": {
+      "title": "Our Specialties",
+      "description": "Griot de Porc becomes our signature dish, prepared according to Maman Jeanne's secret recipe that has won over Montreal's heart."
+    },
+    "expansion": {
+      "title": "The Expansion",
+      "description": "Our menu expands with new traditional dishes, creating a unique fusion between Haitian and Congolese flavors."
+    },
+    "fusion": {
+      "title": "Culinary Fusion",
+      "description": "We innovate by combining traditional culinary techniques with local ingredients, creating unique dishes."
+    },
+    "recognition": {
+      "title": "Recognition",
+      "description": "Our restaurant receives its first local distinctions and becomes a must-visit place for African cuisine in Montreal."
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "We continue to innovate while respecting our roots, introducing new flavors while preserving authenticity."
+    },
+    "today": {
+      "title": "Today",
+      "description": "Three generations later, we continue to serve with passion the flavors that made our success, keeping Maman Jeanne's spirit alive."
     }
   },
   "menu": {

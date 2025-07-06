@@ -7,6 +7,7 @@
     "home": "Accueil",
     "menu": "Menu",
     "about": "À Propos",
+    "gallery": "Galerie",
     "reviews": "Avis",
     "contact": "Contact",
     "location": "Localisation"
@@ -153,6 +154,42 @@
       "orderInStore": "🏪 Commander sur place",
       "delivery": "🚚 Livraison",
       "close": "Fermer"
+    }
+  },
+  "gallery": {
+    "title": "Notre Histoire en Images",
+    "subtitle": "Découvrez l'évolution de notre restaurant à travers les années, de nos humbles débuts à aujourd'hui",
+    "founding": {
+      "title": "Les Débuts",
+      "description": "Maman Jeanne ouvre les portes de son premier restaurant avec une vision simple : partager l'amour de la cuisine traditionnelle haïtienne et congolaise avec sa communauté."
+    },
+    "tradition": {
+      "title": "Les Traditions",
+      "description": "Les premières recettes familiales sont introduites au menu, transmises de génération en génération pour préserver l'authenticité de nos saveurs."
+    },
+    "specialties": {
+      "title": "Nos Spécialités",
+      "description": "Le Griot de Porc devient notre plat signature, préparé selon la recette secrète de Maman Jeanne qui a conquis le cœur de Montréal."
+    },
+    "expansion": {
+      "title": "L'Expansion",
+      "description": "Notre menu s'enrichit avec de nouveaux plats traditionnels, créant une fusion unique entre les saveurs haïtiennes et congolaises."
+    },
+    "fusion": {
+      "title": "La Fusion Culinaire",
+      "description": "Nous innovons en combinant les techniques culinaires traditionnelles avec des ingrédients locaux, créant des plats uniques."
+    },
+    "recognition": {
+      "title": "La Reconnaissance",
+      "description": "Notre restaurant reçoit ses premières distinctions locales et devient un lieu incontournable pour la cuisine africaine à Montréal."
+    },
+    "innovation": {
+      "title": "L'Innovation",
+      "description": "Nous continuons d'innover tout en respectant nos racines, introduisant de nouvelles saveurs tout en préservant l'authenticité."
+    },
+    "today": {
+      "title": "Aujourd'hui",
+      "description": "Trois générations plus tard, nous continuons de servir avec passion les saveurs qui ont fait notre succès, en gardant vivant l'esprit de Maman Jeanne."
     }
   },
   "menu": {

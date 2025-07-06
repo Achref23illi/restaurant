@@ -146,10 +146,10 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="w-full px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 mr-8">
             <div className="flex items-center space-x-3">
               <img 
                 src={assets.logo}
@@ -186,6 +186,12 @@ export default function Header() {
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
               {t('navigation.about')}
+            </button>
+            <button 
+              onClick={() => scrollToSection('gallery')}
+              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
+            >
+              {t('navigation.gallery')}
             </button>
             <button 
               onClick={() => scrollToSection('reviews')}
@@ -293,6 +299,14 @@ export default function Header() {
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
                   {t('navigation.about')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('gallery')}
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                >
+                  {t('navigation.gallery')}
                 </button>
               </li>
               <li>
