@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { assets } from '../config/assets';
 import colors from '../config/colors';
 import LanguageSwitcher from './LanguageSwitcher';
+import InStoreOrderModal from './InStoreOrderModal';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -18,7 +19,9 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOrderPopupOpen, setIsOrderPopupOpen] = useState(false);
+  const [isInStoreOrderOpen, setIsInStoreOrderOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   // Animation d'entrée
   useGSAP(() => {
@@ -52,7 +55,12 @@ export default function Header() {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target as Node)
+      ) {
         setIsMenuOpen(false);
       }
     };
@@ -74,55 +82,7 @@ export default function Header() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Animations de hover pour les liens
-  const handleNavHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    gsap.to(e.currentTarget, {
-      color: "#8B4513",
-      duration: 0.2,
-      ease: "power2.out"
-    });
-  };
 
-  const handleNavLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    gsap.to(e.currentTarget, {
-      color: "#654321",
-      duration: 0.2,
-      ease: "power2.out"
-    });
-  };
-
-  // Navigation avec animation smooth
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      const headerHeight = headerRef.current?.offsetHeight || 80;
-      const targetPosition = targetSection.offsetTop - headerHeight;
-      
-      // Animation de scroll smooth avec GSAP
-      gsap.to(window, {
-        duration: 1.2,
-        scrollTo: {
-          y: targetPosition,
-          autoKill: true
-        },
-        ease: "power2.inOut"
-      });
-
-      // Animation du lien cliqué
-      gsap.fromTo(e.currentTarget, 
-        { scale: 1 },
-        { 
-          scale: 0.95, 
-          duration: 0.1, 
-          yoyo: true, 
-          repeat: 1,
-          ease: "power2.inOut"
-        }
-      );
-    }
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -146,7 +106,11 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
+<<<<<<< HEAD
       <nav className="w-full px-6 py-4">
+=======
+      <nav className="max-w-7xl mx-auto px-2 py-4">
+>>>>>>> 39df2b9aa29d8638b32d4b825a11d646dbae88bc
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0 mr-8">
@@ -228,11 +192,12 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
+              ref={hamburgerRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {isMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -269,13 +234,18 @@ export default function Header() {
         {/* Mobile Menu */}
         <div 
           ref={menuRef}
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden fixed left-0 right-0 top-[72px] w-full transition-all duration-300 ease-in-out z-[100] ${
             isMenuOpen 
-              ? 'max-h-screen opacity-100 mt-6' 
-              : 'max-h-0 opacity-0 overflow-hidden'
+              ? 'max-h-[80vh] opacity-100 mt-0 pointer-events-auto overflow-y-auto' 
+              : 'max-h-0 opacity-0 pointer-events-none overflow-hidden'
           }`}
+          style={{
+            background: 'rgba(255,255,255,0.98)',
+            boxShadow: isMenuOpen ? '0 8px 32px rgba(0,0,0,0.12)' : undefined,
+            borderRadius: isMenuOpen ? '0 0 1.5rem 1.5rem' : undefined,
+          }}
         >
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-transparent rounded-2xl overflow-visible">
             <ul className="py-4">
               <li>
                 <button 
@@ -351,7 +321,7 @@ export default function Header() {
                   {t('order.button')}
                 </button>
               </li>
-              <li className="w-full px-4">
+              <li className="w-full px-4 mt-6">
                 <a
                   href={assets.uberEatsLink}
                   target="_blank"
@@ -363,7 +333,7 @@ export default function Header() {
                   <img src={assets.uberEatsLogo} alt="Uber Eats" className="h-6 w-auto brightness-0 invert" style={{maxWidth: '120px'}} />
                 </a>
               </li>
-              <li className="w-full px-4">
+              <li className="w-full px-4 mt-4">
                 <a
                   href={assets.doorDashLink}
                   target="_blank"
@@ -413,7 +383,12 @@ export default function Header() {
                     {t('order.popup.callToOrder')}
                   </a>
                   <button 
-                    onClick={() => scrollToSection('location')}
+                    onClick={() => {
+                      console.log('Order in Store button clicked');
+                      setIsOrderPopupOpen(false);
+                      setIsInStoreOrderOpen(true);
+                      console.log('InStoreOrder state set to true');
+                    }}
                     className="inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-white transition-all duration-300 hover:scale-105"
                     style={{ backgroundColor: colors.darkGreen }}
                   >
@@ -459,6 +434,12 @@ export default function Header() {
         </div>
       </div>
     )}
+
+    {/* In-Store Order Modal */}
+    <InStoreOrderModal 
+      isOpen={isInStoreOrderOpen}
+      onClose={() => setIsInStoreOrderOpen(false)}
+    />
     </>
   );
 }

@@ -156,6 +156,7 @@
       "close": "Fermer"
     }
   },
+<<<<<<< HEAD
   "gallery": {
     "title": "Notre Histoire en Images",
     "subtitle": "Découvrez l'évolution de notre restaurant à travers les années, de nos humbles débuts à aujourd'hui",
@@ -190,6 +191,49 @@
     "today": {
       "title": "Aujourd'hui",
       "description": "Trois générations plus tard, nous continuons de servir avec passion les saveurs qui ont fait notre succès, en gardant vivant l'esprit de Maman Jeanne."
+=======
+  "inStoreOrder": {
+    "title": "Commande sur Place",
+    "subtitle": "Créer une nouvelle commande à emporter ou sur place",
+    "orderSuccess": "Commande passée avec succès! Nous la préparerons pour vous.",
+    "steps": {
+      "customer": "Info Client",
+      "menu": "Sélection Menu",
+      "summary": "Résumé Commande"
+    },
+    "customerInfo": {
+      "title": "Informations Client",
+      "name": "Nom Complet",
+      "namePlaceholder": "Entrez le nom complet du client",
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "email": "Adresse Email",
+      "emailPlaceholder": "Entrez l'adresse email (optionnel)",
+      "notes": "Notes Spéciales",
+      "notesPlaceholder": "Demandes spéciales ou notes..."
+    },
+    "menu": {
+      "title": "Sélectionner les Plats",
+      "search": "Rechercher des plats...",
+      "add": "Ajouter"
+    },
+    "cart": {
+      "title": "Panier",
+      "empty": "Votre panier est vide",
+      "subtotal": "Sous-total",
+      "tax": "Taxes (TPS + TVQ)",
+      "total": "Total"
+    },
+    "summary": {
+      "title": "Résumé de la Commande",
+      "customerInfo": "Informations Client",
+      "orderItems": "Articles Commandés"
+    },
+    "buttons": {
+      "back": "Retour",
+      "next": "Suivant",
+      "confirmOrder": "Confirmer la Commande"
+>>>>>>> 39df2b9aa29d8638b32d4b825a11d646dbae88bc
     }
   },
   "menu": {

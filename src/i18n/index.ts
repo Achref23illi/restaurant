@@ -21,7 +21,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'fr', // Default to French since the restaurant is currently in French
-    lng: 'fr', // Start with French
+    // Removed lng: 'fr' to let LanguageDetector handle the language selection
     debug: false,
 
     interpolation: {
