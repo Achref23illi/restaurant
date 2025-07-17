@@ -36,7 +36,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.threePoutines.description',
         price: 35.00,
         currency: 'CAD',
-        image: '/images/threepoutine.png',
+        image: '/images/new_images/3-Cheese-Poutine-025.jpg',
         category: 'special',
         popular: true
       },
@@ -46,7 +46,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.grandePoutine.description',
         price: 14.99,
         currency: 'CAD',
-        image: '/images/threepoutine.png',
+        image: '/images/new_images/Grande poutine de base.jpg',
         category: 'special',
         popular: true,
         extras: [
@@ -88,7 +88,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.petitePoutine.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/threepoutine.png',
+        image: '/images/new_images/Petite poutine régulière.jpg',
         category: 'special',
         popular: true
       }
@@ -104,7 +104,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.griotPorc.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/griot_porc.avif',
+        image: '/images/new_images/Griot de Porc.jpg',
         category: 'featured',
         popular: true
       },
@@ -114,7 +114,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tassotBoeuf.description',
         price: 20.00,
         currency: 'CAD',
-        image: '/images/beef_tassot.avif',
+        image: '/images/new_images/Tassot de Bœuf.jpg',
         category: 'featured',
         popular: true
       },
@@ -124,7 +124,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.fritaille.description',
         price: 20.00,
         currency: 'CAD',
-        image: '/images/fritaille.avif',
+        image: '/images/new_images/Fried Plantains (Haitian Style) (2).png',
         category: 'featured',
         popular: true
       }
@@ -140,7 +140,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.goat.description',
         price: 24.00,
         currency: 'CAD',
-        image: '/images/goat.avif',
+        image: '/images/new_images/Goat.jpg',
         category: 'plats-africains'
       },
       {
@@ -149,7 +149,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.halfChicken.description',
         price: 23.00,
         currency: 'CAD',
-        image: '/images/half_chicken.avif',
+        image: '/images/new_images/Half Chicken.webp',
         category: 'plats-africains'
       },
       {
@@ -158,7 +158,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.thomsonFish.description',
         price: 24.00,
         currency: 'CAD',
-        image: '/images/thomson_fish.avif',
+        image: '/images/new_images/Thomson fish.jpg',
         category: 'plats-africains'
       },
       {
@@ -167,7 +167,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.eightChickenWings.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/eight_chicken_wings.avif',
+        image: '/images/new_images/8 Chicken Wings.jpg',
         category: 'plats-africains'
       },
       {
@@ -176,7 +176,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.twoMakayabus.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/two_Makayabus.avif',
+        image: '/images/new_images/2 Makayabus.png',
         category: 'plats-africains'
       },
       {
@@ -185,7 +185,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.pondu.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/new_images/Pondu (Cassava Leaf Sauce).jpg',
         category: 'plats-africains'
       },
       {
@@ -194,7 +194,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.fumbwa.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/new_images/Fumbwa.jpg',
         category: 'plats-africains'
       },
       {
@@ -203,7 +203,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.makoso.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/chicken.avif',
+        image: '/images/new_images/Makoso.jpg',
         category: 'plats-africains'
       },
       {
@@ -212,7 +212,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.dindonFume.description',
         price: 19.00,
         currency: 'CAD',
-        image: '/images/chicken.avif',
+        image: '/images/new_images/Smoked Turkey.jpg',
         category: 'plats-africains'
       },
       {
@@ -221,7 +221,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.libokePoisson.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/thomson_fish.avif',
+        image: '/images/new_images/Liboke smoked fish (catfish).jpg',
         category: 'plats-africains'
       }
     ]
@@ -236,7 +236,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.goatTassot.description',
         price: 20.00,
         currency: 'CAD',
-        image: '/images/goat_tassot.avif',
+        image: '/images/new_images/Goat Tassot.jpg',
         category: 'plats-creoles'
       },
       {
@@ -245,7 +245,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.vegetables.description',
         price: 22.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/new_images/Vegetables.jpg',
         category: 'plats-creoles'
       },
       {
@@ -254,7 +254,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chicken.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/chicken.avif',
+        image: '/images/new_images/Chicken.jpg',
         category: 'plats-creoles'
       },
       {
@@ -263,7 +263,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.madesu.description',
         price: 19.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/new_images/Madesu (bean sauce).jpg',
         category: 'plats-creoles'
       },
       {
@@ -272,7 +272,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapia.description',
         price: 22.00,
         currency: 'CAD',
-        image: '/images/tilapia.avif',
+        image: '/images/new_images/Tilapia.jpg',
         category: 'plats-creoles'
       },
       {
@@ -281,7 +281,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapiaV2.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/tilapia.avif',
+        image: '/images/new_images/Tilapia (version 2).jpg',
         category: 'plats-creoles'
       },
       {
@@ -290,7 +290,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.brokenChicken.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/pouletbrise.jpg',
+        image: '/images/new_images/Broken Chicken.webp',
         category: 'plats-creoles'
       }
     ]
@@ -305,7 +305,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenWings4.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/eight_chicken_wings.avif',
+        image: '/images/new_images/Chicken Wings (4).jpg',
         category: 'entrees'
       },
       {
@@ -314,7 +314,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.samosas.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/two_Makayabus.avif',
+        image: '/images/new_images/Samosas (2).jpg',
         category: 'entrees'
       },
       {
@@ -323,7 +323,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.saladMoment.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/salad_of_the_moment.avif',
+        image: '/images/new_images/Salad of the moment.jpg',
         category: 'entrees'
       }
     ]
@@ -338,7 +338,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.makayabu.description',
         price: 16.00,
         currency: 'CAD',
-        image: '/images/two_Makayabus.avif',
+        image: '/images/new_images/Makayabu (Codfish).webp',
         category: 'viandes-poissons'
       },
       {
@@ -347,7 +347,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenDrumsticks.description',
         price: 13.00,
         currency: 'CAD',
-        image: '/images/chicken.avif',
+        image: '/images/new_images/Chicken Drumsticks (6).jpg',
         category: 'viandes-poissons'
       },
       {
@@ -356,7 +356,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenWings.description',
         price: 10.00,
         currency: 'CAD',
-        image: '/images/eight_chicken_wings.avif',
+        image: '/images/new_images/Chicken Wings.jpg',
         category: 'viandes-poissons'
       },
       {
@@ -365,7 +365,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapiaFish.description',
         price: 16.00,
         currency: 'CAD',
-        image: '/images/tilapia.avif',
+        image: '/images/new_images/Tilapia fish verion.jpg',
         category: 'viandes-poissons'
       },
       {
@@ -374,7 +374,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.thomsonFishMeat.description',
         price: 16.00,
         currency: 'CAD',
-        image: '/images/thomson_fish.avif',
+        image: '/images/new_images/Thomson fish.jpg',
         category: 'viandes-poissons'
       },
       {
@@ -383,7 +383,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.brokenFish.description',
         price: 19.00,
         currency: 'CAD',
-        image: '/images/poissonbrise.jpg',
+        image: '/images/new_images/Broken Fish.jpg',
         category: 'viandes-poissons'
       }
     ]
@@ -398,7 +398,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.macaroniSalad.description',
         price: 11.00,
         currency: 'CAD',
-        image: '/images/Macaroni-Salad.jpg',
+        image: '/images/new_images/macaroni_salad.jpg',
         category: 'sides'
       },
       {
@@ -407,7 +407,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.stickyRice.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/rizcolle.jpg',
+        image: '/images/rizcolle.jpg', // no new image
         category: 'sides'
       },
       {
@@ -416,7 +416,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.pondu.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/new_images/Pondu (Cassava Leaf Sauce).jpg',
         category: 'sides'
       },
       {
@@ -425,7 +425,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.friedPlantains.description',
         price: 4.00,
         currency: 'CAD',
-        image: '/images/fritaille.avif',
+        image: '/images/new_images/Fried Plantains (Haitian Style) (2).png',
         category: 'sides'
       },
       {
@@ -434,7 +434,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.kwanga.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/two_Makayabus.avif',
+        image: '/images/new_images/Kwanga (Cassava Stick).jpg',
         category: 'sides'
       },
       {
@@ -443,7 +443,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.madesauSauce.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/new_images/Madesu (white Bean Sauce).jpg',
         category: 'sides'
       },
       {
@@ -452,7 +452,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.safou.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/fritaille.avif',
+        image: '/images/new_images/2 Safou (African plums).webp',
         category: 'sides'
       }
     ]
