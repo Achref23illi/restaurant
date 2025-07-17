@@ -154,12 +154,6 @@ export default function Header() {
               {t('navigation.gallery')}
             </button>
             <button 
-              onClick={() => scrollToSection('reviews')}
-              className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
-            >
-              {t('navigation.reviews')}
-            </button>
-            <button 
               onClick={() => scrollToSection('contact')}
               className="nav-link text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200"
             >
@@ -273,14 +267,6 @@ export default function Header() {
                   className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
                 >
                   {t('navigation.gallery')}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('reviews')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
-                >
-                  {t('navigation.reviews')}
                 </button>
               </li>
               <li>

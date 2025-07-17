@@ -23,15 +23,12 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-200 border border-white/20"
+        className="flex items-center gap-1 px-2 py-1.5 rounded-md bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-200 border border-white/20"
         aria-label="Change language"
       >
-        <span className="text-lg">{currentLanguage.flag}</span>
-        <span className="text-sm font-medium text-gray-700 hidden sm:inline">
-          {currentLanguage.name}
-        </span>
+        <span className="text-sm">{currentLanguage.flag}</span>
         <svg 
-          className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 text-gray-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -41,17 +38,17 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full mt-2 right-0 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 min-w-[120px]">
+        <div className="absolute top-full mt-1 right-0 bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden z-50 min-w-[100px]">
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
-              className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-200 ${
+              className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200 ${
                 language.code === i18n.language ? 'bg-gray-50 font-medium' : ''
               }`}
             >
-              <span className="text-lg">{language.flag}</span>
-              <span className="text-sm text-gray-700">{language.name}</span>
+              <span className="text-sm">{language.flag}</span>
+              <span className="text-xs text-gray-700">{language.code.toUpperCase()}</span>
             </button>
           ))}
         </div>
