@@ -261,6 +261,14 @@
         "name": "3 Poutines",
         "description": "Mystery coming soon... Three special poutines to be revealed"
       },
+      "grandePoutine": {
+        "name": "Grande poutine de base",
+        "description": "Classic poutine with fries, cheese and gravy"
+      },
+      "petitePoutine": {
+        "name": "Petite poutine régulière",
+        "description": "Small portion of our classic poutine with fries, cheese and gravy"
+      },
       "griotPorc": {
         "name": "Griot de Porc",
         "description": "Tender pork pieces marinated in citrus, slow-cooked, and garnished with fresh herbs"
@@ -292,6 +300,26 @@
       "twoMakayabus": {
         "name": "2 Makayabus",
         "description": "With fumbwa (peanut paste sauce)"
+      },
+      "pondu": {
+        "name": "Pondu",
+        "description": "Traditional Congolese cassava leaf sauce, rich and authentic"
+      },
+      "fumbwa": {
+        "name": "Fumbwa",
+        "description": "Traditional sauce with green leaves and peanut paste"
+      },
+      "makoso": {
+        "name": "Makoso",
+        "description": "Traditional Congolese dish prepared with authentic spices"
+      },
+      "dindonFume": {
+        "name": "Smoked Turkey",
+        "description": "Traditional smoked turkey with authentic African flavors"
+      },
+      "libokePoisson": {
+        "name": "Liboke smoked fish (catfish)",
+        "description": "Smoked catfish wrapped in leaves, Congolese specialty"
       },
       "goatTassot": {
         "name": "Goat Tassot",
@@ -381,6 +409,10 @@
         "name": "Madesu (white Bean Sauce)",
         "description": "Traditional white bean sauce"
       },
+      "safou": {
+        "name": "2 Safou (African plums)",
+        "description": "Two African safou fruits, rich and flavorful"
+      },
       "juice": {
         "name": "Juice",
         "description": "Choice of flavors: Pineapple, Ginger, Oranges, Apples"
@@ -401,6 +433,15 @@
         "name": "Cola Champagne",
         "description": "Puerto Rican favorite- a uniquely tantalizing taste"
       }
+    },
+    "extras": {
+      "title": "Available Extras",
+      "chevre": "Goat",
+      "legume": "Vegetables",
+      "poulet": "Chicken",
+      "plantain": "Plantain",
+      "patateSuccre": "Sweet Potato",
+      "porc": "Pork"
     }
   }
 }

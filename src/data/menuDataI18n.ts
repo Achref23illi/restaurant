@@ -1,5 +1,11 @@
 import { useTranslation } from 'react-i18next';
 
+export interface MenuExtra {
+  id: string;
+  nameKey: string;
+  price: number;
+}
+
 export interface MenuItem {
   id: string;
   nameKey: string;
@@ -10,6 +16,7 @@ export interface MenuItem {
   category: string;
   popular?: boolean;
   spicy?: boolean;
+  extras?: MenuExtra[];
 }
 
 export interface MenuCategory {
@@ -28,6 +35,58 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.threePoutines.name',
         descriptionKey: 'menu.items.threePoutines.description',
         price: 35.00,
+        currency: 'CAD',
+        image: '/images/threepoutine.png',
+        category: 'special',
+        popular: true
+      },
+      {
+        id: 'special-2',
+        nameKey: 'menu.items.grandePoutine.name',
+        descriptionKey: 'menu.items.grandePoutine.description',
+        price: 14.99,
+        currency: 'CAD',
+        image: '/images/threepoutine.png',
+        category: 'special',
+        popular: true,
+        extras: [
+          {
+            id: 'extra-chevre',
+            nameKey: 'menu.extras.chevre',
+            price: 5.00
+          },
+          {
+            id: 'extra-legume',
+            nameKey: 'menu.extras.legume',
+            price: 5.00
+          },
+          {
+            id: 'extra-poulet',
+            nameKey: 'menu.extras.poulet',
+            price: 4.00
+          },
+          {
+            id: 'extra-plantain',
+            nameKey: 'menu.extras.plantain',
+            price: 4.00
+          },
+          {
+            id: 'extra-patate-sucre',
+            nameKey: 'menu.extras.patateSuccre',
+            price: 4.00
+          },
+          {
+            id: 'extra-porc',
+            nameKey: 'menu.extras.porc',
+            price: 4.00
+          }
+        ]
+      },
+      {
+        id: 'special-3',
+        nameKey: 'menu.items.petitePoutine.name',
+        descriptionKey: 'menu.items.petitePoutine.description',
+        price: 8.00,
         currency: 'CAD',
         image: '/images/threepoutine.png',
         category: 'special',
@@ -118,6 +177,51 @@ export const menuCategories: MenuCategory[] = [
         price: 26.00,
         currency: 'CAD',
         image: '/images/two_Makayabus.avif',
+        category: 'plats-africains'
+      },
+      {
+        id: 'african-1',
+        nameKey: 'menu.items.pondu.name',
+        descriptionKey: 'menu.items.pondu.description',
+        price: 17.00,
+        currency: 'CAD',
+        image: '/images/Madesu.avif',
+        category: 'plats-africains'
+      },
+      {
+        id: 'african-2',
+        nameKey: 'menu.items.fumbwa.name',
+        descriptionKey: 'menu.items.fumbwa.description',
+        price: 17.00,
+        currency: 'CAD',
+        image: '/images/Madesu.avif',
+        category: 'plats-africains'
+      },
+      {
+        id: 'african-3',
+        nameKey: 'menu.items.makoso.name',
+        descriptionKey: 'menu.items.makoso.description',
+        price: 17.00,
+        currency: 'CAD',
+        image: '/images/chicken.avif',
+        category: 'plats-africains'
+      },
+      {
+        id: 'african-4',
+        nameKey: 'menu.items.dindonFume.name',
+        descriptionKey: 'menu.items.dindonFume.description',
+        price: 19.00,
+        currency: 'CAD',
+        image: '/images/chicken.avif',
+        category: 'plats-africains'
+      },
+      {
+        id: 'african-5',
+        nameKey: 'menu.items.libokePoisson.name',
+        descriptionKey: 'menu.items.libokePoisson.description',
+        price: 26.00,
+        currency: 'CAD',
+        image: '/images/thomson_fish.avif',
         category: 'plats-africains'
       }
     ]
@@ -341,6 +445,15 @@ export const menuCategories: MenuCategory[] = [
         currency: 'CAD',
         image: '/images/Madesu.avif',
         category: 'sides'
+      },
+      {
+        id: '31',
+        nameKey: 'menu.items.safou.name',
+        descriptionKey: 'menu.items.safou.description',
+        price: 5.00,
+        currency: 'CAD',
+        image: '/images/fritaille.avif',
+        category: 'sides'
       }
     ]
   },
@@ -349,7 +462,7 @@ export const menuCategories: MenuCategory[] = [
     nameKey: 'menu.categories.drinks',
     items: [
       {
-        id: '31',
+        id: '32',
         nameKey: 'menu.items.juice.name',
         descriptionKey: 'menu.items.juice.description',
         price: 3.00,
@@ -358,7 +471,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'boissons'
       },
       {
-        id: '32',
+        id: '33',
         nameKey: 'menu.items.maltan.name',
         descriptionKey: 'menu.items.maltan.description',
         price: 2.00,
@@ -367,7 +480,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'boissons'
       },
       {
-        id: '33',
+        id: '34',
         nameKey: 'menu.items.water.name',
         descriptionKey: 'menu.items.water.description',
         price: 2.00,
@@ -376,7 +489,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'boissons'
       },
       {
-        id: '34',
+        id: '35',
         nameKey: 'menu.items.softDrinks.name',
         descriptionKey: 'menu.items.softDrinks.description',
         price: 2.00,
@@ -385,7 +498,7 @@ export const menuCategories: MenuCategory[] = [
         category: 'boissons'
       },
       {
-        id: '35',
+        id: '36',
         nameKey: 'menu.items.colaChampagne.name',
         descriptionKey: 'menu.items.colaChampagne.description',
         price: 3.50,

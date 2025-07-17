@@ -261,6 +261,14 @@
         "name": "3 Poutines",
         "description": "Mystère à venir... Trois poutines spéciales qui seront bientôt révélées"
       },
+      "grandePoutine": {
+        "name": "Grande poutine de base",
+        "description": "Poutine classique avec des frites, du fromage et de la sauce"
+      },
+      "petitePoutine": {
+        "name": "Petite poutine régulière",
+        "description": "Version petite portion de notre poutine classique avec frites, fromage et sauce"
+      },
       "griotPorc": {
         "name": "Griot de Porc",
         "description": "Morceaux de porc tendres marinés aux agrumes, cuits lentement et garnis d'herbes fraîches"
@@ -292,6 +300,26 @@
       "twoMakayabus": {
         "name": "2 Makayabus (morues)",
         "description": "Avec fumbwa (sauce aux feuilles et à la pâte d'arachides)"
+      },
+      "pondu": {
+        "name": "Pondu",
+        "description": "Sauce traditionnelle congolaise aux feuilles de manioc, riche et authentique"
+      },
+      "fumbwa": {
+        "name": "Fumbwa",
+        "description": "Sauce traditionnelle aux feuilles vertes et à la pâte d'arachides"
+      },
+      "makoso": {
+        "name": "Makoso",
+        "description": "Plat traditionnel congolais préparé avec des épices authentiques"
+      },
+      "dindonFume": {
+        "name": "Dindon fumé",
+        "description": "Dindon fumé traditionnel aux saveurs authentiques d'Afrique"
+      },
+      "libokePoisson": {
+        "name": "Liboke poisson fumé (catfish)",
+        "description": "Poisson-chat fumé enveloppé dans des feuilles, spécialité congolaise"
       },
       "goatTassot": {
         "name": "Tassot Chèvre",
@@ -381,6 +409,10 @@
         "name": "Madesu (sauce aux haricots blancs)",
         "description": "Sauce aux haricots blancs traditionnelle"
       },
+      "safou": {
+        "name": "2 Safou (pruneaux)",
+        "description": "Deux fruits safou africains, riches et savoureux"
+      },
       "juice": {
         "name": "Jus",
         "description": "Jus : Choix de saveurs : Ananas, Gingembre, Oranges, Pommes"
@@ -401,6 +433,15 @@
         "name": "Cola Champagne",
         "description": "Favori portoricain - un goût uniquement tentant"
       }
+    },
+    "extras": {
+      "title": "Extras disponibles",
+      "chevre": "Chèvre",
+      "legume": "Légumes",
+      "poulet": "Poulet",
+      "plantain": "Banane plantain",
+      "patateSuccre": "Patate sucrée",
+      "porc": "Porc"
     }
   }
 }
