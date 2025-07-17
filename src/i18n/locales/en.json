@@ -28,6 +28,15 @@
     "quote": "Each dish tells a story of heritage and heart",
     "quoteAuthor": "Maman Jeanne"
   },
+  "tribute": {
+    "title": "In Honor of Maman Jeanne",
+    "motherAlt": "Photo of Maman Jeanne",
+    "paragraph1": "It all began with the loving hands of Maman Jeanne, who passed down to us not only her secret recipes, but also her passion for authentic cuisine. Every dish we serve carries the essence of her love and tradition.",
+    "paragraph2": "Her teachings still resonate in our kitchen today. She taught us that food is not just a meal, but a way to bring families together, preserve our culture, and share our heritage with the world.",
+    "quote": "The best spice in every dish is the love you put into it",
+    "dedication": "Maman Jeanne",
+    "paragraph3": "Today, in her honor, we continue to prepare each meal with the same passion and respect for traditions that she instilled in us. Her spirit lives through every flavor, every aroma, and every smile we share with our customers."
+  },
   "reviews": {
     "title": "Customer Reviews",
     "subtitle": "What our customers think of us on different platforms",
@@ -238,6 +247,7 @@
   "menu": {
     "title": "Our Menu",
     "subtitle": "Discover our Haitian and Congolese specialties, prepared with passion and authenticity",
+    "accompaniment": "All dishes are served with kwanga or white rice or sticky rice or fufu all with plantain banana",
     "orderNow": "Order now and enjoy our authentic flavors",
     "orderSubtitle": "Multiple ordering options available for your convenience",
     "orderButton": "Order",
@@ -283,11 +293,11 @@
       },
       "goat": {
         "name": "Goat",
-        "description": "Kwanga (cassava bread), white rice, sticky rice, or fufu (West African dough)"
+        "description": "Tender and flavorful goat meat prepared according to tradition"
       },
       "halfChicken": {
         "name": "Half Chicken",
-        "description": "Kwanga (cassava bread), white rice, sticky rice, or Fufu (pounded yam)"
+        "description": "Two tender chicken thighs marinated in traditional spices"
       },
       "thomsonFish": {
         "name": "Thomson Fish",
@@ -295,7 +305,7 @@
       },
       "eightChickenWings": {
         "name": "8 Chicken Wings",
-        "description": "Kwanga, white rice, sticky rice, or fufu"
+        "description": "Eight juicy chicken wings marinated in Creole spices"
       },
       "twoMakayabus": {
         "name": "2 Makayabus",

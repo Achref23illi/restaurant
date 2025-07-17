@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Tribute from './components/Tribute';
 import Gallery from './components/Gallery';
 import Menu from './components/Menu';
 import Reviews from './components/Reviews';
@@ -18,6 +19,7 @@ function App() {
       <Header />
       <Hero />
       <About />
+      <Tribute />
       <Gallery />
       <Menu />
       <Reviews />

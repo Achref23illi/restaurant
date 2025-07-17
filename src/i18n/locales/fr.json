@@ -28,6 +28,15 @@
     "quote": "Chaque plat raconte une histoire de patrimoine et de cœur",
     "quoteAuthor": "Maman Jeanne"
   },
+  "tribute": {
+    "title": "En l'honneur de Maman Jeanne",
+    "motherAlt": "Photo de Maman Jeanne",
+    "paragraph1": "Tout a commencé avec les mains aimantes de Maman Jeanne, qui nous a transmis non seulement ses recettes secrètes, mais aussi sa passion pour la cuisine authentique. Chaque plat que nous servons porte en lui l'essence de son amour et de sa tradition.",
+    "paragraph2": "Ses enseignements résonnent encore dans notre cuisine aujourd'hui. Elle nous a appris que la nourriture n'est pas seulement un repas, mais un moyen de rassembler les familles, de préserver notre culture et de partager notre héritage avec le monde.",
+    "quote": "La meilleure épice dans chaque plat, c'est l'amour qu'on y met",
+    "dedication": "Maman Jeanne",
+    "paragraph3": "Aujourd'hui, en son honneur, nous continuons de préparer chaque repas avec la même passion et le même respect pour les traditions qu'elle nous a inculqués. Son esprit vit à travers chaque saveur, chaque arôme, et chaque sourire que nous partageons avec nos clients."
+  },
   "reviews": {
     "title": "Nos Avis Clients",
     "subtitle": "Ce que nos clients pensent de nous sur les différentes plateformes",
@@ -238,6 +247,7 @@
   "menu": {
     "title": "Notre Menu",
     "subtitle": "Découvrez nos spécialités haïtiennes et congolaises, préparées avec passion et authenticité",
+    "accompaniment": "Tous les plats sont accompagnés de kwanga ou riz blanc ou riz collé ou fufu tous avec banane plantain",
     "orderNow": "Commandez maintenant et profitez de nos saveurs authentiques",
     "orderSubtitle": "Plusieurs options de commande disponibles pour votre confort",
     "orderButton": "Commander",
@@ -283,11 +293,11 @@
       },
       "goat": {
         "name": "Chèvre",
-        "description": "Kwanga (pain de manioc), riz blanc, riz collé, ou fufu (pâte d'Afrique de l'Ouest)"
+        "description": "Viande de chèvre tendre et savoureuse préparée selon la tradition"
       },
       "halfChicken": {
         "name": "Deux cuisses",
-        "description": "Kwanga (pain de manioc), riz blanc, riz collé, ou Fufu (igname pilée)"
+        "description": "Deux cuisses de poulet tendres marinées aux épices traditionnelles"
       },
       "thomsonFish": {
         "name": "Poisson Thomson",
@@ -295,7 +305,7 @@
       },
       "eightChickenWings": {
         "name": "8 Ailes de Poulet",
-        "description": "Kwanga, riz blanc, riz collé, ou fufu"
+        "description": "Huit ailes de poulet juteuses marinées aux épices créoles"
       },
       "twoMakayabus": {
         "name": "2 Makayabus (morues)",
