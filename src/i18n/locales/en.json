@@ -142,7 +142,7 @@
     "contact": {
       "title": "Contact",
       "address": "1234 Rue Saint-Laurent\nMontreal, QC H2X 2S8",
-      "phone": "(514) 765-1234",
+      "phone": "(514) 354-3811",
       "email": "info@chezmamanjean.com"
     },
     "orderOnline": {
@@ -163,7 +163,8 @@
       "orderInStore": "🏪 Order in-store",
       "delivery": "🚚 Delivery",
       "close": "Close"
-    }
+    },
+    "catering": "Contact us for catering service"
   },
   "gallery": {
     "title": "Our Story in Pictures",
@@ -208,6 +209,7 @@
     "steps": {
       "customer": "Customer Info",
       "menu": "Select Menu",
+      "customize": "Customize",
       "summary": "Order Summary"
     },
     "customerInfo": {
@@ -241,21 +243,115 @@
     "buttons": {
       "back": "Back",
       "next": "Next",
-      "confirmOrder": "Confirm Order"
+      "confirmOrder": "Confirm Order",
+      "order": "Order",
+      "addToCart": "Add to Cart",
+      "customize": "Customize"
+    },
+    "customization": {
+      "title": "Customize your dish",
+      "step": "Step",
+      "of": "of",
+      "steps": {
+        "1": {
+          "title": "Dish you want",
+          "description": "Your selected main dish"
+        },
+        "2": {
+          "title": "Base / Side",
+          "description": "Choose your side dish",
+          "options": {
+            "kwanga": "Kwanga",
+            "fufu": "Fufu",
+            "rizBlanc": "White rice",
+            "rizBlancSauce": "White rice with bean sauce (+$0)",
+            "rizDjonDjon": "Djon djon rice (+$2)",
+            "rizColli": "Sticky rice"
+          }
+        },
+        "3": {
+          "title": "Plantain",
+          "description": "Type of plantain",
+          "options": {
+            "pale": "Sweet plantain",
+            "sucre": "Fried plantain",
+            "none": "No plantain"
+          }
+        },
+        "4": {
+          "title": "Salad",
+          "description": "Choose your salad",
+          "options": {
+            "macaroni": "Macaroni salad",
+            "verte": "Green salad",
+            "none": "No salad"
+          }
+        },
+        "5": {
+          "title": "Sauce",
+          "description": "With or without sauce",
+          "options": {
+            "with": "With sauce",
+            "without": "Without sauce"
+          }
+        }
+      },
+      "extras": {
+        "title": "Extras (+$2 each)",
+        "description": "Optional additions to your dish",
+        "options": {
+          "petiteSalade": "Small macaroni salad (+$2)",
+          "sauce": "Extra sauce (+$2)",
+          "piments": "Hot peppers (+$2)",
+          "piklis": "Piklis (+$2)",
+          "banane": "Extra plantain (+$2)"
+              }
     }
-  },
+  }
+},
   "menu": {
     "title": "Our Menu",
     "subtitle": "Discover our Haitian and Congolese specialties, prepared with passion and authenticity",
-    "accompaniment": "All dishes are served with kwanga or white rice or sticky rice or fufu all with plantain banana",
+    "accompaniment": "All dishes are served with Djon Djon Rice* and macaroni salad or green salad",
+    "cateringDescription": "For your private events, weddings, birthdays and special celebrations, we offer personalized catering service with our authentic dishes.",
+    "childrenMenu": {
+      "title": "Children's Menu",
+      "subtitle": "Kid-friendly dishes with generous portions"
+    },
+    "lunchMenu": {
+      "title": "Lunch Menu",
+      "subtitle": "Takeout only - from 11 AM to 2 PM",
+      "description": "Special lunch menu available for takeout only"
+    },
     "orderNow": "Order now and enjoy our authentic flavors",
     "orderSubtitle": "Multiple ordering options available for your convenience",
     "orderButton": "Order",
     "viewAllOptions": "View all options",
+    "button": "Order",
+    "popup": {
+      "title": "How would you like to order?",
+      "subtitle": "Choose your preferred ordering method",
+      "directOrder": "Direct order at restaurant",
+      "callToOrder": "📞 Call to order",
+      "orderInStore": "🏪 Order in-store",
+      "delivery": "Delivery",
+      "close": "Close"
+    },
     "popular": "Popular",
     "mystery": "MYSTERY",
     "spicy": "Spicy",
+    "search": "Search for a dish...",
+    "totalItems": "Total dishes",
+    "searchResults": "Search results",
+    "favorites": "Favorites",
+    "showFavorites": "Show my favorites",
+    "noResults": "No results found",
+    "clearSearch": "Clear search",
+    "customizable": "Customizable",
+    "openMobileMenu": "Open Menu",
+    "closeMobileMenu": "Close Menu",
     "categories": {
+      "title": "Categories",
       "all": "All dishes",
       "special": "Special Menu",
       "featured": "Popular Dishes",
@@ -264,7 +360,10 @@
       "entrees": "Starters",
       "meat": "Meat and Fish",
       "sides": "Sides",
-      "drinks": "Drinks"
+      "drinks": "Drinks",
+      "menuEnfants": "Children's Menu",
+      "desserts": "Desserts",
+      "menuMidi": "Lunch Specials"
     },
     "items": {
       "threePoutines": {
@@ -379,9 +478,17 @@
         "name": "Chicken Drumsticks (6)",
         "description": "Six marinated and grilled chicken drumsticks"
       },
-      "chickenWings": {
-        "name": "Chicken Wings",
-        "description": "Chicken Wings Choice of 6 or 12 pieces"
+      "chickenWings6": {
+        "name": "Chicken Wings (6)",
+        "description": "Six chicken wings marinated with Creole spices"
+      },
+      "chickenWings12": {
+        "name": "Chicken Wings (12)",
+        "description": "Twelve chicken wings marinated with Creole spices"
+      },
+      "soupeJour": {
+        "name": "Soup of the day",
+        "description": "Fresh soup prepared daily according to available ingredients"
       },
       "tilapiaFish": {
         "name": "Tilapia",
@@ -411,6 +518,34 @@
         "name": "Fried Plantains (Haitian Style) (2)",
         "description": "Two Haitian-style fried plantains"
       },
+      "sweetPlantains": {
+        "name": "Sweet Plantains (4)",
+        "description": "Four sweet plantains"
+      },
+      "fumbwaSide": {
+        "name": "Fumbwa (leaf sauce with peanut paste)",
+        "description": "Traditional sauce with green leaves and peanut paste"
+      },
+      "patesChoix": {
+        "name": "Patties of choice",
+        "description": "Traditional Haitian patties"
+      },
+      "whiteRice": {
+        "name": "White rice",
+        "description": "Steamed white rice"
+      },
+      "djonDjonRice": {
+        "name": "Djon djon rice",
+        "description": "Traditional Haitian black rice with djon djon mushrooms"
+      },
+      "vegetableRice": {
+        "name": "Vegetable rice",
+        "description": "Rice cooked with fresh vegetables"
+      },
+      "greenSalad": {
+        "name": "Green salad",
+        "description": "Fresh green salad with vinaigrette"
+      },
       "kwanga": {
         "name": "Kwanga (Cassava Stick)",
         "description": "Traditional cassava stick"
@@ -424,12 +559,20 @@
         "description": "Two African safou fruits, rich and flavorful"
       },
       "juice": {
-        "name": "Juice",
-        "description": "Choice of flavors: Pineapple, Ginger, Oranges, Apples"
+        "name": "Apple juice",
+        "description": "Fresh and natural apple juice"
       },
       "maltan": {
-        "name": "Maltan",
-        "description": "Traditional malted beverage"
+        "name": "Creole Malta",
+        "description": "Traditional Creole malted beverage"
+      },
+      "gingerJuice": {
+        "name": "Homemade ginger juice",
+        "description": "Fresh homemade ginger juice"
+      },
+      "bissapJuice": {
+        "name": "Homemade bissap juice",
+        "description": "Fresh homemade bissap juice"
       },
       "water": {
         "name": "Water",
@@ -437,11 +580,87 @@
       },
       "softDrinks": {
         "name": "Soft drinks",
-        "description": "Cola, Diet Cola, or Lemon-Lime soda options"
+        "description": "Coca-Cola, Sprite, Fanta (flavors: orange, strawberry and pineapple)"
       },
       "colaChampagne": {
         "name": "Cola Champagne",
         "description": "Puerto Rican favorite- a uniquely tantalizing taste"
+      },
+      "alcohol": {
+        "name": "Alcohol on site",
+        "description": "Selection of alcoholic beverages available on site"
+      },
+      "childrenWings": {
+        "name": "Chicken wings (3)",
+        "description": "Served with rice or fries"
+      },
+      "childrenGriot": {
+        "name": "Griot (grilled pork cubes)",
+        "description": "Served with rice or fries"
+      },
+      "childrenChicken": {
+        "name": "Chicken",
+        "description": "Served with rice or fries"
+      },
+      "bananaSplit": {
+        "name": "African banana split",
+        "description": "Banana split with authentic African flavors"
+      },
+      "beignets": {
+        "name": "African beignets (4)",
+        "description": "Four traditional African beignets"
+      },
+      "iceCream": {
+        "name": "Ice cream (2 scoops)",
+        "description": "Two scoops of artisanal ice cream"
+      },
+      "lunchGriot": {
+        "name": "Lunch Griot",
+        "description": "Griot pork with rice and vegetables - lunch portion"
+      },
+      "lunchChicken": {
+        "name": "Lunch Chicken",
+        "description": "Grilled chicken with rice and salad - lunch portion"
+      },
+      "lunchFish": {
+        "name": "Lunch Fish",
+        "description": "Fresh fish with rice and vegetables - lunch portion"
+      },
+      "lunchCombo": {
+        "name": "Lunch Combo",
+        "description": "Griot + chicken + rice + vegetables - perfect for sharing"
+      },
+      "midiWings": {
+        "name": "LUNCH SPECIAL - Chicken Wings",
+        "description": "3 chicken wings marinated in Creole spices, served with rice and vegetables"
+      },
+      "midiGriot": {
+        "name": "LUNCH SPECIAL - Griot Pork",
+        "description": "Lunch portion of tender griot pork with rice and salad"
+      },
+      "midiChicken": {
+        "name": "LUNCH SPECIAL - Chicken",
+        "description": "Grilled chicken pieces with rice and seasonal vegetables"
+      },
+      "midiTurkey": {
+        "name": "LUNCH SPECIAL - Smoked Turkey",
+        "description": "Traditional smoked turkey with lunch accompaniments"
+      },
+      "midiGoat": {
+        "name": "LUNCH SPECIAL - Goat Tasso",
+        "description": "Spiced goat tasso with rice and Creole vegetables"
+      },
+      "midiBeef": {
+        "name": "LUNCH SPECIAL - Beef Tasso",
+        "description": "Marinated and fried beef pieces with accompaniments"
+      },
+      "midiVegetables": {
+        "name": "LUNCH SPECIAL - Vegetables",
+        "description": "Mixed sautéed vegetables with beef cubes and rice"
+      },
+      "midiFritaille": {
+        "name": "LUNCH SPECIAL - Fritaille",
+        "description": "Mixed Creole meats with rice and fried plantains"
       }
     },
     "extras": {
@@ -451,7 +670,37 @@
       "poulet": "Chicken",
       "plantain": "Plantain",
       "patateSuccre": "Sweet Potato",
-      "porc": "Pork"
+      "porc": "Pork",
+      "macaroni": "Small macaroni salad",
+      "sauce": "Sauce",
+      "piments": "Hot peppers",
+      "pikliz": "Pikliz"
+    }
+  },
+  "orderSteps": {
+    "step2": {
+      "title": "Step 2: Choose your accompaniment",
+      "kwanga": "Kwanga (homemade)",
+      "fufu": "Fufu",
+      "rizBlanc": "White rice (unique with bean sauce or not)",
+      "rizDjonDjon": "Djon djon rice (+$2)",
+      "rizColli": "Sticky rice"
+    },
+    "step3": {
+      "title": "Step 3: Choose your plantain",
+      "bananePaise": "Plain plantain",
+      "bananeSucre": "Sweet plantain"
+    },
+    "step4": {
+      "title": "Step 4: Choose your salad",
+      "saladeMacaroni": "Macaroni salad",
+      "saladeVerte": "Green salad",
+      "aucuneSalade": "No salad"
+    },
+    "step5": {
+      "title": "Step 5: Choose your sauce",
+      "avecSauce": "With sauce",
+      "sansSauce": "Without sauce"
     }
   }
 }

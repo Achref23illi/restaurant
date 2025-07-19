@@ -142,7 +142,7 @@
     "contact": {
       "title": "Contact",
       "address": "1234 Rue Saint-Laurent\nMontréal, QC H2X 2S8",
-      "phone": "(514) 765-1234",
+      "phone": "(514) 354-3811",
       "email": "info@chezmamanjean.com"
     },
     "orderOnline": {
@@ -163,7 +163,8 @@
       "orderInStore": "🏪 Commander sur place",
       "delivery": "🚚 Livraison",
       "close": "Fermer"
-    }
+    },
+    "catering": "Contactez-nous pour service traiteur"
   },
   "gallery": {
     "title": "Notre Histoire en Images",
@@ -208,6 +209,7 @@
     "steps": {
       "customer": "Info Client",
       "menu": "Sélection Menu",
+      "customize": "Personnaliser",
       "summary": "Résumé Commande"
     },
     "customerInfo": {
@@ -241,21 +243,115 @@
     "buttons": {
       "back": "Retour",
       "next": "Suivant",
-      "confirmOrder": "Confirmer la Commande"
+      "confirmOrder": "Confirmer la Commande",
+      "order": "Commander",
+      "addToCart": "Ajouter au Panier",
+      "customize": "Personnaliser"
+    },
+    "customization": {
+      "title": "Personnaliser votre plat",
+      "step": "Étape",
+      "of": "de",
+      "steps": {
+        "1": {
+          "title": "Plat que tu veux",
+          "description": "Votre plat principal sélectionné"
+        },
+        "2": {
+          "title": "Base / Accompagnement",
+          "description": "Choisissez votre accompagnement",
+          "options": {
+            "kwanga": "Kwanga",
+            "fufu": "Fufu", 
+            "rizBlanc": "Riz blanc",
+            "rizBlancSauce": "Riz blanc avec sauce pois (+0$)",
+            "rizDjonDjon": "Riz djon djon (+2$)",
+            "rizColli": "Riz collé"
+          }
+        },
+        "3": {
+          "title": "Banane plantain",
+          "description": "Type de banane plantain",
+          "options": {
+            "pale": "Banane plantain palé",
+            "sucre": "Banane plantain sucré",
+            "none": "Aucune banane"
+          }
+        },
+        "4": {
+          "title": "Salade",
+          "description": "Choisissez votre salade",
+          "options": {
+            "macaroni": "Salade de macaroni",
+            "verte": "Salade verte",
+            "none": "Aucune salade"
+          }
+        },
+        "5": {
+          "title": "Sauce",
+          "description": "Avec ou sans sauce",
+          "options": {
+            "with": "Avec sauce",
+            "without": "Sans sauce"
+          }
+        }
+      },
+      "extras": {
+        "title": "Extras (+2$ chacun)",
+        "description": "Ajouts optionnels à votre plat",
+        "options": {
+          "petiteSalade": "Petite salade de macaroni (+2$)",
+          "sauce": "Sauce supplémentaire (+2$)",
+          "piments": "Piments forts (+2$)",
+          "piklis": "Piklis (+2$)",
+          "banane": "Banane plantain supplémentaire (+2$)"
+              }
     }
-  },
+  }
+},
   "menu": {
     "title": "Notre Menu",
     "subtitle": "Découvrez nos spécialités haïtiennes et congolaises, préparées avec passion et authenticité",
-    "accompaniment": "Tous les plats sont accompagnés de kwanga ou riz blanc ou riz collé ou fufu tous avec banane plantain",
+    "accompaniment": "Tous les plats sont accompagnés de Riz djon djon* et salade de macaroni ou salade verte",
+    "cateringDescription": "Pour vos événements privés, mariages, anniversaires et célébrations spéciales, nous offrons un service traiteur personnalisé avec nos plats authentiques.",
+    "childrenMenu": {
+      "title": "Menu pour enfants",
+      "subtitle": "Plats adaptés aux plus jeunes avec des portions généreuses"
+    },
+    "lunchMenu": {
+      "title": "Menu du midi",
+      "subtitle": "Pour emporter seulement - de 11h à 14h",
+      "description": "Menu spécial du midi disponible uniquement pour emporter"
+    },
     "orderNow": "Commandez maintenant et profitez de nos saveurs authentiques",
     "orderSubtitle": "Plusieurs options de commande disponibles pour votre confort",
     "orderButton": "Commander",
     "viewAllOptions": "Voir toutes les options",
+    "button": "Commander",
+    "popup": {
+      "title": "Comment souhaitez-vous commander?",
+      "subtitle": "Choisissez votre méthode de commande préférée",
+      "directOrder": "Commande directe au restaurant",
+      "callToOrder": "📞 Appeler pour commander",
+      "orderInStore": "🏪 Commander sur place",
+      "delivery": "Livraison",
+      "close": "Fermer"
+    },
     "popular": "Populaire",
     "mystery": "MYSTÈRE",
     "spicy": "Épicé",
+    "search": "Rechercher un plat...",
+    "totalItems": "Total des plats",
+    "searchResults": "Résultats de recherche",
+    "favorites": "Favoris",
+    "showFavorites": "Voir mes favoris",
+    "noResults": "Aucun résultat trouvé",
+    "clearSearch": "Effacer la recherche",
+    "customizable": "Personnalisable",
+    "openMobileMenu": "Ouvrir Menu",
+    "closeMobileMenu": "Fermer Menu",
     "categories": {
+      "title": "Catégories",
       "all": "Tous les plats",
       "special": "Menu Spécial",
       "featured": "Plats Populaires",
@@ -264,7 +360,10 @@
       "entrees": "Entrées",
       "meat": "Viandes et Poissons",
       "sides": "Les À-côtés",
-      "drinks": "Boissons"
+      "drinks": "Boissons",
+      "menuEnfants": "Menu pour enfants",
+      "desserts": "Desserts",
+      "menuMidi": "Spéciaux du midi"
     },
     "items": {
       "threePoutines": {
@@ -379,9 +478,17 @@
         "name": "Pilons de poulet (6)",
         "description": "Six pilons de poulet marinés et grillés"
       },
-      "chickenWings": {
-        "name": "Ailes de poulet",
-        "description": "Ailes de poulet - Choix de 6 ou 12 pièces"
+      "chickenWings6": {
+        "name": "Ailes de poulet (6)",
+        "description": "Six ailes de poulet marinées aux épices créoles"
+      },
+      "chickenWings12": {
+        "name": "Ailes de poulet (12)",
+        "description": "Douze ailes de poulet marinées aux épices créoles"
+      },
+      "soupeJour": {
+        "name": "Soupe du jour",
+        "description": "Soupe fraîche préparée quotidiennement selon les ingrédients disponibles"
       },
       "tilapiaFish": {
         "name": "Tilapia",
@@ -411,6 +518,34 @@
         "name": "Plantains frits (à la façon haïtienne) (2)",
         "description": "Deux plantains frits à la façon haïtienne"
       },
+      "sweetPlantains": {
+        "name": "Bananes plantains sucrées (4)",
+        "description": "Quatre bananes plantains sucrées"
+      },
+      "fumbwaSide": {
+        "name": "Fumbwa (sauce aux feuilles à la pâte d'arachide)",
+        "description": "Sauce traditionnelle aux feuilles vertes et à la pâte d'arachides"
+      },
+      "patesChoix": {
+        "name": "Pâtés au choix",
+        "description": "Pâtés traditionnels haïtiens"
+      },
+      "whiteRice": {
+        "name": "Riz blanc",
+        "description": "Riz blanc cuit à la vapeur"
+      },
+      "djonDjonRice": {
+        "name": "Riz djon djon",
+        "description": "Riz noir traditionnel haïtien aux champignons djon djon"
+      },
+      "vegetableRice": {
+        "name": "Riz aux légumes",
+        "description": "Riz cuit avec des légumes frais"
+      },
+      "greenSalad": {
+        "name": "Salade verte",
+        "description": "Salade verte fraîche avec vinaigrette"
+      },
       "kwanga": {
         "name": "Kwanga (bâton de manioc)",
         "description": "Bâton de manioc traditionnel"
@@ -424,12 +559,20 @@
         "description": "Deux fruits safou africains, riches et savoureux"
       },
       "juice": {
-        "name": "Jus",
-        "description": "Jus : Choix de saveurs : Ananas, Gingembre, Oranges, Pommes"
+        "name": "Jus de pomme",
+        "description": "Jus de pomme frais et naturel"
       },
       "maltan": {
-        "name": "Maltan",
-        "description": "Boisson maltée traditionnelle"
+        "name": "Malta créole",
+        "description": "Boisson maltée traditionnelle créole"
+      },
+      "gingerJuice": {
+        "name": "Jus de gingembre fait maison",
+        "description": "Jus de gingembre frais préparé maison"
+      },
+      "bissapJuice": {
+        "name": "Jus de bissap fait maison",
+        "description": "Jus de bissap frais préparé maison"
       },
       "water": {
         "name": "Eau",
@@ -437,11 +580,87 @@
       },
       "softDrinks": {
         "name": "Boissons gazéifiées",
-        "description": "Options de cola, cola diète ou soda citron-lime"
+        "description": "Coca-Cola, Sprite, Fanta (saveurs : orange, fraise et ananas)"
       },
       "colaChampagne": {
         "name": "Cola Champagne",
         "description": "Favori portoricain - un goût uniquement tentant"
+      },
+      "alcohol": {
+        "name": "Alcool sur place",
+        "description": "Sélection de boissons alcoolisées disponibles sur place"
+      },
+      "childrenWings": {
+        "name": "Ailes de poulet (3)",
+        "description": "Servi avec riz ou frites"
+      },
+      "childrenGriot": {
+        "name": "Griot (porc en cubes grillés)",
+        "description": "Servi avec riz ou frites"
+      },
+      "childrenChicken": {
+        "name": "Poulet",
+        "description": "Servi avec riz ou frites"
+      },
+      "bananaSplit": {
+        "name": "Banana split à l'africaine",
+        "description": "Banana split avec saveurs africaines authentiques"
+      },
+      "beignets": {
+        "name": "Beignets à l'africaine (4)",
+        "description": "Quatre beignets traditionnels africains"
+      },
+      "iceCream": {
+        "name": "Crème glacée (2 boules)",
+        "description": "Deux boules de crème glacée artisanale"
+      },
+      "lunchGriot": {
+        "name": "Griot du midi",
+        "description": "Griot de porc avec riz et légumes - portion déjeuner"
+      },
+      "lunchChicken": {
+        "name": "Poulet du midi",
+        "description": "Poulet grillé avec riz et salade - portion déjeuner"
+      },
+      "lunchFish": {
+        "name": "Poisson du midi",
+        "description": "Poisson frais avec riz et légumes - portion déjeuner"
+      },
+      "lunchCombo": {
+        "name": "Combo du midi",
+        "description": "Griot + poulet + riz + légumes - parfait pour partager"
+      },
+      "midiWings": {
+        "name": "SPÉCIAL MIDI - Ailes de Poulet",
+        "description": "3 ailes de poulet marinées aux épices créoles, servies avec riz et légumes"
+      },
+      "midiGriot": {
+        "name": "SPÉCIAL MIDI - Griot de Porc",
+        "description": "Portion déjeuner de griot de porc tendre avec riz et salade"
+      },
+      "midiChicken": {
+        "name": "SPÉCIAL MIDI - Poulet",
+        "description": "Morceaux de poulet grillé avec riz et légumes de saison"
+      },
+      "midiTurkey": {
+        "name": "SPÉCIAL MIDI - Dindon Fumé",
+        "description": "Dindon fumé traditionnel avec accompagnements du midi"
+      },
+      "midiGoat": {
+        "name": "SPÉCIAL MIDI - Tasso de Cabri",
+        "description": "Tasso de cabri épicé avec riz et légumes créoles"
+      },
+      "midiBeef": {
+        "name": "SPÉCIAL MIDI - Tasso de Bœuf",
+        "description": "Morceaux de bœuf marinés et frits avec accompagnements"
+      },
+      "midiVegetables": {
+        "name": "SPÉCIAL MIDI - Légumes",
+        "description": "Mélange de légumes sautés avec cubes de bœuf et riz"
+      },
+      "midiFritaille": {
+        "name": "SPÉCIAL MIDI - Fritaille",
+        "description": "Mélange de viandes créoles avec riz et bananes plantains"
       }
     },
     "extras": {
@@ -451,7 +670,37 @@
       "poulet": "Poulet",
       "plantain": "Banane plantain",
       "patateSuccre": "Patate sucrée",
-      "porc": "Porc"
+      "porc": "Porc",
+      "macaroni": "Petite salade de macaroni",
+      "sauce": "Sauce",
+      "piments": "Piments forts",
+      "pikliz": "Pikliz"
+    }
+  },
+  "orderSteps": {
+    "step2": {
+      "title": "Étape 2: Choisissez votre accompagnement",
+      "kwanga": "Kwanga (fait maison)",
+      "fufu": "Fufu",
+      "rizBlanc": "Riz blanc (unique avec sauce pois ou non)",
+      "rizDjonDjon": "Riz djon djon (+2$)",
+      "rizColli": "Riz colli"
+    },
+    "step3": {
+      "title": "Étape 3: Choisissez votre banane plantain",
+      "bananePaise": "Banane plantain paisé",
+      "bananeSucre": "Banane plantain sucré"
+    },
+    "step4": {
+      "title": "Étape 4: Choisissez votre salade",
+      "saladeMacaroni": "Salade de macaroni",
+      "saladeVerte": "Salade verte",
+      "aucuneSalade": "Aucune salade"
+    },
+    "step5": {
+      "title": "Étape 5: Choisissez votre sauce",
+      "avecSauce": "Avec sauce",
+      "sansSauce": "Sans sauce"
     }
   }
 }
