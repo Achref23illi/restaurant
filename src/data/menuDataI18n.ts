@@ -554,6 +554,16 @@ export const menuCategories: MenuCategory[] = [
         category: 'viandes-poissons',
         isSeul: true
       },
+      {
+        id: '207',
+        nameKey: 'menu.items.goat.name',
+        descriptionKey: 'menu.items.goat.description',
+        price: 18.00,
+        currency: 'CAD',
+        image: '/images/new_images/Goat.jpg',
+        category: 'viandes-poissons',
+        isSeul: true
+      }
 
     ]
   },
@@ -754,15 +764,6 @@ export const menuCategories: MenuCategory[] = [
         price: 3.50,
         currency: 'CAD',
         image: '/images/Cola-Champan.jpg',
-        category: 'boissons'
-      },
-      {
-        id: '49',
-        nameKey: 'menu.items.alcohol.name',
-        descriptionKey: 'menu.items.alcohol.description',
-        price: 0.00,
-        currency: 'CAD',
-        image: '/images/soft-drinks.jpg',
         category: 'boissons'
       }
     ]
