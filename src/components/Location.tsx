@@ -141,7 +141,7 @@ export default function Location() {
           {/* Carte Google Maps */}
           <div ref={mapRef} className="h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.1611183651!2d-73.56957668444268!3d45.50168887910128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9111e3b2167bd%3A0x7c2c1a172184714c!2sChez%20Maman%20Jeanne!5e0!3m2!1sen!2sca!4v1639000000000!5m2!1sen!2sca"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.8!2d-73.59484!3d45.45722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2357+Jolicoeur+St%2C+Montreal%2C+QC+H4E+1X9!5e0!3m2!1sen!2sca!4v1639000000000!5m2!1sen!2sca"
               width="100%"
               height="100%"
               style={{ border: 0 }}

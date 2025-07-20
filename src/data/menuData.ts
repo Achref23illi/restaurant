@@ -315,8 +315,8 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         id: '28',
-        name: 'Plantains frits (à la façon haïtienne) (2) / Fried Plantains (Haitian Style) (2)',
-        description: 'Deux plantains frits à la façon haïtienne',
+        name: 'Plantains Paisés (à la façon haïtienne) (2) / Fried Plantains (Haitian Style) (2)',
+        description: 'Deux plantains paisés à la façon haïtienne',
         price: 4.00,
         currency: 'CAD',
         image: '/images/fritaille.avif',

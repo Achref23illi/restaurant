@@ -67,8 +67,8 @@
     },
     "address": {
       "title": "📍 Adresse",
-      "street": "1234 Rue Saint-Laurent",
-      "city": "Montréal, QC H2X 2S8",
+      "street": "2357 Jolicoeur St",
+      "city": "Montreal, Quebec H4E 1X9",
       "country": "Canada",
       "button": "Voir sur Maps"
     },
@@ -89,6 +89,11 @@
     "delivery": {
       "title": "🚚 Livraison Rapide",
       "description": "Commandez directement via nos partenaires de livraison"
+    },
+    "catering": {
+      "title": "🎉 Service Traiteur",
+      "description": "Pour vos événements privés, mariages, anniversaires et célébrations spéciales",
+      "button": "Contactez-nous pour service traiteur"
     },
     "modal": {
       "title": "Commandez maintenant !",
@@ -141,7 +146,7 @@
     },
     "contact": {
       "title": "Contact",
-      "address": "1234 Rue Saint-Laurent\nMontréal, QC H2X 2S8",
+      "address": "2357 Jolicoeur St\nMontreal, Quebec H4E 1X9",
       "phone": "(514) 354-3811",
       "email": "info@chezmamanjean.com"
     },
@@ -261,7 +266,7 @@
           "title": "Base / Accompagnement",
           "description": "Choisissez votre accompagnement",
           "options": {
-            "kwanga": "Kwanga",
+            "kwanga": "Kwanga (fait maison - +40 ans d'héritage Congo)",
             "fufu": "Fufu", 
             "rizBlanc": "Riz blanc",
             "rizBlancSauce": "Riz blanc avec sauce pois (+0$)",
@@ -269,11 +274,20 @@
             "rizColli": "Riz collé"
           }
         },
+        "2_5": {
+          "title": "Sauce aux légumes",
+          "description": "Choisissez votre sauce aux légumes",
+          "options": {
+            "pondu": "Pondu (sauce aux feuilles de manioc)",
+            "fumbwa": "Fumbwa (sauce aux feuilles et pâte d'arachides)",
+            "madesu": "Madesu (sauce aux haricots blancs)"
+          }
+        },
         "3": {
           "title": "Banane plantain",
           "description": "Type de banane plantain",
           "options": {
-            "pale": "Banane plantain palé",
+            "pale": "Banane plantain paisé",
             "sucre": "Banane plantain sucré",
             "none": "Aucune banane"
           }
@@ -294,6 +308,25 @@
             "with": "Avec sauce",
             "without": "Sans sauce"
           }
+        },
+        "children": {
+          "title": "Choisissez votre accompagnement",
+          "description": "Riz ou frites avec votre repas",
+          "options": {
+            "rice": "Riz",
+            "fries": "Frites"
+          }
+        },
+        "softdrink": {
+          "title": "Choisissez votre saveur",
+          "description": "Sélectionnez votre saveur de boisson gazeuse préférée",
+          "options": {
+            "cocaCola": "Coca-Cola",
+            "sprite": "Sprite",
+            "fantaOrange": "Fanta Orange",
+            "fantaStrawberry": "Fanta Fraise",
+            "fantaPineapple": "Fanta Ananas"
+          }
         }
       },
       "extras": {
@@ -303,7 +336,7 @@
           "petiteSalade": "Petite salade de macaroni (+2$)",
           "sauce": "Sauce supplémentaire (+2$)",
           "piments": "Piments forts (+2$)",
-          "piklis": "Piklis (+2$)",
+          "piklis": "Pikliz (+2$)",
           "banane": "Banane plantain supplémentaire (+2$)"
               }
     }
@@ -363,7 +396,8 @@
       "drinks": "Boissons",
       "menuEnfants": "Menu pour enfants",
       "desserts": "Desserts",
-      "menuMidi": "Spéciaux du midi"
+      "menuMidi": "Spéciaux du midi (11h à 14h et seulement pour emporter)",
+      "menuMidiNotice": "⦁ Spécial du midi seulement disponible de 11h à 14h et seulement pour emporter."
     },
     "items": {
       "threePoutines": {
@@ -401,6 +435,10 @@
       "thomsonFish": {
         "name": "Poisson Thomson",
         "description": "Et pondu (sauce aux feuilles de manioc)"
+      },
+      "thomsonFishBasic": {
+        "name": "Poisson Thomson",
+        "description": "Poisson Thomson grillé avec accompagnements au choix"
       },
       "eightChickenWings": {
         "name": "8 Ailes de Poulet",
@@ -448,11 +486,11 @@
       },
       "tilapia": {
         "name": "Tilapia",
-        "description": "Avec du modesu (sauce aux haricots blancs)"
+        "description": "Avec 1 accompagnement"
       },
       "tilapiaV2": {
         "name": "Tilapia (version 2)",
-        "description": "Avec du modesu (sauce aux haricots blancs)"
+        "description": "Avec 2 accompagnements"
       },
       "brokenChicken": {
         "name": "Poulet Brisé",
@@ -515,8 +553,8 @@
         "description": "Sauce traditionnelle aux feuilles de manioc"
       },
       "friedPlantains": {
-        "name": "Plantains frits (à la façon haïtienne) (2)",
-        "description": "Deux plantains frits à la façon haïtienne"
+        "name": "Plantains Paisés (à la façon haïtienne) (2)",
+        "description": "Deux plantains paisés à la façon haïtienne"
       },
       "sweetPlantains": {
         "name": "Bananes plantains sucrées (4)",
@@ -548,7 +586,7 @@
       },
       "kwanga": {
         "name": "Kwanga (bâton de manioc)",
-        "description": "Bâton de manioc traditionnel"
+        "description": "Bâton de manioc traditionnel fait maison avec +40 ans d'héritage au Congo. Recette familiale authentique transmise de génération en génération."
       },
       "madesauSauce": {
         "name": "Madesu (sauce aux haricots blancs)",
@@ -680,11 +718,17 @@
   "orderSteps": {
     "step2": {
       "title": "Étape 2: Choisissez votre accompagnement",
-      "kwanga": "Kwanga (fait maison)",
+      "kwanga": "Kwanga (fait maison - +40 ans d'héritage Congo)",
       "fufu": "Fufu",
       "rizBlanc": "Riz blanc (unique avec sauce pois ou non)",
       "rizDjonDjon": "Riz djon djon (+2$)",
       "rizColli": "Riz colli"
+    },
+    "step2_5": {
+      "title": "Étape 2.5: Choisissez votre sauce aux légumes",
+      "pondu": "Pondu (sauce aux feuilles de manioc)",
+      "fumbwa": "Fumbwa (sauce aux feuilles et pâte d'arachides)",
+      "madesu": "Madesu (sauce aux haricots blancs)"
     },
     "step3": {
       "title": "Étape 3: Choisissez votre banane plantain",

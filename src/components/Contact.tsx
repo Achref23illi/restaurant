@@ -256,13 +256,33 @@ export default function Contact() {
                 </a>
               </div>
             </div>
+
+            {/* Service Traiteur */}
+            <div className="contact-item p-6 rounded-2xl border backdrop-blur-sm"
+                 style={{ 
+                   backgroundColor: `${colors.accent}30`,
+                   borderColor: `${colors.accent}50`
+                 }}>
+              <h3 className="font-semibold text-2xl mb-4 text-white">{t('contact.catering.title')}</h3>
+              <p className="text-gray-300 mb-6">
+                {t('contact.catering.description')}
+              </p>
+              <a
+                href="tel:+15147651234"
+                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-white transition-all duration-300 transform hover:scale-105"
+                style={{ backgroundColor: colors.accent }}
+              >
+                <span className="mr-2">🎉</span>
+                {t('contact.catering.button')}
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Carte */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.6509851823087!2d-73.56979348436746!3d45.50168897910192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9111e3b2167bd%3A0x7c2c1a172184714c!2schez%20maman%20jeanne!5e0!3m2!1sen!2sca!4v1641234567890!5m2!1sen!2sca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.8!2d-73.59484!3d45.45722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2357+Jolicoeur+St%2C+Montreal%2C+QC+H4E+1X9!5e0!3m2!1sen!2sca!4v1641234567890!5m2!1sen!2sca"
             width="100%"
             height="400"
             style={{ border: 0 }}

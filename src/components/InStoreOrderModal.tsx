@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import colors from '../config/colors';
-import { getAllMenuItems } from '../data/menuDataI18n';
+import { useAppSelector } from '../hooks/redux';
+import { selectAllMenuItems } from '../store/slices/menuSlice';
 
 interface MenuItem {
   id: string;
@@ -14,14 +15,18 @@ interface MenuItem {
   category: string;
   popular?: boolean;
   spicy?: boolean;
+  isSeul?: boolean;
 }
 
 interface CustomizationOptions {
   base: string;
+  step2_5: string;
   plantain: string;
   salad: string;
   sauce: string;
   extras: string[];
+  children: string;
+  softdrink: string;
 }
 
 interface CustomizedOrderItem {
@@ -47,7 +52,7 @@ interface InStoreOrderModalProps {
 }
 
 type Step = 'customer' | 'menu' | 'customize' | 'summary';
-type CustomizationStep = 1 | 2 | 3 | 4 | 5;
+type CustomizationStep = '1' | '2' | '2.5' | '3' | '4' | '5' | 'children' | 'softdrink';
 
 export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModalProps) {
   const { t } = useTranslation();
@@ -66,17 +71,20 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
   // Customization states
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const [customizationStep, setCustomizationStep] = useState<CustomizationStep>(1);
+  const [customizationStep, setCustomizationStep] = useState<CustomizationStep>('1');
   const [customization, setCustomization] = useState<CustomizationOptions>({
     base: '',
+    step2_5: '',
     plantain: '',
     salad: '',
     sauce: '',
-    extras: []
+    extras: [],
+    children: '',
+    softdrink: ''
   });
 
-  // Menu items
-  const menuItems = getAllMenuItems();
+  // Menu items from Redux store
+  const menuItems = useAppSelector(selectAllMenuItems);
 
   // Animation effects
   useEffect(() => {
@@ -96,13 +104,16 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   const resetModalState = () => {
     setCurrentStep('customer');
     setSelectedItem(null);
-    setCustomizationStep(1);
+    setCustomizationStep('1');
     setCustomization({
       base: '',
+      step2_5: '',
       plantain: '',
       salad: '',
       sauce: '',
-      extras: []
+      extras: [],
+      children: '',
+      softdrink: ''
     });
     setOrderItems([]);
   };
@@ -170,11 +181,14 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   // Customization validation
   const isCustomizationStepValid = (step: CustomizationStep) => {
     switch (step) {
-      case 1: return true; // Always valid (dish display)
-      case 2: return customization.base !== '';
-      case 3: return customization.plantain !== '';
-      case 4: return customization.salad !== '';
-      case 5: return customization.sauce !== '';
+      case '1': return true; // Always valid (dish display)
+      case '2': return customization.base !== '';
+      case '2.5': return customization.step2_5 !== '';
+      case '3': return customization.plantain !== '';
+      case '4': return customization.salad !== '';
+      case '5': return customization.sauce !== '';
+      case 'children': return customization.children !== '';
+      case 'softdrink': return customization.softdrink !== '';
       default: return false;
     }
   };
@@ -183,9 +197,78 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     return isCustomizationStepValid(customizationStep);
   };
 
+  // Helper functions for step navigation
+  const hasStep25 = (item: MenuItem | null) => {
+    if (!item) return false;
+    return item.orderSteps?.some(step => step.id === 'step2.5');
+  };
+
+  const getStepsForItem = (item: MenuItem | null): CustomizationStep[] => {
+    if (isChildrensMenu(item)) {
+      return ['1', 'children'];
+    }
+    if (isSoftDrinks(item)) {
+      return ['1', 'softdrink'];
+    }
+    return hasStep25(item) 
+      ? ['1', '2', '2.5', '3', '4', '5']
+      : ['1', '2', '3', '4', '5'];
+  };
+
+  const getNextStep = (current: CustomizationStep) => {
+    const steps = getStepsForItem(selectedItem);
+    const currentIndex = steps.indexOf(current);
+    if (currentIndex < steps.length - 1) {
+      return steps[currentIndex + 1];
+    }
+    return null;
+  };
+
+  const getPreviousStep = (current: CustomizationStep) => {
+    const steps = getStepsForItem(selectedItem);
+    const currentIndex = steps.indexOf(current);
+    if (currentIndex > 0) {
+      return steps[currentIndex - 1];
+    }
+    return null;
+  };
+
+  const getCurrentStepNumber = () => {
+    const steps = getStepsForItem(selectedItem);
+    return steps.indexOf(customizationStep) + 1;
+  };
+
+  const getTotalSteps = () => {
+    return getStepsForItem(selectedItem).length;
+  };
+
   // Item customization check
   const isItemCustomizable = (item: MenuItem) => {
-    return !t(item.nameKey).toLowerCase().includes('seul');
+    // Drinks except soft drinks should not be customizable
+    if (isDrinkNoCustomization(item)) {
+      return false;
+    }
+    // Children's menu and soft drinks always need customization
+    if (item.category === 'menu-enfants' || item.id === '47') {
+      return true;
+    }
+    // Standard rule for other items
+    return !item.isSeul;
+  };
+
+  // Check if item is children's menu
+  const isChildrensMenu = (item: MenuItem | null) => {
+    return item?.category === 'menu-enfants';
+  };
+
+  // Check if item is soft drinks
+  const isSoftDrinks = (item: MenuItem | null) => {
+    return item?.id === '47'; // soft drinks item
+  };
+
+  // Check if item is a drink that needs no customization
+  const isDrinkNoCustomization = (item: MenuItem | null) => {
+    return item?.category === 'boissons' && item?.id !== '47'; // all drinks except soft drinks
   };
 
   // Step navigation
@@ -195,9 +278,10 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     } else if (currentStep === 'menu' && orderItems.length > 0) {
       setCurrentStep('summary');
     } else if (currentStep === 'customize') {
-      if (customizationStep < 5 && canProceedCustomization()) {
-        setCustomizationStep((prev) => (prev + 1) as CustomizationStep);
-      } else if (customizationStep === 5 && canProceedCustomization()) {
+      const nextStep = getNextStep(customizationStep);
+      if (nextStep && canProceedCustomization()) {
+        setCustomizationStep(nextStep);
+      } else if (!nextStep && canProceedCustomization()) {
         addCustomizedItemToCart();
       }
     }
@@ -207,8 +291,9 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     if (currentStep === 'menu') {
       setCurrentStep('customer');
     } else if (currentStep === 'customize') {
-      if (customizationStep > 1) {
-        setCustomizationStep((prev) => (prev - 1) as CustomizationStep);
+      const prevStep = getPreviousStep(customizationStep);
+      if (prevStep) {
+        setCustomizationStep(prevStep);
       } else {
         setCurrentStep('menu');
         setSelectedItem(null);
@@ -223,12 +308,15 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   const resetCustomization = () => {
     setCustomization({
       base: '',
+      step2_5: '',
       plantain: '',
       salad: '',
       sauce: '',
-      extras: []
+      extras: [],
+      children: '',
+      softdrink: ''
     });
-    setCustomizationStep(1);
+    setCustomizationStep('1');
   };
 
   const handleCustomizationChange = (field: keyof Omit<CustomizationOptions, 'extras'>, value: string) => {
@@ -257,10 +345,13 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   const addItemDirectly = (item: MenuItem) => {
     const prices = calculateItemPrice(item, {
       base: '',
+      step2_5: '',
       plantain: '',
       salad: '',
       sauce: '',
-      extras: []
+      extras: [],
+      children: '',
+      softdrink: ''
     });
 
     const newItem: CustomizedOrderItem = {
@@ -268,10 +359,13 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       originalItem: item,
       customization: {
         base: '',
+        step2_5: '',
         plantain: '',
         salad: '',
         sauce: '',
-        extras: []
+        extras: [],
+        children: '',
+        softdrink: ''
       },
       basePrice: prices.basePrice,
       extrasPrice: prices.extrasPrice,
@@ -341,7 +435,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     if (!selectedItem) return null;
 
     switch (customizationStep) {
-      case 1:
+      case '1':
         return (
           <div className="text-center py-8">
             <img 
@@ -363,7 +457,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
           </div>
         );
 
-      case 2:
+      case '2':
         return (
           <div className="py-6">
             <div className="text-center mb-8">
@@ -398,7 +492,42 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
           </div>
         );
 
-      case 3:
+      case '2.5':
+        return (
+          <div className="py-6">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                {t('inStoreOrder.customization.steps.2_5.title')}
+              </h4>
+              <p className="text-gray-600">{t('inStoreOrder.customization.steps.2_5.description')}</p>
+            </div>
+            <div className="grid gap-3 max-w-md mx-auto">
+              {Object.entries(t('inStoreOrder.customization.steps.2_5.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
+                <label 
+                  key={key} 
+                  className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                    customization.step2_5 === key 
+                      ? 'border-green-500 bg-green-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="step2_5"
+                    value={key}
+                    checked={customization.step2_5 === key}
+                    onChange={(e) => handleCustomizationChange('step2_5', e.target.value)}
+                    className="mr-3 scale-125"
+                    style={{ accentColor: colors.green }}
+                  />
+                  <span className="font-medium">{label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        );
+
+      case '3':
         return (
           <div className="py-6">
             <div className="text-center mb-8">
@@ -433,7 +562,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
           </div>
         );
 
-      case 4:
+      case '4':
         return (
           <div className="py-6">
             <div className="text-center mb-8">
@@ -468,7 +597,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
           </div>
         );
 
-      case 5:
+      case '5':
         return (
           <div className="py-6">
             <div className="text-center mb-8">
@@ -534,6 +663,76 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                   </label>
                 ))}
               </div>
+            </div>
+          </div>
+        );
+
+      case 'children':
+        return (
+          <div className="py-6">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                {t('inStoreOrder.customization.steps.children.title')}
+              </h4>
+              <p className="text-gray-600">{t('inStoreOrder.customization.steps.children.description')}</p>
+            </div>
+            <div className="grid gap-3 max-w-md mx-auto">
+              {Object.entries(t('inStoreOrder.customization.steps.children.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
+                <label 
+                  key={key} 
+                  className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                    customization.children === key 
+                      ? 'border-green-500 bg-green-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="children"
+                    value={key}
+                    checked={customization.children === key}
+                    onChange={(e) => handleCustomizationChange('children', e.target.value)}
+                    className="mr-3 scale-125"
+                    style={{ accentColor: colors.green }}
+                  />
+                  <span className="font-medium">{label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'softdrink':
+        return (
+          <div className="py-6">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                {t('inStoreOrder.customization.steps.softdrink.title')}
+              </h4>
+              <p className="text-gray-600">{t('inStoreOrder.customization.steps.softdrink.description')}</p>
+            </div>
+            <div className="grid gap-3 max-w-md mx-auto">
+              {Object.entries(t('inStoreOrder.customization.steps.softdrink.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
+                <label 
+                  key={key} 
+                  className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                    customization.softdrink === key 
+                      ? 'border-green-500 bg-green-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="softdrink"
+                    value={key}
+                    checked={customization.softdrink === key}
+                    onChange={(e) => handleCustomizationChange('softdrink', e.target.value)}
+                    className="mr-3 scale-125"
+                    style={{ accentColor: colors.green }}
+                  />
+                  <span className="font-medium">{label}</span>
+                </label>
+              ))}
             </div>
           </div>
         );
@@ -619,18 +818,18 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
             <div className="mt-4 p-4 bg-white rounded-xl shadow-sm">
               <div className="flex justify-between items-center mb-3">
                 <span className="text-sm font-medium text-gray-600">
-                  {t('inStoreOrder.customization.step')} {customizationStep} {t('inStoreOrder.customization.of')} 5
+                  {t('inStoreOrder.customization.step')} {getCurrentStepNumber()} {t('inStoreOrder.customization.of')} {getTotalSteps()}
                 </span>
                 <span className="text-sm font-bold" style={{ color: colors.green }}>
                   ${getCurrentCustomizationPrice().toFixed(2)}
                 </span>
               </div>
               <div className="flex space-x-1">
-                {[1, 2, 3, 4, 5].map((step) => (
+                {Array.from({ length: getTotalSteps() }, (_, i) => i + 1).map((step) => (
                   <div
                     key={step}
                     className={`h-2 flex-1 rounded-full transition-all duration-300 ${
-                      step <= customizationStep ? 'bg-green-500' : 'bg-gray-200'
+                      step <= getCurrentStepNumber() ? 'bg-green-500' : 'bg-gray-200'
                     }`}
                   />
                 ))}
@@ -704,7 +903,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                     {t('inStoreOrder.menu.title')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {menuItems.slice(0, 12).map((item) => (
+                    {menuItems.map((item) => (
                       <div key={item.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-200">
                         <img 
                           src={item.image} 
@@ -756,9 +955,14 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                                 ✕
                               </button>
                             </div>
-                            {item.customization.base && (
+                            {(item.customization.base || item.customization.children || item.customization.softdrink) && (
                               <div className="text-xs text-gray-600 mb-2">
-                                <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                                {item.customization.base && (
+                                  <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                                )}
+                                {item.customization.step2_5 && (
+                                  <p>Sauce légumes: {t(`inStoreOrder.customization.steps.2_5.options.${item.customization.step2_5}`)}</p>
+                                )}
                                 {item.customization.plantain && (
                                   <p>Plantain: {t(`inStoreOrder.customization.steps.3.options.${item.customization.plantain}`)}</p>
                                 )}
@@ -767,6 +971,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                                 )}
                                 {item.customization.sauce && (
                                   <p>Sauce: {t(`inStoreOrder.customization.steps.5.options.${item.customization.sauce}`)}</p>
+                                )}
+                                {item.customization.children && (
+                                  <p>Accompagnement: {t(`inStoreOrder.customization.steps.children.options.${item.customization.children}`)}</p>
+                                )}
+                                {item.customization.softdrink && (
+                                  <p>Saveur: {t(`inStoreOrder.customization.steps.softdrink.options.${item.customization.softdrink}`)}</p>
                                 )}
                                 {item.customization.extras.length > 0 && (
                                   <p>Extras: {item.customization.extras.map(extra => t(`inStoreOrder.customization.extras.options.${extra}`)).join(', ')}</p>
@@ -864,9 +1074,14 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                         <div key={item.id} className="flex justify-between items-start">
                           <div className="flex-1">
                             <h5 className="font-medium">{t(item.originalItem.nameKey)}</h5>
-                            {item.customization.base && (
+                            {(item.customization.base || item.customization.children || item.customization.softdrink) && (
                               <div className="text-sm text-gray-600 mt-1">
-                                <p>• {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                                {item.customization.base && (
+                                  <p>• {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                                )}
+                                {item.customization.step2_5 && (
+                                  <p>• {t(`inStoreOrder.customization.steps.2_5.options.${item.customization.step2_5}`)}</p>
+                                )}
                                 {item.customization.plantain && (
                                   <p>• {t(`inStoreOrder.customization.steps.3.options.${item.customization.plantain}`)}</p>
                                 )}
@@ -875,6 +1090,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                                 )}
                                 {item.customization.sauce && (
                                   <p>• {t(`inStoreOrder.customization.steps.5.options.${item.customization.sauce}`)}</p>
+                                )}
+                                {item.customization.children && (
+                                  <p>• {t(`inStoreOrder.customization.steps.children.options.${item.customization.children}`)}</p>
+                                )}
+                                {item.customization.softdrink && (
+                                  <p>• {t(`inStoreOrder.customization.steps.softdrink.options.${item.customization.softdrink}`)}</p>
                                 )}
                                 {item.customization.extras.length > 0 && (
                                   <p>• Extras: {item.customization.extras.map(extra => t(`inStoreOrder.customization.extras.options.${extra}`)).join(', ')}</p>
@@ -954,7 +1175,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                 className="px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                 style={{ backgroundColor: colors.green }}
               >
-                {currentStep === 'customize' && customizationStep === 5 
+                {currentStep === 'customize' && getCurrentStepNumber() === getTotalSteps()
                   ? t('inStoreOrder.buttons.addToCart')
                   : t('inStoreOrder.buttons.next')
                 }

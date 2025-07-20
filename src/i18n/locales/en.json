@@ -67,8 +67,8 @@
     },
     "address": {
       "title": "📍 Address",
-      "street": "1234 Rue Saint-Laurent",
-      "city": "Montreal, QC H2X 2S8",
+      "street": "2357 Jolicoeur St",
+      "city": "Montreal, Quebec H4E 1X9",
       "country": "Canada",
       "button": "View on Maps"
     },
@@ -89,6 +89,11 @@
     "delivery": {
       "title": "🚚 Fast Delivery",
       "description": "Order directly through our delivery partners"
+    },
+    "catering": {
+      "title": "🎉 Catering Service",
+      "description": "For your private events, weddings, birthdays and special celebrations",
+      "button": "Contact us for catering service"
     },
     "modal": {
       "title": "Order now!",
@@ -141,7 +146,7 @@
     },
     "contact": {
       "title": "Contact",
-      "address": "1234 Rue Saint-Laurent\nMontreal, QC H2X 2S8",
+      "address": "2357 Jolicoeur St\nMontreal, Quebec H4E 1X9",
       "phone": "(514) 354-3811",
       "email": "info@chezmamanjean.com"
     },
@@ -261,12 +266,21 @@
           "title": "Base / Side",
           "description": "Choose your side dish",
           "options": {
-            "kwanga": "Kwanga",
+            "kwanga": "Kwanga (homemade - 40+ years Congolese heritage)",
             "fufu": "Fufu",
             "rizBlanc": "White rice",
             "rizBlancSauce": "White rice with bean sauce (+$0)",
             "rizDjonDjon": "Djon djon rice (+$2)",
             "rizColli": "Sticky rice"
+          }
+        },
+        "2_5": {
+          "title": "Vegetable sauce",
+          "description": "Choose your vegetable sauce",
+          "options": {
+            "pondu": "Pondu (cassava leaf sauce)",
+            "fumbwa": "Fumbwa (leaves and peanut paste sauce)",
+            "madesu": "Madesu (white bean sauce)"
           }
         },
         "3": {
@@ -294,6 +308,25 @@
             "with": "With sauce",
             "without": "Without sauce"
           }
+        },
+        "children": {
+          "title": "Choose your side",
+          "description": "Rice or fries with your meal",
+          "options": {
+            "rice": "Rice",
+            "fries": "Fries"
+          }
+        },
+        "softdrink": {
+          "title": "Choose your flavor",
+          "description": "Select your preferred soft drink flavor",
+          "options": {
+            "cocaCola": "Coca-Cola",
+            "sprite": "Sprite",
+            "fantaOrange": "Fanta Orange",
+            "fantaStrawberry": "Fanta Strawberry",
+            "fantaPineapple": "Fanta Pineapple"
+          }
         }
       },
       "extras": {
@@ -303,7 +336,7 @@
           "petiteSalade": "Small macaroni salad (+$2)",
           "sauce": "Extra sauce (+$2)",
           "piments": "Hot peppers (+$2)",
-          "piklis": "Piklis (+$2)",
+          "piklis": "Pikliz (+$2)",
           "banane": "Extra plantain (+$2)"
               }
     }
@@ -363,7 +396,8 @@
       "drinks": "Drinks",
       "menuEnfants": "Children's Menu",
       "desserts": "Desserts",
-      "menuMidi": "Lunch Specials"
+      "menuMidi": "Lunch Specials (11am-2pm, takeout only)",
+      "menuMidiNotice": "⦁ Lunch special only available from 11am to 2pm and takeout only."
     },
     "items": {
       "threePoutines": {
@@ -401,6 +435,10 @@
       "thomsonFish": {
         "name": "Thomson Fish",
         "description": "And pondu (cassava leaf sauce)"
+      },
+      "thomsonFishBasic": {
+        "name": "Thomson Fish",
+        "description": "Grilled Thomson fish with choice of sides"
       },
       "eightChickenWings": {
         "name": "8 Chicken Wings",
@@ -448,11 +486,11 @@
       },
       "tilapia": {
         "name": "Tilapia",
-        "description": "With modesu (white bean sauce)"
+        "description": "With 1 side dish"
       },
       "tilapiaV2": {
         "name": "Tilapia (version 2)",
-        "description": "With modesu (white Bean sauce)"
+        "description": "With 2 side dishes"
       },
       "brokenChicken": {
         "name": "Broken Chicken",
@@ -548,7 +586,7 @@
       },
       "kwanga": {
         "name": "Kwanga (Cassava Stick)",
-        "description": "Traditional cassava stick"
+        "description": "Traditional homemade cassava stick with 40+ years of Congolese heritage. Authentic family recipe passed down through generations."
       },
       "madesauSauce": {
         "name": "Madesu (white Bean Sauce)",
@@ -680,11 +718,17 @@
   "orderSteps": {
     "step2": {
       "title": "Step 2: Choose your accompaniment",
-      "kwanga": "Kwanga (homemade)",
+      "kwanga": "Kwanga (homemade - 40+ years Congolese heritage)",
       "fufu": "Fufu",
       "rizBlanc": "White rice (unique with bean sauce or not)",
       "rizDjonDjon": "Djon djon rice (+$2)",
       "rizColli": "Sticky rice"
+    },
+    "step2_5": {
+      "title": "Step 2.5: Choose your vegetable sauce",
+      "pondu": "Pondu (cassava leaf sauce)",
+      "fumbwa": "Fumbwa (leaves and peanut paste sauce)",
+      "madesu": "Madesu (white bean sauce)"
     },
     "step3": {
       "title": "Step 3: Choose your plantain",
