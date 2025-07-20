@@ -370,7 +370,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.libokePoisson.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/new_images/Liboke smoked fish (catfish).jpg',
+        image: '/images/new_images/catfish.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
