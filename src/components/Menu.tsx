@@ -146,11 +146,6 @@ export default function Menu() {
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             {t('menu.subtitle')}
           </p>
-          <div className="mt-8 p-6 rounded-2xl border-2 border-dashed max-w-4xl mx-auto" style={{ borderColor: colors.green, backgroundColor: `${colors.lightGreen}20` }}>
-            <p className="text-lg font-medium" style={{ color: colors.darkGreen }}>
-              {t('menu.accompaniment')}
-            </p>
-          </div>
         </div>
 
         {/* Search Bar */}
