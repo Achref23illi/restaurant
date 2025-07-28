@@ -228,7 +228,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.goat.description',
         price: 24.00,
         currency: 'CAD',
-        image: '/images/new_images/goat.jpg',
+        image: '/images/new_images/goat.png',
         category: 'featured',
         popular: true,
         orderSteps: standardOrderSteps,
@@ -305,7 +305,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapia.description',
         price: 22.00,
         currency: 'CAD',
-        image: '/images/tilapia.avif',
+        image: '/images/brokenfish.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -316,7 +316,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapiaV2.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/tilapia.avif',
+        image: '/images/brokenfish.jpg',
         category: 'plats-africains',
         orderSteps: orderStepsWithStep25,
         extras: standardExtras
@@ -539,7 +539,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.goat.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/new_images/goat.jpg',
+        image: '/images/new_images/goat.png',
         category: 'viandes-poissons',
         isSeul: true
       },
@@ -549,7 +549,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapiaFish.description',
         price: 16.00,
         currency: 'CAD',
-        image: '/images/new_images/Tilapia.jpg',
+        image: '/images/new_images/brokenfish.jpg',
         category: 'viandes-poissons',
         isSeul: true
       }
@@ -861,7 +861,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.midiTurkey.description',
         price: 10.00,
         currency: 'CAD',
-        image: '/images/new_images/Smoked Turkey.jpg',
+        image: '/images/new_images/dindon.jpg',
         category: 'menu-midi'
       },
       {
@@ -879,7 +879,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.midiBeef.description',
         price: 12.00,
         currency: 'CAD',
-        image: '/images/beef_tassot.avif',
+        image: '/images/new_images/Tassot de Bœuf.jpg',
         category: 'menu-midi'
       },
       {
@@ -888,7 +888,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.midiVegetables.description',
         price: 14.00,
         currency: 'CAD',
-        image: '/images/new_images/Vegetables.jpg',
+        image: '/images/new_images/vegtables.jpg',
         category: 'menu-midi'
       },
       {
