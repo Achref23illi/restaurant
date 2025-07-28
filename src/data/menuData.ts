@@ -94,7 +94,7 @@ export const menuCategories: MenuCategory[] = [
       {
         id: '6',
         name: 'Poisson Thomson / Thomson Fish',
-        description: 'Et pondu (sauce aux feuilles de manioc) / And pondu (cassava leaf sauce)',
+        description: 'Poisson Thomson grillé avec 2 accompagnements aux choix',
         price: 24.00,
         currency: 'CAD',
         image: '/images/thomson_fish.avif',
@@ -337,7 +337,7 @@ export const menuCategories: MenuCategory[] = [
         description: 'Sauce aux haricots blancs traditionnelle',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/Madesu.avif',
+        image: '/images/Madesu.jpg',
         category: 'sides'
       }
     ]

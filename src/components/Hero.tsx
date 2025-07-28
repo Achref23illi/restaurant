@@ -94,33 +94,33 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 to-orange-50 pt-20">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 to-orange-50 pt-16 md:pt-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Left side - Text content */}
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <h1 
             ref={titleRef}
-            className="text-5xl lg:text-7xl font-bold leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
             style={{ color: '#8B4513' }}
           >
             {t('hero.welcome')}
             <br />
-            <span className="text-6xl lg:text-8xl" style={{ color: '#A0522D' }}>
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl" style={{ color: '#A0522D' }}>
               {t('hero.title')}
             </span>
           </h1>
           
           <p 
             ref={subtitleRef}
-            className="text-xl lg:text-2xl text-gray-700 leading-relaxed"
+            className="text-base md:text-xl lg:text-2xl text-gray-700 leading-relaxed"
           >
             {t('hero.subtitle')}
           </p>
 
-          <div ref={ctaRef} className="flex flex-col gap-6 pt-4">
+          <div ref={ctaRef} className="flex flex-col gap-4 md:gap-6 pt-2 md:pt-4">
             <button 
               onClick={scrollToMenu}
-              className="group relative overflow-hidden px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-fit"
+              className="group relative overflow-hidden px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-fit"
               style={{
                 background: 'linear-gradient(135deg, #8B4513, #A0522D)',
                 color: 'white'
@@ -167,10 +167,10 @@ export default function Hero() {
         </div>
 
         {/* Right side - Simple vertical scrolling images */}
-        <div className="relative h-[600px] lg:h-[700px]">
+        <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
           <div 
             ref={imagesContainerRef}
-            className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl"
+            className="relative w-full h-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl"
           >
             {/* Scrolling container */}
             <div ref={scrollContainerRef} className="absolute inset-0">

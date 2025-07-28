@@ -221,28 +221,29 @@ export const menuCategories: MenuCategory[] = [
         orderSteps: standardOrderSteps,
         extras: standardExtras
       },
+
       {
-        id: '2',
-        nameKey: 'menu.items.tassotBoeuf.name',
-        descriptionKey: 'menu.items.tassotBoeuf.description',
-        price: 20.00,
+        id: '4',
+        nameKey: 'menu.items.goat.name',
+        descriptionKey: 'menu.items.goat.description',
+        price: 24.00,
         currency: 'CAD',
-        image: '/images/new_images/Tassot de Bœuf.jpg',
+        image: '/images/new_images/goat.jpg',
         category: 'featured',
         popular: true,
         orderSteps: standardOrderSteps,
         extras: standardExtras
       },
       {
-        id: '3',
-        nameKey: 'menu.items.fritaille.name',
-        descriptionKey: 'menu.items.fritaille.description',
-        price: 20.00,
+        id: '8',
+        nameKey: 'menu.items.twoMakayabus.name',
+        descriptionKey: 'menu.items.twoMakayabus.description',
+        price: 26.00,
         currency: 'CAD',
-        image: '/images/new_images/Fritaille.jpeg',
+        image: '/images/new_images/2 Makayabus.png',
         category: 'featured',
         popular: true,
-        orderSteps: standardOrderSteps,
+        orderSteps: orderStepsWithStep25,
         extras: standardExtras
       },
 
@@ -252,18 +253,7 @@ export const menuCategories: MenuCategory[] = [
     id: 'plats-africains',
     nameKey: 'menu.categories.african',
     items: [
-      {
-        id: '4',
-        nameKey: 'menu.items.goat.name',
-        descriptionKey: 'menu.items.goat.description',
-        price: 24.00,
-        currency: 'CAD',
-        image: '/images/new_images/Goat.jpg',
-        category: 'plats-africains',
-        popular: true,
-        orderSteps: standardOrderSteps,
-        extras: standardExtras
-      },
+
       {
         id: '5',
         nameKey: 'menu.items.halfChicken.name',
@@ -303,23 +293,12 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.eightChickenWings.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/new_images/8 Chicken Wings.jpg',
+        image: '/images/new_images/wings.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
       },
-      {
-        id: '8',
-        nameKey: 'menu.items.twoMakayabus.name',
-        descriptionKey: 'menu.items.twoMakayabus.description',
-        price: 26.00,
-        currency: 'CAD',
-        image: '/images/new_images/2 Makayabus.png',
-        category: 'plats-africains',
-        popular: true,
-        orderSteps: orderStepsWithStep25,
-        extras: standardExtras
-      },
+
       {
         id: '9',
         nameKey: 'menu.items.tilapia.name',
@@ -359,18 +338,18 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.dindonFume.description',
         price: 19.00,
         currency: 'CAD',
-        image: '/images/new_images/Smoked Turkey.jpg',
+        image: '/images/new_images/dindon.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
       },
       {
         id: 'african-5',
-        nameKey: 'menu.items.libokePoisson.name',
-        descriptionKey: 'menu.items.libokePoisson.description',
+        nameKey: 'menu.items.mabokePoisson.name',
+        descriptionKey: 'menu.items.mabokePoisson.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/new_images/catfish.jpg',
+        image: '/images/new_images/maboke.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -381,7 +360,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.brokenChicken.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/pouletbrise.jpg',
+        image: '/images/new_images/broken_chicken.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -409,7 +388,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.vegetables.description',
         price: 22.00,
         currency: 'CAD',
-        image: '/images/new_images/Vegetables.jpg',
+        image: '/images/new_images/vegtables.jpg',
         category: 'plats-creoles',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -420,7 +399,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chicken.description',
         price: 17.00,
         currency: 'CAD',
-        image: '/images/new_images/Chicken.jpg',
+        image: '/images/new_images/Chickenn.jpg',
         category: 'plats-creoles',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -449,7 +428,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenWings4.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/new_images/Chicken Wings (4).jpg',
+        image: '/images/new_images/wings.jpg',
         category: 'entrees',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -460,7 +439,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.samosas.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/new_images/Samosas (2).jpg',
+        image: '/images/new_images/samosa.jpg',
         category: 'entrees',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -509,7 +488,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenDrumsticks.description',
         price: 13.00,
         currency: 'CAD',
-        image: '/images/new_images/Chicken Drumsticks (6).jpg',
+        image: '/images/new_images/drumb_stick.jpg',
         category: 'viandes-poissons',
         isSeul: true
       },
@@ -519,7 +498,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenWings6.description',
         price: 10.00,
         currency: 'CAD',
-        image: '/images/new_images/Chicken Wings (4).jpg',
+        image: '/images/new_images/wings.jpg',
         category: 'viandes-poissons',
         isSeul: true
       },
@@ -529,7 +508,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.chickenWings12.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/new_images/Chicken Wings.jpg',
+        image: '/images/new_images/wings.jpg',
         category: 'viandes-poissons',
         isSeul: true
       },
@@ -550,7 +529,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.brokenFish.description',
         price: 19.00,
         currency: 'CAD',
-        image: '/images/new_images/Broken Fish.jpg',
+        image: '/images/new_images/brokenfish.jpg',
         category: 'viandes-poissons',
         isSeul: true
       },
@@ -560,7 +539,17 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.goat.description',
         price: 18.00,
         currency: 'CAD',
-        image: '/images/new_images/Goat.jpg',
+        image: '/images/new_images/goat.jpg',
+        category: 'viandes-poissons',
+        isSeul: true
+      },
+      {
+        id: '208',
+        nameKey: 'menu.items.tilapiaFish.name',
+        descriptionKey: 'menu.items.tilapiaFish.description',
+        price: 16.00,
+        currency: 'CAD',
+        image: '/images/new_images/Tilapia.jpg',
         category: 'viandes-poissons',
         isSeul: true
       }
@@ -622,7 +611,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.kwanga.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/new_images/Kwanga (Cassava Stick).jpg',
+        image: '/images/new_images/kwanga.jpg',
         category: 'sides'
       },
       {
@@ -631,7 +620,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.madesauSauce.description',
         price: 5.00,
         currency: 'CAD',
-        image: '/images/new_images/Madesu (white Bean Sauce).jpg',
+        image: '/images/Madesu.jpg',
         category: 'sides'
       },
       {
@@ -778,7 +767,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.childrenWings.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/eight_chicken_wings.avif',
+        image: '/images/new_images/wings.jpg',
         category: 'menu-enfants'
       },
       {
@@ -796,7 +785,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.childrenChicken.description',
         price: 10.00,
         currency: 'CAD',
-        image: '/images/new_images/pouletKids.jpeg',
+        image: '/images/new_images/Chickenn.jpg',
         category: 'menu-enfants'
       }
     ]
@@ -845,7 +834,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.midiWings.description',
         price: 8.00,
         currency: 'CAD',
-        image: '/images/eight_chicken_wings.avif',
+        image: '/images/new_images/wings.jpg',
         category: 'menu-midi'
       },
       {

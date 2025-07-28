@@ -85,7 +85,7 @@ export default function Gallery() {
       alt: 'Notre restaurant aujourd\'hui',
       title: t('gallery.today.title'),
       description: t('gallery.today.description'),
-      year: '2024'
+      year: '2020'
     },
     {
       id: 9,
@@ -93,7 +93,7 @@ export default function Gallery() {
       alt: 'Détails de nos plats',
       title: 'Raffinement culinaire',
       description: 'Chaque plat est préparé avec soin et attention aux détails',
-      year: '2020'
+      year: '2021'
     },
     {
       id: 10,
@@ -101,7 +101,7 @@ export default function Gallery() {
       alt: 'L\'art de la présentation',
       title: 'Présentation artistique',
       description: 'Nos chefs accordent une attention particulière à la présentation',
-      year: '2021'
+      year: '2022'
     },
     {
       id: 11,
@@ -109,7 +109,7 @@ export default function Gallery() {
       alt: 'Ambiance familiale',
       title: 'Esprit familial',
       description: 'Un lieu où les familles se rassemblent autour de bons plats',
-      year: '2022'
+      year: '2024'
     },
     {
       id: 12,
@@ -117,7 +117,7 @@ export default function Gallery() {
       alt: 'Excellence culinaire',
       title: 'Excellence continue',
       description: 'Notre engagement pour l\'excellence ne faiblit jamais',
-      year: '2023'
+      year: '2025'
     }
   ];
 
@@ -199,17 +199,17 @@ export default function Gallery() {
     <section id="gallery" ref={galleryRef} className="py-20 px-6" style={{ backgroundColor: '#F8F4F0' }}>
       <div className="max-w-7xl mx-auto">
         {/* En-tête */}
-        <div className="text-center mb-16">
-          <h2 className="gallery-title text-5xl lg:text-6xl font-bold mb-6" style={{ color: '#8B4513' }}>
+        <div className="text-center mb-8 md:mb-16 px-4">
+          <h2 className="gallery-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6" style={{ color: '#8B4513' }}>
             {t('gallery.title')}
           </h2>
-          <p className="gallery-subtitle text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="gallery-subtitle text-base md:text-xl text-gray-700 max-w-3xl mx-auto">
             {t('gallery.subtitle')}
           </p>
         </div>
 
         {/* Grille de la galerie */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
@@ -220,23 +220,23 @@ export default function Gallery() {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 
                 {/* Overlay avec informations */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <div className="text-sm font-semibold text-yellow-300 mb-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
+                    <div className="text-xs md:text-sm font-semibold text-yellow-300 mb-2">
                       {image.year}
                     </div>
-                    <h3 className="text-lg font-bold mb-2">{image.title}</h3>
-                    <p className="text-sm opacity-90 line-clamp-2">{image.description}</p>
+                    <h3 className="text-sm md:text-lg font-bold mb-2">{image.title}</h3>
+                    <p className="text-xs md:text-sm opacity-90 line-clamp-2">{image.description}</p>
                   </div>
                 </div>
 
                 {/* Indicateur de clic */}
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-white/20 backdrop-blur-sm rounded-full p-1 md:p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -248,23 +248,29 @@ export default function Gallery() {
         {/* Ligne du temps */}
         <div className="mt-16">
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-yellow-400 to-orange-500"></div>
-            <div className="space-y-8">
+            {/* Timeline line - hidden on mobile, visible on desktop */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-yellow-400 to-orange-500"></div>
+            <div className="space-y-8 md:space-y-12">
               {galleryImages.map((image, index) => (
-                <div key={image.id} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className="w-1/2 px-8">
-                    <div className={`bg-white p-6 rounded-2xl shadow-lg ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                      <div className="text-2xl font-bold text-yellow-600 mb-2">{image.year}</div>
-                      <h3 className="text-xl font-bold mb-3" style={{ color: '#8B4513' }}>{image.title}</h3>
-                      <p className="text-gray-700">{image.description}</p>
+                <div key={image.id} className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                  {/* Content section */}
+                  <div className="w-full md:w-1/2 px-4 md:px-8 mb-6 md:mb-0">
+                    <div className={`bg-white p-4 md:p-6 rounded-2xl shadow-lg text-center md:text-left ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <div className="text-xl md:text-2xl font-bold text-yellow-600 mb-2">{image.year}</div>
+                      <h3 className="text-lg md:text-xl font-bold mb-3" style={{ color: '#8B4513' }}>{image.title}</h3>
+                      <p className="text-sm md:text-base text-gray-700">{image.description}</p>
                     </div>
                   </div>
-                  <div className="w-8 h-8 bg-yellow-400 rounded-full border-4 border-white shadow-lg relative z-10"></div>
-                  <div className="w-1/2 px-8">
+                  
+                  {/* Timeline dot - centered on mobile, positioned on desktop */}
+                  <div className="w-6 h-6 md:w-8 md:h-8 bg-yellow-400 rounded-full border-4 border-white shadow-lg relative z-10 mb-6 md:mb-0"></div>
+                  
+                  {/* Image section */}
+                  <div className="w-full md:w-1/2 px-4 md:px-8">
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-48 object-cover rounded-2xl shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 md:h-48 object-cover rounded-2xl shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
                       onClick={() => openModal(image)}
                     />
                   </div>
@@ -277,13 +283,13 @@ export default function Gallery() {
 
       {/* Modal pour afficher l'image en grand */}
       {isModalOpen && selectedImage && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 md:p-4">
           <div className="relative max-w-4xl w-full max-h-full overflow-auto">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white hover:text-yellow-400 transition-colors duration-300 z-10"
+              className="absolute top-2 md:top-4 right-2 md:right-4 text-white hover:text-yellow-400 transition-colors duration-300 z-10"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -292,20 +298,20 @@ export default function Gallery() {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="w-full h-96 object-cover"
+                className="w-full h-48 sm:h-64 md:h-96 object-cover"
               />
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold" style={{ color: '#8B4513' }}>
+              <div className="p-4 md:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
+                  <h3 className="text-xl md:text-2xl font-bold" style={{ color: '#8B4513' }}>
                     {selectedImage.title}
                   </h3>
                   {selectedImage.year && (
-                    <span className="text-lg font-semibold text-yellow-600">
+                    <span className="text-base md:text-lg font-semibold text-yellow-600">
                       {selectedImage.year}
                     </span>
                   )}
                 </div>
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-gray-700 text-sm md:text-lg leading-relaxed">
                   {selectedImage.description}
                 </p>
               </div>

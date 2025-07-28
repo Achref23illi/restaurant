@@ -426,7 +426,7 @@
       },
       "goat": {
         "name": "Goat",
-        "description": "Tender and flavorful goat meat prepared according to tradition"
+        "description": "Tender and flavorful goat meat prepared according to tradition with accompaniment"
       },
       "halfChicken": {
         "name": "Half Chicken",
@@ -434,7 +434,7 @@
       },
       "thomsonFish": {
         "name": "Thomson Fish",
-        "description": "And pondu (cassava leaf sauce)"
+        "description": "Grilled Thomson fish with 2 sides of your choice"
       },
       "thomsonFishBasic": {
         "name": "Thomson Fish",
@@ -464,8 +464,8 @@
         "name": "Smoked Turkey",
         "description": "Traditional smoked turkey with authentic African flavors"
       },
-      "libokePoisson": {
-        "name": "Liboke smoked fish (catfish)",
+      "mabokePoisson": {
+        "name": "maboke smoked fish (catfish)",
         "description": "Smoked catfish wrapped in leaves, Congolese specialty"
       },
       "goatTassot": {

@@ -106,21 +106,21 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0 mr-8">
-            <div className="flex items-center space-x-3">
+          <div className="flex-shrink-0 mr-4 md:mr-8">
+            <div className="flex items-center space-x-2 md:space-x-3">
               <img 
                 src={assets.logo}
                 alt="Chez Maman Jeanne Logo" 
-                className="h-12 w-auto"
+                className="h-8 md:h-12 w-auto"
               />
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold" style={{ color: colors.primary }}>
+                <h1 className="text-lg md:text-xl font-bold" style={{ color: colors.primary }}>
                   Chez Maman Jeanne
                 </h1>
-                <p className="text-sm" style={{ color: colors.secondary }}>
+                <p className="text-xs md:text-sm" style={{ color: colors.secondary }}>
                   {t('restaurant.tagline')}
                 </p>
               </div>
@@ -168,11 +168,11 @@ export default function Header() {
           </div>
 
           {/* Language Switcher & Order Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3 md:gap-4">
             <LanguageSwitcher />
             <button
               onClick={() => setIsOrderPopupOpen(true)}
-              className="px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 transform"
+              className="px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 transform text-sm md:text-base"
               style={{ backgroundColor: colors.green }}
             >
               {t('order.button')}
@@ -224,7 +224,7 @@ export default function Header() {
         {/* Mobile Menu */}
         <div 
           ref={menuRef}
-          className={`lg:hidden fixed left-0 right-0 top-[72px] w-full transition-all duration-300 ease-in-out z-[100] ${
+          className={`lg:hidden fixed left-0 right-0 top-[60px] md:top-[72px] w-full transition-all duration-300 ease-in-out z-[100] ${
             isMenuOpen 
               ? 'max-h-[80vh] opacity-100 mt-0 pointer-events-auto overflow-y-auto' 
               : 'max-h-0 opacity-0 pointer-events-none overflow-hidden'
@@ -236,11 +236,11 @@ export default function Header() {
           }}
         >
           <div className="bg-transparent rounded-2xl overflow-visible">
-            <ul className="py-4">
+            <ul className="py-2 md:py-4">
               <li>
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                  className="block w-full text-left px-4 md:px-6 py-2 md:py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200 text-sm md:text-base"
                 >
                   {t('navigation.home')}
                 </button>
@@ -248,7 +248,7 @@ export default function Header() {
               <li>
                 <button 
                   onClick={() => scrollToSection('menu')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                  className="block w-full text-left px-4 md:px-6 py-2 md:py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200 text-sm md:text-base"
                 >
                   {t('navigation.menu')}
                 </button>
@@ -256,7 +256,7 @@ export default function Header() {
               <li>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                  className="block w-full text-left px-4 md:px-6 py-2 md:py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200 text-sm md:text-base"
                 >
                   {t('navigation.about')}
                 </button>
@@ -264,7 +264,7 @@ export default function Header() {
               <li>
                 <button 
                   onClick={() => scrollToSection('gallery')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                  className="block w-full text-left px-4 md:px-6 py-2 md:py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200 text-sm md:text-base"
                 >
                   {t('navigation.gallery')}
                 </button>
@@ -272,7 +272,7 @@ export default function Header() {
               <li>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200"
+                  className="block w-full text-left px-4 md:px-6 py-2 md:py-3 text-gray-700 hover:bg-gray-50 hover:text-orange-600 font-medium transition-colors duration-200 text-sm md:text-base"
                 >
                   {t('navigation.contact')}
                 </button>

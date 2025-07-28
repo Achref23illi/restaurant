@@ -74,13 +74,24 @@ const menuSlice = createSlice({
       
       // Apply search filter
       if (action.payload) {
-        items = items.filter(item =>
-          item.nameKey.toLowerCase().includes(action.payload.toLowerCase()) ||
-          item.descriptionKey.toLowerCase().includes(action.payload.toLowerCase())
-        );
+        items = items.filter(item => {
+          const searchTerm = action.payload.toLowerCase();
+          
+          // Search in translation keys (fallback)
+          const nameKeyMatch = item.nameKey.toLowerCase().includes(searchTerm);
+          const descKeyMatch = item.descriptionKey.toLowerCase().includes(searchTerm);
+          
+          // Search in actual translated text (if available)
+          // This will be handled by the component using the current language
+          return nameKeyMatch || descKeyMatch;
+        });
       }
       
       state.filteredItems = moveGriotLast(items);
+    },
+    
+    setFilteredItems: (state, action: { payload: any[] }) => {
+      state.filteredItems = moveGriotLast(action.payload);
     },
     
     setSidebarOpen: (state, action: { payload: boolean }) => {
@@ -124,6 +135,7 @@ const menuSlice = createSlice({
 export const {
   setActiveCategory,
   setSearchQuery,
+  setFilteredItems,
   setSidebarOpen,
   toggleSidebar,
   addToFavorites,

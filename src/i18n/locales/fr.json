@@ -426,7 +426,7 @@
       },
       "goat": {
         "name": "Chèvre",
-        "description": "Viande de chèvre tendre et savoureuse préparée selon la tradition"
+        "description": "Viande de chèvre tendre et savoureuse préparée selon la tradition avec un accompagnement"
       },
       "halfChicken": {
         "name": "Deux cuisses",
@@ -434,7 +434,7 @@
       },
       "thomsonFish": {
         "name": "Poisson Thomson",
-        "description": "Et pondu (sauce aux feuilles de manioc)"
+        "description": "Poisson Thomson grillé avec 2 accompagnements aux choix"
       },
       "thomsonFishBasic": {
         "name": "Poisson Thomson",
@@ -464,8 +464,8 @@
         "name": "Dindon fumé",
         "description": "Dindon fumé traditionnel aux saveurs authentiques d'Afrique"
       },
-      "libokePoisson": {
-        "name": "Liboke poisson fumé (catfish)",
+      "mabokePoisson": {
+        "name": "maboke poisson fumé (catfish)",
         "description": "Poisson-chat fumé enveloppé dans des feuilles, spécialité congolaise"
       },
       "goatTassot": {
@@ -493,7 +493,7 @@
         "description": "Avec 2 accompagnements"
       },
       "brokenChicken": {
-        "name": "Poulet Brisé",
+        "name": "Poulet Braisé",
         "description": "Poulet tendre mijoté dans une sauce créole savoureuse"
       },
       "chickenWings4": {
@@ -537,7 +537,7 @@
         "description": "Poisson Thomson grillé aux épices"
       },
       "brokenFish": {
-        "name": "Poisson Brisé",
+        "name": "Poisson Braisé",
         "description": "Poisson tendre mijoté dans une sauce savoureuse"
       },
       "macaroniSalad": {

@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import {
   setActiveCategory,
   setSearchQuery,
+  setFilteredItems,
   toggleSidebar,
   setSidebarOpen,
   toggleFavorite,
@@ -16,6 +17,7 @@ import {
   selectSidebarOpen,
   selectCategoriesWithCounts,
   selectFavorites,
+  selectAllMenuItems,
 } from '../store/slices/menuSlice';
 import colors from '../config/colors';
 import InStoreOrderModal from './InStoreOrderModal';
@@ -119,7 +121,38 @@ export default function Menu() {
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearchQuery(e.target.value));
+    const searchTerm = e.target.value;
+    dispatch(setSearchQuery(searchTerm));
+    
+    // Get all menu items
+    const allItems = useAppSelector(selectAllMenuItems);
+    
+    // If there's a search term, filter based on translated text
+    if (searchTerm) {
+      const currentItems = activeCategory === 'all' 
+        ? allItems
+        : allItems.filter((item: any) => item.category === activeCategory);
+      
+      const filteredItems = currentItems.filter((item: any) => {
+        const searchLower = searchTerm.toLowerCase();
+        
+        // Get translated text
+        const translatedName = t(item.nameKey);
+        const translatedDesc = t(item.descriptionKey);
+        
+        // Search in translated text
+        const nameMatch = translatedName.toLowerCase().includes(searchLower);
+        const descMatch = translatedDesc.toLowerCase().includes(searchLower);
+        
+        // Also search in original keys as fallback
+        const keyMatch = item.nameKey.toLowerCase().includes(searchLower) || 
+                        item.descriptionKey.toLowerCase().includes(searchLower);
+        
+        return nameMatch || descMatch || keyMatch;
+      });
+      
+      dispatch(setFilteredItems(filteredItems));
+    }
   };
 
   const handleToggleFavorite = (itemId: string) => {
