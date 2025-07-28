@@ -305,7 +305,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapia.description',
         price: 22.00,
         currency: 'CAD',
-        image: '/images/brokenfish.jpg',
+        image: '/images/new_images/brokenfish.jpg',
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -316,7 +316,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.tilapiaV2.description',
         price: 26.00,
         currency: 'CAD',
-        image: '/images/brokenfish.jpg',
+        image: '/images/new_images/brokenfish.jpg',
         category: 'plats-africains',
         orderSteps: orderStepsWithStep25,
         extras: standardExtras
@@ -879,7 +879,7 @@ export const menuCategories: MenuCategory[] = [
         descriptionKey: 'menu.items.midiBeef.description',
         price: 12.00,
         currency: 'CAD',
-        image: '/images/new_images/Tassot de Bœuf.jpg',
+        image: '/images/new_images/tasso_beuf.jpg',
         category: 'menu-midi'
       },
       {
