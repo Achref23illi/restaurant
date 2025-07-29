@@ -285,7 +285,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       return false;
     }
     // Skip customization for specific dish IDs
-    const skipCustomizationDishIds = ['1', '4', '8', '202', '203','301','204','7','302','303','304','27','28','29','30','32','33','104','35','36','37','38','39','40','41','54','55','53']; // Add dish IDs here
+    const skipCustomizationDishIds = ['202', '203','301','204','7','302','303','304','27','28','29','30','32','33','104','35','36','37','38','39','40','41','54','55','53']; // Add dish IDs here
     if (skipCustomizationDishIds.includes(item.id)) {
       return false;
     }
