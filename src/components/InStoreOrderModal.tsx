@@ -493,20 +493,20 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       switch (customizationStep) {
         case '1':
           return (
-            <div className="text-center py-8">
+            <div className="text-center py-4 sm:py-8">
               <img 
                 src={selectedItem.image} 
                 alt={t(selectedItem.nameKey)} 
-                className="w-48 h-48 object-cover rounded-2xl mx-auto mb-6 shadow-lg"
+                className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-2xl mx-auto mb-4 sm:mb-6 shadow-lg"
               />
-              <h3 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: colors.primary }}>
                 {t(selectedItem.nameKey)}
               </h3>
-              <p className="text-gray-600 mb-6 max-w-md mx-auto">
+              <p className="text-gray-600 mb-6 max-w-md mx-auto text-sm sm:text-base">
                 {t(selectedItem.descriptionKey)}
               </p>
-              <div className="bg-green-50 rounded-xl p-4 inline-block">
-                <p className="text-3xl font-bold" style={{ color: colors.green }}>
+              <div className="bg-green-50 rounded-xl p-3 sm:p-4 inline-block">
+                <p className="text-2xl sm:text-3xl font-bold" style={{ color: colors.green }}>
                   ${getCurrentCustomizationPrice().toFixed(2)} {selectedItem.currency}
                 </p>
               </div>
@@ -515,12 +515,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
         case '2':
           return (
-            <div className="py-6">
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+            <div className="py-4 sm:py-6">
+              <div className="text-center mb-6 sm:mb-8">
+                <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                   {t('orderSteps.poutine.step1.title')}
                 </h4>
-                <p className="text-gray-600">Choose your base</p>
+                <p className="text-gray-600 text-sm sm:text-base">Choose your base</p>
               </div>
               <div className="grid gap-3 max-w-md mx-auto">
                 {Object.entries(t('orderSteps.poutine.step1', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
@@ -553,12 +553,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
         case '3':
           return (
-            <div className="py-6">
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+            <div className="py-4 sm:py-6">
+              <div className="text-center mb-6 sm:mb-8">
+                <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                   {t('orderSteps.poutine.step2.title')}
                 </h4>
-                <p className="text-gray-600">Choose your meat</p>
+                <p className="text-gray-600 text-sm sm:text-base">Choose your meat</p>
               </div>
               <div className="grid gap-3 max-w-md mx-auto">
                 {Object.entries(t('orderSteps.poutine.step2', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
@@ -591,12 +591,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
         case '4':
           return (
-            <div className="py-6">
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+            <div className="py-4 sm:py-6">
+              <div className="text-center mb-6 sm:mb-8">
+                <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                   {t('orderSteps.poutine.step3.title')}
                 </h4>
-                <p className="text-gray-600">Choose your cheese</p>
+                <p className="text-gray-600 text-sm sm:text-base">Choose your cheese</p>
               </div>
               <div className="grid gap-3 max-w-md mx-auto">
                 {Object.entries(t('orderSteps.poutine.step3', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
@@ -629,12 +629,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
         case '5':
           return (
-            <div className="py-6">
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+            <div className="py-4 sm:py-6">
+              <div className="text-center mb-6 sm:mb-8">
+                <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                   {t('orderSteps.poutine.step4.title')}
                 </h4>
-                <p className="text-gray-600">Choose your sauce</p>
+                <p className="text-gray-600 text-sm sm:text-base">Choose your sauce</p>
               </div>
               <div className="grid gap-3 max-w-md mx-auto">
                 {Object.entries(t('orderSteps.poutine.step4', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
@@ -674,20 +674,20 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     switch (customizationStep) {
       case '1':
         return (
-          <div className="text-center py-8">
+          <div className="text-center py-4 sm:py-8">
             <img 
               src={selectedItem.image} 
               alt={t(selectedItem.nameKey)} 
-              className="w-48 h-48 object-cover rounded-2xl mx-auto mb-6 shadow-lg"
+              className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-2xl mx-auto mb-4 sm:mb-6 shadow-lg"
             />
-            <h3 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: colors.primary }}>
               {t(selectedItem.nameKey)}
             </h3>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            <p className="text-gray-600 mb-6 max-w-md mx-auto text-sm sm:text-base">
               {t(selectedItem.descriptionKey)}
             </p>
-            <div className="bg-green-50 rounded-xl p-4 inline-block">
-              <p className="text-3xl font-bold" style={{ color: colors.green }}>
+            <div className="bg-green-50 rounded-xl p-3 sm:p-4 inline-block">
+              <p className="text-2xl sm:text-3xl font-bold" style={{ color: colors.green }}>
                 ${getCurrentCustomizationPrice().toFixed(2)} {selectedItem.currency}
               </p>
             </div>
@@ -702,12 +702,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
           ? filteredStep2Options.filter(([key]) => !['kwanga', 'fufu', 'rizBlancSauce'].includes(key))
           : filteredStep2Options;
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.2.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.2.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.2.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {displayOptions.map(([key, label]) => (
@@ -737,12 +737,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case '2.5':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.2_5.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.2_5.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.2_5.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {Object.entries(t('inStoreOrder.customization.steps.2_5.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -772,12 +772,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case '3':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.3.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.3.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.3.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {Object.entries(t('inStoreOrder.customization.steps.3.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -807,12 +807,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case '4':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.4.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.4.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.4.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {Object.entries(t('inStoreOrder.customization.steps.4.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -842,12 +842,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case '5':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.5.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.5.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.5.description')}</p>
             </div>
             
             {/* Sauce Selection */}
@@ -878,12 +878,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
             </div>
 
             {/* Extras Section */}
-            <div className="border-t pt-6">
-              <div className="text-center mb-6">
-                <h5 className="text-lg font-bold mb-2" style={{ color: colors.primary }}>
+            <div className="border-t pt-4 sm:pt-6">
+              <div className="text-center mb-4 sm:mb-6">
+                <h5 className="text-base sm:text-lg font-bold mb-2" style={{ color: colors.primary }}>
                   {t('inStoreOrder.customization.extras.title')}
                 </h5>
-                <p className="text-gray-600 text-sm">{t('inStoreOrder.customization.extras.description')}</p>
+                <p className="text-gray-600 text-xs sm:text-sm">{t('inStoreOrder.customization.extras.description')}</p>
               </div>
               <div className="grid gap-3 max-w-md mx-auto">
                 {Object.entries(t('inStoreOrder.customization.extras.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -912,12 +912,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case 'children':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.children.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.children.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.children.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {Object.entries(t('inStoreOrder.customization.steps.children.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -947,12 +947,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
       case 'softdrink':
         return (
-          <div className="py-6">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+          <div className="py-4 sm:py-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: colors.primary }}>
                 {t('inStoreOrder.customization.steps.softdrink.title')}
               </h4>
-              <p className="text-gray-600">{t('inStoreOrder.customization.steps.softdrink.description')}</p>
+              <p className="text-gray-600 text-sm sm:text-base">{t('inStoreOrder.customization.steps.softdrink.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
               {Object.entries(t('inStoreOrder.customization.steps.softdrink.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
@@ -990,36 +990,36 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   return (
     <div 
       ref={modalRef}
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
       onClick={handleClose}
     >
       <div 
         ref={contentRef}
-        className="bg-white rounded-3xl shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden flex flex-col"
+        className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[98vh] sm:max-h-[95vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
           <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold" style={{color: colors.primary}}>
+            <div className="flex-1 min-w-0">
+              <h2 className="text-xl sm:text-3xl font-bold" style={{color: colors.primary}}>
                 {t('inStoreOrder.title')}
               </h2>
-              <p className="text-gray-600 mt-1">{t('inStoreOrder.subtitle')}</p>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">{t('inStoreOrder.subtitle')}</p>
             </div>
             <button
               onClick={handleClose}
-              className="p-3 rounded-full hover:bg-white/80 transition-colors duration-200 shadow-lg"
+              className="p-2 sm:p-3 rounded-full hover:bg-white/80 transition-colors duration-200 shadow-lg ml-2 flex-shrink-0"
               aria-label="Close modal"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
           {/* Progress Bar */}
-          <div className="flex items-center mt-6 space-x-2">
+          <div className="flex items-center mt-4 sm:mt-6 space-x-1 sm:space-x-2">
             {[
               { key: 'customer', number: 1 },
               { key: 'menu', number: 2 },
@@ -1036,18 +1036,18 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
               return (
                 <React.Fragment key={key}>
                   <div className={`flex items-center ${isActive ? 'text-green-600' : isCompleted ? 'text-green-500' : 'text-gray-400'}`}>
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold ${
                       isActive ? 'bg-green-600 text-white shadow-lg' : 
                       isCompleted ? 'bg-green-500 text-white' : 'bg-gray-200'
                     }`}>
                       {isCompleted ? '✓' : number}
                     </div>
-                    <span className="ml-3 text-sm font-medium hidden sm:block">
+                    <span className="ml-2 sm:ml-3 text-xs sm:text-sm font-medium hidden sm:block">
                       {t(`inStoreOrder.steps.${key}`)}
                     </span>
                   </div>
                   {index < 3 && (
-                    <div className={`flex-1 h-1 rounded-full mx-2 ${
+                    <div className={`flex-1 h-1 rounded-full mx-1 sm:mx-2 ${
                       isCompleted ? 'bg-green-500' : 'bg-gray-200'
                     }`} />
                   )}
@@ -1058,12 +1058,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
           {/* Customization Sub-Progress */}
           {currentStep === 'customize' && (
-            <div className="mt-4 p-4 bg-white rounded-xl shadow-sm">
+            <div className="mt-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
               <div className="flex justify-between items-center mb-3">
-                <span className="text-sm font-medium text-gray-600">
+                <span className="text-xs sm:text-sm font-medium text-gray-600">
                   {t('inStoreOrder.customization.step')} {getCurrentStepNumber()} {t('inStoreOrder.customization.of')} {getTotalSteps()}
                 </span>
-                <span className="text-sm font-bold" style={{ color: colors.green }}>
+                <span className="text-xs sm:text-sm font-bold" style={{ color: colors.green }}>
                   ${getCurrentCustomizationPrice().toFixed(2)}
                 </span>
               </div>
@@ -1085,9 +1085,9 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
         <div className="flex-1 overflow-y-auto">
           {/* Customer Info Step */}
           {currentStep === 'customer' && (
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               <div className="max-w-lg mx-auto">
-                <h3 className="text-2xl font-bold mb-6 text-center" style={{color: colors.text}}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center" style={{color: colors.text}}>
                   {t('inStoreOrder.customerInfo.title')}
                 </h3>
                 <div className="space-y-4">
@@ -1097,7 +1097,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                       type="text"
                       value={customerInfo.name}
                       onChange={(e) => setCustomerInfo(prev => ({...prev, name: e.target.value}))}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
                       placeholder={t('inStoreOrder.customerInfo.namePlaceholder')}
                     />
                   </div>
@@ -1107,7 +1107,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                       type="tel"
                       value={customerInfo.phone}
                       onChange={(e) => setCustomerInfo(prev => ({...prev, phone: e.target.value}))}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
                       placeholder={t('inStoreOrder.customerInfo.phonePlaceholder')}
                     />
                   </div>
@@ -1117,7 +1117,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                       type="email"
                       value={customerInfo.email}
                       onChange={(e) => setCustomerInfo(prev => ({...prev, email: e.target.value}))}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
                       placeholder={t('inStoreOrder.customerInfo.emailPlaceholder')}
                     />
                   </div>
@@ -1126,7 +1126,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                     <textarea
                       value={customerInfo.notes}
                       onChange={(e) => setCustomerInfo(prev => ({...prev, notes: e.target.value}))}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
                       placeholder={t('inStoreOrder.customerInfo.notesPlaceholder')}
                       rows={3}
                     />
@@ -1138,26 +1138,26 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
           {/* Menu Selection Step */}
           {currentStep === 'menu' && (
-            <div className="p-8">
-              <div className="flex gap-8">
+            <div className="p-4 sm:p-8">
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
                 {/* Menu Items */}
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-6" style={{color: colors.text}}>
+                <div className="flex-1 order-2 lg:order-1">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-6" style={{color: colors.text}}>
                     {t('inStoreOrder.menu.title')}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {menuItems.map((item) => (
                       <div key={item.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-200">
                         <img 
                           src={item.image} 
                           alt={t(item.nameKey)} 
-                          className="w-full h-32 object-cover"
+                          className="w-full h-24 sm:h-32 object-cover"
                         />
-                        <div className="p-4">
+                        <div className="p-3 sm:p-4">
                           <h4 className="font-semibold text-sm mb-1">{t(item.nameKey)}</h4>
                           <p className="text-xs text-gray-600 mb-3 line-clamp-2">{t(item.descriptionKey)}</p>
                           <div className="flex items-center justify-between">
-                            <span className="font-bold text-green-600">
+                            <span className="font-bold text-green-600 text-sm">
                               ${item.price.toFixed(2)}
                             </span>
                             <button
@@ -1168,7 +1168,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                                   addItemDirectly(item);
                                 }
                               }}
-                              className="px-3 py-1.5 bg-green-600 text-white text-xs rounded-lg hover:bg-green-700 transition-colors"
+                              className="px-2 sm:px-3 py-1.5 bg-green-600 text-white text-xs rounded-lg hover:bg-green-700 transition-colors"
                             >
                               {t('inStoreOrder.buttons.addToCart')}
                             </button>
@@ -1180,41 +1180,41 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                 </div>
 
                 {/* Cart Sidebar */}
-                <div className="w-80 bg-gray-50 rounded-xl p-6">
+                <div className="w-full lg:w-80 bg-gray-50 rounded-xl p-4 sm:p-6 order-1 lg:order-2">
                   <h4 className="text-lg font-bold mb-4">{t('inStoreOrder.cart.title')}</h4>
                   {orderItems.length === 0 ? (
                     <p className="text-gray-500 text-center py-8">{t('inStoreOrder.cart.empty')}</p>
                   ) : (
                     <>
-                      <div className="space-y-3 mb-6">
+                      <div className="space-y-3 mb-6 max-h-60 sm:max-h-80 overflow-y-auto">
                         {orderItems.map((item) => (
                           <div key={item.id} className="bg-white rounded-lg p-3 shadow-sm">
                             <div className="flex justify-between items-start mb-2">
-                              <h5 className="font-medium text-sm">{t(item.originalItem.nameKey)}</h5>
+                              <h5 className="font-medium text-sm flex-1 mr-2">{t(item.originalItem.nameKey)}</h5>
                               <button
                                 onClick={() => removeFromCart(item.id)}
-                                className="text-red-500 hover:text-red-700 text-xs"
+                                className="text-red-500 hover:text-red-700 text-xs flex-shrink-0"
                               >
                                 ✕
                               </button>
                             </div>
-                                        {(item.customization.base || item.customization.children || item.customization.softdrink || item.customization.poutineBase || item.customization.poutineMeat || item.customization.poutineCheese || item.customization.poutineSauce) && (
-              <div className="text-xs text-gray-600 mb-2">
-                {item.customization.base && (
-                  <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
-                )}
-                {item.customization.poutineBase && (
-                  <p>Base: {t(`orderSteps.poutine.step1.${item.customization.poutineBase}`)}</p>
-                )}
-                {item.customization.poutineMeat && (
-                  <p>Meat: {t(`orderSteps.poutine.step2.${item.customization.poutineMeat}`)}</p>
-                )}
-                {item.customization.poutineCheese && (
-                  <p>Cheese: {t(`orderSteps.poutine.step3.${item.customization.poutineCheese}`)}</p>
-                )}
-                {item.customization.poutineSauce && (
-                  <p>Sauce: {t(`orderSteps.poutine.step4.${item.customization.poutineSauce}`)}</p>
-                )}
+                            {(item.customization.base || item.customization.children || item.customization.softdrink || item.customization.poutineBase || item.customization.poutineMeat || item.customization.poutineCheese || item.customization.poutineSauce) && (
+                              <div className="text-xs text-gray-600 mb-2">
+                                {item.customization.base && (
+                                  <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                                )}
+                                {item.customization.poutineBase && (
+                                  <p>Base: {t(`orderSteps.poutine.step1.${item.customization.poutineBase}`)}</p>
+                                )}
+                                {item.customization.poutineMeat && (
+                                  <p>Meat: {t(`orderSteps.poutine.step2.${item.customization.poutineMeat}`)}</p>
+                                )}
+                                {item.customization.poutineCheese && (
+                                  <p>Cheese: {t(`orderSteps.poutine.step3.${item.customization.poutineCheese}`)}</p>
+                                )}
+                                {item.customization.poutineSauce && (
+                                  <p>Sauce: {t(`orderSteps.poutine.step4.${item.customization.poutineSauce}`)}</p>
+                                )}
                                 {item.customization.step2_5 && (
                                   <p>Sauce légumes: {t(`inStoreOrder.customization.steps.2_5.options.${item.customization.step2_5}`)}</p>
                                 )}
@@ -1283,13 +1283,13 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
           {/* Customization Step */}
           {currentStep === 'customize' && selectedItem && (
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2" style={{color: colors.text}}>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2" style={{color: colors.text}}>
                     {t('inStoreOrder.customization.title')}
                   </h3>
-                  <p className="text-gray-600">{t(selectedItem.nameKey)}</p>
+                  <p className="text-gray-600 text-sm sm:text-base">{t(selectedItem.nameKey)}</p>
                 </div>
 
                 {renderCustomizationStep()}
@@ -1299,15 +1299,15 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
           {/* Order Summary Step */}
           {currentStep === 'summary' && (
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold mb-6 text-center" style={{color: colors.text}}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center" style={{color: colors.text}}>
                   {t('inStoreOrder.summary.title')}
                 </h3>
                 
                 <div className="space-y-6">
                   {/* Customer Info */}
-                  <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
                     <h4 className="font-bold mb-4">{t('inStoreOrder.summary.customerInfo')}</h4>
                     <div className="space-y-2 text-sm">
                       <p><strong>{t('inStoreOrder.customerInfo.name')}:</strong> {customerInfo.name}</p>
@@ -1322,12 +1322,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                   </div>
 
                   {/* Order Items */}
-                  <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
                     <h4 className="font-bold mb-4">{t('inStoreOrder.summary.orderItems')}</h4>
                     <div className="space-y-4">
                       {orderItems.map((item) => (
                         <div key={item.id} className="flex justify-between items-start">
-                          <div className="flex-1">
+                          <div className="flex-1 min-w-0">
                             <h5 className="font-medium">{t(item.originalItem.nameKey)}</h5>
                             {(item.customization.base || item.customization.children || item.customization.softdrink) && (
                               <div className="text-sm text-gray-600 mt-1">
@@ -1358,7 +1358,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                               </div>
                             )}
                           </div>
-                          <div className="text-right ml-4">
+                          <div className="text-right ml-4 flex-shrink-0">
                             <p className="font-semibold">${(item.totalPrice * item.quantity).toFixed(2)}</p>
                             <p className="text-sm text-gray-600">Qty: {item.quantity}</p>
                           </div>
@@ -1368,7 +1368,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                   </div>
 
                   {/* Price Summary */}
-                  <div className="bg-green-50 rounded-xl p-6">
+                  <div className="bg-green-50 rounded-xl p-4 sm:p-6">
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <span>{t('inStoreOrder.cart.subtotal')}</span>
@@ -1378,7 +1378,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                         <span>{t('inStoreOrder.cart.tax')} (15%)</span>
                         <span>${getCartTax().toFixed(2)}</span>
                       </div>
-                      <div className="flex justify-between font-bold text-xl pt-2 border-t border-green-200">
+                      <div className="flex justify-between font-bold text-lg sm:text-xl pt-2 border-t border-green-200">
                         <span>{t('inStoreOrder.cart.total')}</span>
                         <span style={{ color: colors.green }}>${getCartTotal().toFixed(2)}</span>
                       </div>
@@ -1391,11 +1391,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-200 bg-gray-50">
+        <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
           <div className="flex justify-between items-center">
             <button
               onClick={handlePreviousStep}
-              className={`px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200 font-medium ${
+              className={`px-4 sm:px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200 font-medium text-sm sm:text-base ${
                 currentStep === 'customer' ? 'invisible' : ''
               }`}
             >
@@ -1405,7 +1405,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
             {/* Price Display */}
             {currentStep === 'customize' && selectedItem && (
               <div className="text-center">
-                <p className="text-2xl font-bold" style={{ color: colors.green }}>
+                <p className="text-xl sm:text-2xl font-bold" style={{ color: colors.green }}>
                   ${getCurrentCustomizationPrice().toFixed(2)}
                 </p>
               </div>
@@ -1414,7 +1414,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
             {currentStep === 'summary' ? (
               <button
                 onClick={handleSubmitOrder}
-                className="px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 text-lg"
+                className="px-6 sm:px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 text-base sm:text-lg"
                 style={{ backgroundColor: colors.green }}
               >
                 {t('inStoreOrder.buttons.confirmOrder')}
@@ -1427,7 +1427,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                   (currentStep === 'menu' && orderItems.length === 0) ||
                   (currentStep === 'customize' && !canProceedCustomization())
                 }
-                className="px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                className="px-6 sm:px-8 py-3 rounded-xl font-bold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-base sm:text-lg"
                 style={{ backgroundColor: colors.green }}
               >
                 {currentStep === 'customize' && getCurrentStepNumber() === getTotalSteps()
