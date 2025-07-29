@@ -285,7 +285,7 @@ export const menuCategories: MenuCategory[] = [
         price: 17.00,
         currency: 'CAD',
         image: '/images/new_images/Griot de Porc.jpg',
-        category: 'featured',
+        category: 'plats-creoles',
         popular: true,
         orderSteps: standardOrderSteps,
         extras: standardExtras
@@ -480,7 +480,7 @@ export const menuCategories: MenuCategory[] = [
         price: 19.00,
         currency: 'CAD',
         image: '/images/new_images/Madesu (bean sauce).jpg',
-        category: 'plats-creoles',
+        category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
       },
