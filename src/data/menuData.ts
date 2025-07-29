@@ -109,15 +109,24 @@ export const menuCategories: MenuCategory[] = [
         image: '/images/eight_chicken_wings.avif',
         category: 'plats-africains'
       },
-      {
-        id: '8',
-        name: '2 Makayabus (morues) / 2 Makayabus',
-        description: 'Avec fumbwa (sauce aux feuilles et à la pâte d\'arachides) / With fumbwa (peanut paste sauce)',
-        price: 26.00,
-        currency: 'CAD',
-        image: '/images/two_Makayabus.avif',
-        category: 'plats-africains'
-      }
+             {
+         id: '8',
+         name: '2 Makayabus (morues) / 2 Makayabus',
+         description: 'Avec fumbwa (sauce aux feuilles et à la pâte d\'arachides) / With fumbwa (peanut paste sauce)',
+         price: 26.00,
+         currency: 'CAD',
+         image: '/images/two_Makayabus.avif',
+         category: 'plats-africains'
+       },
+       {
+         id: '12',
+         name: 'Madesu (sauce aux haricots)',
+         description: 'Servie avec riz ou pondu (sauce aux feuilles de manioc) ou fumbwa (sauce aux feuilles et à la pâte d\'arachides)',
+         price: 19.00,
+         currency: 'CAD',
+         image: '/images/Madesu.avif',
+         category: 'plats-africains'
+       }
     ]
   },
   {
@@ -151,15 +160,7 @@ export const menuCategories: MenuCategory[] = [
         image: '/images/chicken.avif',
         category: 'plats-creoles'
       },
-      {
-        id: '12',
-        name: 'Madesu (sauce aux haricots)',
-        description: 'Servie avec riz ou pondu (sauce aux feuilles de manioc) ou fumbwa (sauce aux feuilles et à la pâte d\'arachides)',
-        price: 19.00,
-        currency: 'CAD',
-        image: '/images/Madesu.avif',
-        category: 'plats-creoles'
-      },
+      
       {
         id: '13',
         name: 'Tilapia',

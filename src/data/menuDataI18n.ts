@@ -278,18 +278,7 @@ export const menuCategories: MenuCategory[] = [
     id: 'featured',
     nameKey: 'menu.categories.featured',
     items: [
-      {
-        id: '1',
-        nameKey: 'menu.items.griotPorc.name',
-        descriptionKey: 'menu.items.griotPorc.description',
-        price: 17.00,
-        currency: 'CAD',
-        image: '/images/new_images/Griot de Porc.jpg',
-        category: 'plats-creoles',
-        popular: true,
-        orderSteps: standardOrderSteps,
-        extras: standardExtras
-      },
+
 
       {
         id: '4',
@@ -433,6 +422,17 @@ export const menuCategories: MenuCategory[] = [
         category: 'plats-africains',
         orderSteps: standardOrderSteps,
         extras: standardExtras
+      },
+      {
+        id: '104',
+        nameKey: 'menu.items.madesu.name',
+        descriptionKey: 'menu.items.madesu.description',
+        price: 19.00,
+        currency: 'CAD',
+        image: '/images/new_images/Madesu (bean sauce).jpg',
+        category: 'plats-africains',
+        orderSteps: standardOrderSteps,
+        extras: standardExtras
       }
     ]
   },
@@ -474,16 +474,18 @@ export const menuCategories: MenuCategory[] = [
         extras: standardExtras
       },
       {
-        id: '104',
-        nameKey: 'menu.items.madesu.name',
-        descriptionKey: 'menu.items.madesu.description',
-        price: 19.00,
+        id: '1',
+        nameKey: 'menu.items.griotPorc.name',
+        descriptionKey: 'menu.items.griotPorc.description',
+        price: 17.00,
         currency: 'CAD',
-        image: '/images/new_images/Madesu (bean sauce).jpg',
-        category: 'plats-africains',
+        image: '/images/new_images/Griot de Porc.jpg',
+        category: 'plats-creoles',
+        popular: true,
         orderSteps: standardOrderSteps,
         extras: standardExtras
-      },
+      }
+
 
     ]
   },
