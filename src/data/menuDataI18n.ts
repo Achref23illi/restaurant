@@ -71,12 +71,53 @@ export const standardOrderSteps: OrderStep[] = [
     id: 'step5',
     nameKey: 'orderSteps.step5.title',
     options: [
-      { id: 'avec-sauce', nameKey: 'orderSteps.step5.avecSauce', default: true },
+      { id: 'sauce-reguliere', nameKey: 'orderSteps.step5.sauceReguliere', default: true },
+      { id: 'sauce-maison', nameKey: 'orderSteps.step5.sauceMaison' },
       { id: 'sans-sauce', nameKey: 'orderSteps.step5.sansSauce' }
     ]
   }
 ];
 
+
+// Étapes de commande pour les poutines
+export const poutineOrderSteps: OrderStep[] = [
+  {
+    id: 'step1',
+    nameKey: 'orderSteps.poutine.step1.title',
+    options: [
+      { id: 'frites', nameKey: 'orderSteps.poutine.step1.frites', default: true },
+      { id: 'bananes-plantain', nameKey: 'orderSteps.poutine.step1.bananesPlantain' },
+      { id: 'patate-sucree', nameKey: 'orderSteps.poutine.step1.patateSucree' }
+    ]
+  },
+  {
+    id: 'step2',
+    nameKey: 'orderSteps.poutine.step2.title',
+    options: [
+      { id: 'griot-porc', nameKey: 'orderSteps.poutine.step2.griotPorc', price: 3.00 },
+      { id: 'chevre', nameKey: 'orderSteps.poutine.step2.chevre', price: 4.00 },
+      { id: 'poulet', nameKey: 'orderSteps.poutine.step2.poulet', price: 3.00 },
+      { id: 'sans-viande', nameKey: 'orderSteps.poutine.step2.sansViande', default: true }
+    ]
+  },
+  {
+    id: 'step3',
+    nameKey: 'orderSteps.poutine.step3.title',
+    options: [
+      { id: 'avec-fromage', nameKey: 'orderSteps.poutine.step3.avecFromage', default: true },
+      { id: 'sans-fromage', nameKey: 'orderSteps.poutine.step3.sansFromage' }
+    ]
+  },
+  {
+    id: 'step4',
+    nameKey: 'orderSteps.poutine.step4.title',
+    options: [
+      { id: 'sauce-reguliere', nameKey: 'orderSteps.poutine.step4.sauceReguliere', default: true },
+      { id: 'sauce-maison', nameKey: 'orderSteps.poutine.step4.sauceMaison' },
+      { id: 'sans-sauce', nameKey: 'orderSteps.poutine.step4.sansSauce' }
+    ]
+  }
+];
 
 // Étapes de commande avec étape 2.5 pour certains plats spéciaux
 export const orderStepsWithStep25: OrderStep[] = [
@@ -121,7 +162,8 @@ export const orderStepsWithStep25: OrderStep[] = [
     id: 'step5',
     nameKey: 'orderSteps.step5.title',
     options: [
-      { id: 'avec-sauce', nameKey: 'orderSteps.step5.avecSauce', default: true },
+      { id: 'sauce-reguliere', nameKey: 'orderSteps.step5.sauceReguliere', default: true },
+      { id: 'sauce-maison', nameKey: 'orderSteps.step5.sauceMaison' },
       { id: 'sans-sauce', nameKey: 'orderSteps.step5.sansSauce' }
     ]
   }
@@ -149,7 +191,8 @@ export const menuCategories: MenuCategory[] = [
         currency: 'CAD',
         image: '/images/new_images/3-Cheese-Poutine-025.jpg',
         category: 'special',
-        popular: true
+        popular: true,
+        orderSteps: poutineOrderSteps
       },
       {
         id: 'special-2',
@@ -160,6 +203,7 @@ export const menuCategories: MenuCategory[] = [
         image: '/images/new_images/Grande poutine de base.jpg',
         category: 'special',
         popular: true,
+        orderSteps: poutineOrderSteps,
         extras: [
           {
             id: 'extra-chevre',
@@ -201,7 +245,30 @@ export const menuCategories: MenuCategory[] = [
         currency: 'CAD',
         image: '/images/new_images/petitepoutinereguliere.webp',
         category: 'special',
-        popular: true
+        popular: true,
+        orderSteps: poutineOrderSteps
+      },
+      {
+        id: 'special-4',
+        nameKey: 'menu.items.poutineLegumesPetite.name',
+        descriptionKey: 'menu.items.poutineLegumesPetite.description',
+        price: 14.99,
+        currency: 'CAD',
+        image: '/images/new_images/poutineveg.jpg',
+        category: 'special',
+        popular: true,
+        orderSteps: poutineOrderSteps
+      },
+      {
+        id: 'special-5',
+        nameKey: 'menu.items.poutineLegumesGrande.name',
+        descriptionKey: 'menu.items.poutineLegumesGrande.description',
+        price: 19.99,
+        currency: 'CAD',
+        image: '/images/new_images/poutineveg.jpg',
+        category: 'special',
+        popular: true,
+        orderSteps: poutineOrderSteps
       }
     ]
   },
@@ -438,6 +505,17 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.samosas.name',
         descriptionKey: 'menu.items.samosas.description',
         price: 5.00,
+        currency: 'CAD',
+        image: '/images/new_images/samosa.jpg',
+        category: 'entrees',
+        orderSteps: standardOrderSteps,
+        extras: standardExtras
+      },
+      {
+        id: '305',
+        nameKey: 'menu.items.samosas1.name',
+        descriptionKey: 'menu.items.samosas1.description',
+        price: 3.00,
         currency: 'CAD',
         image: '/images/new_images/samosa.jpg',
         category: 'entrees',

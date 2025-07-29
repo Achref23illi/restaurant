@@ -203,6 +203,15 @@ export const menuCategories: MenuCategory[] = [
         category: 'entrees'
       },
       {
+        id: '40',
+        name: 'Samosas (1)',
+        description: 'Délicieux samosas croustillants',
+        price: 3.00,
+        currency: 'CAD',
+        image: '/images/two_Makayabus.avif',
+        category: 'entrees'
+      },
+      {
         id: '17',
         name: 'Samosas (2)',
         description: 'Délicieux samosas croustillants',

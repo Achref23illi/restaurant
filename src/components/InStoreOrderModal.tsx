@@ -4,19 +4,7 @@ import gsap from 'gsap';
 import colors from '../config/colors';
 import { useAppSelector } from '../hooks/redux';
 import { selectAllMenuItems } from '../store/slices/menuSlice';
-
-interface MenuItem {
-  id: string;
-  nameKey: string;
-  descriptionKey: string;
-  price: number;
-  currency: string;
-  image: string;
-  category: string;
-  popular?: boolean;
-  spicy?: boolean;
-  isSeul?: boolean;
-}
+import type { MenuItem } from '../data/menuDataI18n';
 
 interface CustomizationOptions {
   base: string;
@@ -27,6 +15,10 @@ interface CustomizationOptions {
   extras: string[];
   children: string;
   softdrink: string;
+  poutineBase: string;
+  poutineMeat: string;
+  poutineCheese: string;
+  poutineSauce: string;
 }
 
 interface CustomizedOrderItem {
@@ -52,7 +44,7 @@ interface InStoreOrderModalProps {
 }
 
 type Step = 'customer' | 'menu' | 'customize' | 'summary';
-type CustomizationStep = '1' | '2' | '2.5' | '3' | '4' | '5' | 'children' | 'softdrink';
+type CustomizationStep = '1' | '2' | '2.5' | '3' | '4' | '5' | 'children' | 'softdrink' | 'poutine1' | 'poutine2' | 'poutine3';
 
 export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModalProps) {
   const { t } = useTranslation();
@@ -80,7 +72,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     sauce: '',
     extras: [],
     children: '',
-    softdrink: ''
+    softdrink: '',
+    poutineBase: '',
+    poutineMeat: '',
+    poutineCheese: '',
+    poutineSauce: ''
   });
 
   // Menu items from Redux store
@@ -113,7 +109,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       sauce: '',
       extras: [],
       children: '',
-      softdrink: ''
+      softdrink: '',
+      poutineBase: '',
+      poutineMeat: '',
+      poutineCheese: '',
+      poutineSauce: ''
     });
     setOrderItems([]);
   };
@@ -141,13 +141,26 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     let basePrice = item.price;
     let extrasPrice = 0;
 
-    // Add price for djon djon rice
-    if (customization.base === 'rizDjonDjon') {
-      extrasPrice += 2;
-    }
+    // Handle poutine pricing
+    if (isPoutine(item)) {
+      // Add price for meat options
+      if (customization.poutineMeat === 'griot-porc') {
+        extrasPrice += 3;
+      } else if (customization.poutineMeat === 'chevre') {
+        extrasPrice += 4;
+      } else if (customization.poutineMeat === 'poulet') {
+        extrasPrice += 3;
+      }
+      // Base and cheese options are included in base price
+    } else {
+      // Add price for djon djon rice
+      if (customization.base === 'rizDjonDjon') {
+        extrasPrice += 2;
+      }
 
-    // Add price for extras (each extra is $2)
-    extrasPrice += customization.extras.length * 2;
+      // Add price for extras (each extra is $2)
+      extrasPrice += customization.extras.length * 2;
+    }
 
     return {
       basePrice,
@@ -180,6 +193,17 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
 
   // Customization validation
   const isCustomizationStepValid = (step: CustomizationStep) => {
+    if (isPoutine(selectedItem)) {
+      switch (step) {
+        case '1': return true; // Always valid (dish display)
+        case '2': return customization.poutineBase !== '';
+        case '3': return customization.poutineMeat !== '';
+        case '4': return customization.poutineCheese !== '';
+        case '5': return customization.poutineSauce !== '';
+        default: return false;
+      }
+    }
+    
     switch (step) {
       case '1': return true; // Always valid (dish display)
       case '2': return customization.base !== '';
@@ -209,6 +233,9 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     }
     if (isSoftDrinks(item)) {
       return ['1', 'softdrink'];
+    }
+    if (isPoutine(item)) {
+      return ['1', '2', '3', '4', '5'];
     }
     return hasStep25(item) 
       ? ['1', '2', '2.5', '3', '4', '5']
@@ -252,6 +279,16 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
     if (item.category === 'menu-enfants' || item.id === '47') {
       return true;
     }
+    // Skip customization for entire categories
+    const skipCustomizationCategories = ['viandes-poissons', 'sides', 'boissons', 'desserts'];
+    if (skipCustomizationCategories.includes(item.category)) {
+      return false;
+    }
+    // Skip customization for specific dish IDs
+    const skipCustomizationDishIds = ['1', '4', '8', '202', '203','301','204','7','302','303','304','27','28','29','30','32','33','104','35','36','37','38','39','40','41','54','55','53']; // Add dish IDs here
+    if (skipCustomizationDishIds.includes(item.id)) {
+      return false;
+    }
     // Standard rule for other items
     return !item.isSeul;
   };
@@ -264,6 +301,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   // Check if item is soft drinks
   const isSoftDrinks = (item: MenuItem | null) => {
     return item?.id === '47'; // soft drinks item
+  };
+
+  // Check if item is a poutine
+  const isPoutine = (item: MenuItem | null) => {
+    return item?.id === 'special-1' || item?.id === 'special-2' || item?.id === 'special-3' || item?.id === 'special-4' || item?.id === 'special-5';
   };
 
   // Check if item is a drink that needs no customization
@@ -314,7 +356,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       sauce: '',
       extras: [],
       children: '',
-      softdrink: ''
+      softdrink: '',
+      poutineBase: '',
+      poutineMeat: '',
+      poutineCheese: '',
+      poutineSauce: ''
     });
     setCustomizationStep('1');
   };
@@ -351,7 +397,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
       sauce: '',
       extras: [],
       children: '',
-      softdrink: ''
+      softdrink: '',
+      poutineBase: '',
+      poutineMeat: '',
+      poutineCheese: '',
+      poutineSauce: ''
     });
 
     const newItem: CustomizedOrderItem = {
@@ -365,7 +415,11 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
         sauce: '',
         extras: [],
         children: '',
-        softdrink: ''
+        softdrink: '',
+        poutineBase: '',
+        poutineMeat: '',
+        poutineCheese: '',
+        poutineSauce: ''
       },
       basePrice: prices.basePrice,
       extrasPrice: prices.extrasPrice,
@@ -434,6 +488,189 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
   const renderCustomizationStep = () => {
     if (!selectedItem) return null;
 
+    // Handle poutine steps
+    if (isPoutine(selectedItem)) {
+      switch (customizationStep) {
+        case '1':
+          return (
+            <div className="text-center py-8">
+              <img 
+                src={selectedItem.image} 
+                alt={t(selectedItem.nameKey)} 
+                className="w-48 h-48 object-cover rounded-2xl mx-auto mb-6 shadow-lg"
+              />
+              <h3 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>
+                {t(selectedItem.nameKey)}
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                {t(selectedItem.descriptionKey)}
+              </p>
+              <div className="bg-green-50 rounded-xl p-4 inline-block">
+                <p className="text-3xl font-bold" style={{ color: colors.green }}>
+                  ${getCurrentCustomizationPrice().toFixed(2)} {selectedItem.currency}
+                </p>
+              </div>
+            </div>
+          );
+
+        case '2':
+          return (
+            <div className="py-6">
+              <div className="text-center mb-8">
+                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                  {t('orderSteps.poutine.step1.title')}
+                </h4>
+                <p className="text-gray-600">Choose your base</p>
+              </div>
+              <div className="grid gap-3 max-w-md mx-auto">
+                {Object.entries(t('orderSteps.poutine.step1', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
+                  if (key === 'title') return null;
+                  return (
+                    <label 
+                      key={key} 
+                      className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        customization.poutineBase === key 
+                          ? 'border-green-500 bg-green-50' 
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="poutineBase"
+                        value={key}
+                        checked={customization.poutineBase === key}
+                        onChange={(e) => handleCustomizationChange('poutineBase', e.target.value)}
+                        className="mr-3 scale-125"
+                        style={{ accentColor: colors.green }}
+                      />
+                      <span className="font-medium">{label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          );
+
+        case '3':
+          return (
+            <div className="py-6">
+              <div className="text-center mb-8">
+                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                  {t('orderSteps.poutine.step2.title')}
+                </h4>
+                <p className="text-gray-600">Choose your meat</p>
+              </div>
+              <div className="grid gap-3 max-w-md mx-auto">
+                {Object.entries(t('orderSteps.poutine.step2', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
+                  if (key === 'title') return null;
+                  return (
+                    <label 
+                      key={key} 
+                      className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        customization.poutineMeat === key 
+                          ? 'border-green-500 bg-green-50' 
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="poutineMeat"
+                        value={key}
+                        checked={customization.poutineMeat === key}
+                        onChange={(e) => handleCustomizationChange('poutineMeat', e.target.value)}
+                        className="mr-3 scale-125"
+                        style={{ accentColor: colors.green }}
+                      />
+                      <span className="font-medium">{label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          );
+
+        case '4':
+          return (
+            <div className="py-6">
+              <div className="text-center mb-8">
+                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                  {t('orderSteps.poutine.step3.title')}
+                </h4>
+                <p className="text-gray-600">Choose your cheese</p>
+              </div>
+              <div className="grid gap-3 max-w-md mx-auto">
+                {Object.entries(t('orderSteps.poutine.step3', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
+                  if (key === 'title') return null;
+                  return (
+                    <label 
+                      key={key} 
+                      className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        customization.poutineCheese === key 
+                          ? 'border-green-500 bg-green-50' 
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="poutineCheese"
+                        value={key}
+                        checked={customization.poutineCheese === key}
+                        onChange={(e) => handleCustomizationChange('poutineCheese', e.target.value)}
+                        className="mr-3 scale-125"
+                        style={{ accentColor: colors.green }}
+                      />
+                      <span className="font-medium">{label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          );
+
+        case '5':
+          return (
+            <div className="py-6">
+              <div className="text-center mb-8">
+                <h4 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>
+                  {t('orderSteps.poutine.step4.title')}
+                </h4>
+                <p className="text-gray-600">Choose your sauce</p>
+              </div>
+              <div className="grid gap-3 max-w-md mx-auto">
+                {Object.entries(t('orderSteps.poutine.step4', { returnObjects: true }) as Record<string, string>).map(([key, label]) => {
+                  if (key === 'title') return null;
+                  return (
+                    <label 
+                      key={key} 
+                      className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        customization.poutineSauce === key 
+                          ? 'border-green-500 bg-green-50' 
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="poutineSauce"
+                        value={key}
+                        checked={customization.poutineSauce === key}
+                        onChange={(e) => handleCustomizationChange('poutineSauce', e.target.value)}
+                        className="mr-3 scale-125"
+                        style={{ accentColor: colors.green }}
+                      />
+                      <span className="font-medium">{label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          );
+
+        default:
+          return null;
+      }
+    }
+
+    // Handle regular steps
     switch (customizationStep) {
       case '1':
         return (
@@ -955,11 +1192,23 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                                 ✕
                               </button>
                             </div>
-                            {(item.customization.base || item.customization.children || item.customization.softdrink) && (
-                              <div className="text-xs text-gray-600 mb-2">
-                                {item.customization.base && (
-                                  <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
-                                )}
+                                        {(item.customization.base || item.customization.children || item.customization.softdrink || item.customization.poutineBase || item.customization.poutineMeat || item.customization.poutineCheese || item.customization.poutineSauce) && (
+              <div className="text-xs text-gray-600 mb-2">
+                {item.customization.base && (
+                  <p>Base: {t(`inStoreOrder.customization.steps.2.options.${item.customization.base}`)}</p>
+                )}
+                {item.customization.poutineBase && (
+                  <p>Base: {t(`orderSteps.poutine.step1.${item.customization.poutineBase}`)}</p>
+                )}
+                {item.customization.poutineMeat && (
+                  <p>Meat: {t(`orderSteps.poutine.step2.${item.customization.poutineMeat}`)}</p>
+                )}
+                {item.customization.poutineCheese && (
+                  <p>Cheese: {t(`orderSteps.poutine.step3.${item.customization.poutineCheese}`)}</p>
+                )}
+                {item.customization.poutineSauce && (
+                  <p>Sauce: {t(`orderSteps.poutine.step4.${item.customization.poutineSauce}`)}</p>
+                )}
                                 {item.customization.step2_5 && (
                                   <p>Sauce légumes: {t(`inStoreOrder.customization.steps.2_5.options.${item.customization.step2_5}`)}</p>
                                 )}

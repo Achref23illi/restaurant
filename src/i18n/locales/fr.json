@@ -184,7 +184,7 @@
     },
     "specialties": {
       "title": "Nos Spécialités",
-      "description": "Le Griot de Porc devient notre plat signature, préparé selon la recette secrète de Maman Jeanne qui a conquis le cœur de Montréal."
+      "description": "Le Makayabu et le Kwanga devient notre plat signature, préparé selon la recette secrète de Maman Jeanne qui a conquis le cœur de Montréal."
     },
     "expansion": {
       "title": "L'Expansion",
@@ -305,8 +305,9 @@
           "title": "Sauce",
           "description": "Avec ou sans sauce",
           "options": {
-            "with": "Avec sauce",
-            "without": "Sans sauce"
+            "sauce-reguliere": "Sauce régulière",
+            "sauce-maison": "Sauce maison",
+            "sans-sauce": "Sans sauce"
           }
         },
         "children": {
@@ -412,6 +413,14 @@
         "name": "Petite poutine régulière",
         "description": "Version petite portion de notre poutine classique avec frites, fromage et sauce"
       },
+      "poutineLegumesPetite": {
+        "name": "Petite Poutine aux légumes créole",
+        "description": "Petite portion de poutine classique avec légumes créoles, recommandé pour les végétariens"
+      },
+      "poutineLegumesGrande": {
+        "name": "Grande Poutine aux légumes créole",
+        "description": "Grande portion de poutine classique avec légumes créoles, recommandé pour les végétariens"
+      },
       "griotPorc": {
         "name": "Griot de Porc",
         "description": "Morceaux de porc tendres marinés aux agrumes, cuits lentement et garnis d'herbes fraîches"
@@ -504,6 +513,10 @@
         "name": "Samosas (2)",
         "description": "Délicieux samosas croustillants"
       },
+      "samosas1": {
+        "name": "Samosas (1)",
+        "description": "Delicious crispy samosas"
+      },
       "saladMoment": {
         "name": "Salade du moment",
         "description": "Laitue croquante, concombres tranchés, tomates cerises, croûtons et fromage râpé"
@@ -537,8 +550,8 @@
         "description": "Poisson Thomson grillé aux épices"
       },
       "brokenFish": {
-        "name": "Poisson Braisé",
-        "description": "Poisson tendre mijoté dans une sauce savoureuse"
+        "name": "Poisson Braisé Tilapia",
+        "description": "Poisson tendre mijoté dans une sauce savoureuse "
       },
       "macaroniSalad": {
         "name": "Salade de macaroni",
@@ -743,8 +756,35 @@
     },
     "step5": {
       "title": "Étape 5: Choisissez votre sauce",
-      "avecSauce": "Avec sauce",
+      "sauceReguliere": "Sauce régulière",
+      "sauceMaison": "Sauce maison",
       "sansSauce": "Sans sauce"
+    },
+    "poutine": {
+      "step1": {
+        "title": "Étape 1: Choix de base",
+        "frites": "Frites",
+        "bananesPlantain": "Bananes plantain",
+        "patateSucree": "Patate sucrée"
+      },
+      "step2": {
+        "title": "Étape 2: Choix de viande",
+        "griotPorc": "Griot porc (+3$)",
+        "chevre": "Chèvre (+4$)",
+        "poulet": "Poulet (+3$)",
+        "sansViande": "Sans viande"
+      },
+      "step3": {
+        "title": "Étape 3: Choix de fromage",
+        "avecFromage": "Avec fromage",
+        "sansFromage": "Sans fromage"
+      },
+      "step4": {
+        "title": "Étape 4: Choix de sauce",
+        "sauceReguliere": "Sauce régulière",
+        "sauceMaison": "Sauce maison",
+        "sansSauce": "Sans sauce"
+      }
     }
   }
 }

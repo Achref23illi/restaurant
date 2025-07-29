@@ -184,7 +184,7 @@
     },
     "specialties": {
       "title": "Our Specialties",
-      "description": "Griot de Porc becomes our signature dish, prepared according to Maman Jeanne's secret recipe that has won over Montreal's heart."
+      "description": "the Makayabu and Kwanga becomes our signature dish, prepared according to Maman Jeanne's secret recipe that has won over Montreal's heart."
     },
     "expansion": {
       "title": "The Expansion",
@@ -305,8 +305,9 @@
           "title": "Sauce",
           "description": "With or without sauce",
           "options": {
-            "with": "With sauce",
-            "without": "Without sauce"
+            "sauce-reguliere": "Regular sauce",
+            "sauce-maison": "House sauce",
+            "sans-sauce": "Without sauce"
           }
         },
         "children": {
@@ -412,6 +413,14 @@
         "name": "Petite poutine régulière",
         "description": "Small portion of our classic poutine with fries, cheese and gravy"
       },
+      "poutineLegumesPetite": {
+        "name": "Petite Poutine aux légumes créole",
+        "description": "Small portion of classic poutine with Creole vegetables, recommended for vegetarians"
+      },
+      "poutineLegumesGrande": {
+        "name": "Grande Poutine aux légumes créole",
+        "description": "Large portion of classic poutine with Creole vegetables, recommended for vegetarians"
+      },
       "griotPorc": {
         "name": "Griot de Porc",
         "description": "Tender pork pieces marinated in citrus, slow-cooked, and garnished with fresh herbs"
@@ -502,6 +511,11 @@
       },
       "samosas": {
         "name": "Samosas (2)",
+        "description": "Delicious crispy samosas"
+      },
+
+      "samosas1": {
+        "name": "Samosas (1)",
         "description": "Delicious crispy samosas"
       },
       "saladMoment": {
@@ -743,8 +757,35 @@
     },
     "step5": {
       "title": "Step 5: Choose your sauce",
-      "avecSauce": "With sauce",
+      "sauceReguliere": "Regular sauce",
+      "sauceMaison": "House sauce",
       "sansSauce": "Without sauce"
+    },
+    "poutine": {
+      "step1": {
+        "title": "Step 1: Choose your base",
+        "frites": "French fries",
+        "bananesPlantain": "Plantain bananas",
+        "patateSucree": "Sweet potato"
+      },
+      "step2": {
+        "title": "Step 2: Choose your meat",
+        "griotPorc": "Griot pork (+$3)",
+        "chevre": "Goat (+$4)",
+        "poulet": "Chicken (+$3)",
+        "sansViande": "No meat"
+      },
+      "step3": {
+        "title": "Step 3: Choose your cheese",
+        "avecFromage": "With cheese",
+        "sansFromage": "Without cheese"
+      },
+      "step4": {
+        "title": "Step 4: Choose your sauce",
+        "sauceReguliere": "Regular sauce",
+        "sauceMaison": "House sauce",
+        "sansSauce": "Without sauce"
+      }
     }
   }
 }
