@@ -47,7 +47,9 @@ export const standardOrderSteps: OrderStep[] = [
       { id: 'fufu', nameKey: 'orderSteps.step2.fufu' },
       { id: 'riz-blanc', nameKey: 'orderSteps.step2.rizBlanc' },
       { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
-      { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' }
+      { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+      { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+      { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
     ]
   },
   {
@@ -913,7 +915,20 @@ export const menuCategories: MenuCategory[] = [
         price: 8.00,
         currency: 'CAD',
         image: '/images/new_images/wings.jpg',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '61',
@@ -922,7 +937,20 @@ export const menuCategories: MenuCategory[] = [
         price: 10.00,
         currency: 'CAD',
         image: '/images/griot_porc.avif',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '62',
@@ -931,7 +959,20 @@ export const menuCategories: MenuCategory[] = [
         price: 10.00,
         currency: 'CAD',
         image: '/images/chicken.avif',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '63',
@@ -940,7 +981,20 @@ export const menuCategories: MenuCategory[] = [
         price: 10.00,
         currency: 'CAD',
         image: '/images/new_images/dindon.jpg',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '64',
@@ -949,7 +1003,20 @@ export const menuCategories: MenuCategory[] = [
         price: 12.00,
         currency: 'CAD',
         image: '/images/goat.avif',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '65',
@@ -958,7 +1025,20 @@ export const menuCategories: MenuCategory[] = [
         price: 12.00,
         currency: 'CAD',
         image: '/images/new_images/tasso_beuf.jpg',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '66',
@@ -967,7 +1047,20 @@ export const menuCategories: MenuCategory[] = [
         price: 14.00,
         currency: 'CAD',
         image: '/images/new_images/vegtables.jpg',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       },
       {
         id: '67',
@@ -976,7 +1069,20 @@ export const menuCategories: MenuCategory[] = [
         price: 14.00,
         currency: 'CAD',
         image: '/images/fritaille.avif',
-        category: 'menu-midi'
+        category: 'menu-midi',
+        orderSteps: [
+          {
+            id: 'step2',
+            nameKey: 'orderSteps.step2.title',
+            options: [
+              { id: 'riz-djon-djon', nameKey: 'orderSteps.step2.rizDjonDjon', price: 2.00 },
+              { id: 'riz-colli', nameKey: 'orderSteps.step2.rizColli' },
+              { id: 'banane-paise', nameKey: 'orderSteps.step2.bananePaise' },
+              { id: 'banane-sucre', nameKey: 'orderSteps.step2.bananeSucre' }
+            ]
+          },
+          ...standardOrderSteps.slice(1)
+        ]
       }
     ]
   }

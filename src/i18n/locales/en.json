@@ -271,7 +271,9 @@
             "rizBlanc": "White rice",
             "rizBlancSauce": "White rice with bean sauce (+$0)",
             "rizDjonDjon": "Djon djon rice (+$2)",
-            "rizColli": "Sticky rice"
+            "rizColli": "Sticky rice",
+            "bananePaise": "Mashed plantain",
+            "bananeSucre": "Sweet plantain"
           }
         },
         "2_5": {

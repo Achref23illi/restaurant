@@ -695,6 +695,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
         );
 
       case '2':
+        // For menu-midi (lunch special) items, filter out 'kwanga', 'fufu', and 'rizBlancSauce' from Step 2 options
+        const isMenuMidi = selectedItem.category === 'menu-midi';
+        const filteredStep2Options = Object.entries(t('inStoreOrder.customization.steps.2.options', { returnObjects: true }) as Record<string, string>);
+        const displayOptions = isMenuMidi
+          ? filteredStep2Options.filter(([key]) => !['kwanga', 'fufu', 'rizBlancSauce'].includes(key))
+          : filteredStep2Options;
         return (
           <div className="py-6">
             <div className="text-center mb-8">
@@ -704,12 +710,12 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
               <p className="text-gray-600">{t('inStoreOrder.customization.steps.2.description')}</p>
             </div>
             <div className="grid gap-3 max-w-md mx-auto">
-              {Object.entries(t('inStoreOrder.customization.steps.2.options', { returnObjects: true }) as Record<string, string>).map(([key, label]) => (
-                <label 
-                  key={key} 
+              {displayOptions.map(([key, label]) => (
+                <label
+                  key={key}
                   className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md ${
-                    customization.base === key 
-                      ? 'border-green-500 bg-green-50' 
+                    customization.base === key
+                      ? 'border-green-500 bg-green-50'
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
@@ -718,7 +724,7 @@ export default function InStoreOrderModal({ isOpen, onClose }: InStoreOrderModal
                     name="base"
                     value={key}
                     checked={customization.base === key}
-                    onChange={(e) => handleCustomizationChange('base', e.target.value)}
+                    onChange={e => handleCustomizationChange('base', e.target.value)}
                     className="mr-3 scale-125"
                     style={{ accentColor: colors.green }}
                   />
